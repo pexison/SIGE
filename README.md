@@ -1,4 +1,4 @@
 SIGE
 ====
 
-Repositorio para SIGE  (Sistema de Equivalencias)
+Repositorio para SIGE (Sistema de Equivalencias)

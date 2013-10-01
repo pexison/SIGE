@@ -91,7 +91,6 @@ public class GestionTablaEquivalenciaAction extends DispatchAction {
         ArrayList listaTablas = gt.listarTablasEquivalencia(tablaEquiv.getCodigoInstitucionOrigen(),
                                                             tablaEquiv.getCodigoInstitucionDestino());
         /* Se le fija un atributo a la lista y se hace el forwarding */
-        request.setAttribute("TablaEquivalenciaForm", tablaEquiv);
         request.setAttribute("ListaTablas", listaTablas);
         String valorForward = "listarTablas";
         return mapping.findForward(valorForward);
@@ -135,7 +134,9 @@ public class GestionTablaEquivalenciaAction extends DispatchAction {
     throws Exception {
         
         TablaEquivalenciaForm tablaPadre = (TablaEquivalenciaForm) form;
-                
+        
+        System.out.println("TABLAAA: "+tablaPadre.getCodigoCarreraDestino());
+        
         GestionTablaEquivalencia gestion = new GestionTablaEquivalencia();
         ArrayList<EquivalenciaForm> listaEquivalencia = gestion.obtenerEquivalencias(tablaPadre);
         request.setAttribute("ListaEquivalencias", listaEquivalencia);
