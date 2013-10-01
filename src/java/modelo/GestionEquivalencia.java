@@ -23,85 +23,71 @@ public class GestionEquivalencia {
     /* Metodo para agregar una asignatura a la base de datos */
     public boolean agregarEquivalencia(EquivalenciaForm eq) {
         
-        
-        /* Declaramos una variable para almacenar el resultado final */
-        boolean res = false;
-        
-        /*Obtenemos los arreglos que corresponden a las asignaturas de origen*/
-        String[] asigOrig = eq.getSelectedOptionsOrigen();
-        String[] asigDest = eq.getSelectedOptionsDestino();
-        
-       //  incluye son las d eorigen
-       //  equivalen las de destino
-        
-        
-        //ORDEN: 
-//                     Table "public.equivalencia"
-//         Column          |     Type      | Modifiers 
-//-------------------------+---------------+-----------
-// codigo_institucion_orig | character(12) | not null
-// codigo_carrera_orig     | character(12) | not null
-// codigo_institucion_dest | character(12) | not null
-// codigo_carrera_dest     | character(12) | not null
-// codigo_equivalencia     | character(12) | not null
+       boolean res = false;
 
-        String insercionIncluye  = "";
-        String insercionEquivale = "";
-        String codigoInstitucionOrigen  = eq.getCodigoInstitucionOrigen();
-        String codigoInstitucionDestino = eq.getCodigoInstitucionDestino();
-        String codigoCarreraOrigen      = eq.getCodigoCarreraOrigen();
-        String codigoCarreraDestino     = eq.getCodigoInstitucionDestino();
-        //Sacar el maximo codigo de la bd, usarlo pa insertar la nueva equivalencia
-        // y luego usarlo para hacer los insert de equivale e incluye.
-        String insertEquivale = "INSERT INTO EQUIVALENCIA VALUES ('"+
-                            
+       try {
+
+          /* Se establece la conexion a la base de datos */    
+          Connection conexion = bd.establecerConexion();
+          Statement st = conexion.createStatement();  
+          /* Declaramos una variable para almacenar el resultado final */
+        
+          /*Obtenemos los arreglos que corresponden a las asignaturas de origen*/
+          String[] asigOrig = eq.getSelectedOptionsOrigen();
+          String[] asigDest = eq.getSelectedOptionsDestino();
+
+
+          String insercionIncluye  = "";
+          String insercionEquivale = "";
+          String codigoInstitucionOrigen  = eq.getCodigoInstitucionOrigen();
+          String codigoInstitucionDestino = eq.getCodigoInstitucionDestino();
+          String codigoCarreraOrigen      = eq.getCodigoCarreraOrigen();
+          String codigoCarreraDestino     = eq.getCodigoInstitucionDestino();
+         
+          String maximoCodigo = "SELECT max(codigo_equivalencia) FROM equivalencia;";
+          st.execute(maximoCodigo);
+
+          String nuevoCodigo = ((Integer)(Integer.getInteger(maximoCodigo) + 1)).toString();
+          String insertEquivale = "INSERT INTO EQUIVALENCIA VALUES ('"+
+                            codigoInstitucionOrigen + "','" +
+                            codigoCarreraOrigen+"','"+
+                            codigoInstitucionDestino+"','"+
+                            codigoCarreraDestino+"','"+
+                            nuevoCodigo +                   
                             "');";
         
-        for (int i=0; i<asigOrig.length; i++) {
-            insercionIncluye = insercionIncluye + "INSERT INTO INCLUYE VALUES ('"+
+          for (int i=0; i<asigOrig.length; i++) {
+              insercionIncluye = insercionIncluye + "INSERT INTO INCLUYE VALUES ('"+
                             codigoInstitucionOrigen+"','"+
                             codigoCarreraOrigen+"','"+
                             asigOrig[i]+"','"+
                             codigoInstitucionDestino+"','"+
                             codigoCarreraDestino+"','"+
-                            i+
+                            nuevoCodigo+
                             "');";
-        }
-        System.out.println(insercionIncluye);
-        
-//         Column          |     Type      | Modifiers 
-//-------------------------+---------------+-----------
-// codigo_institucion_orig | character(12) | not null
-// codigo_carrera_orig     | character(12) | not null
-// codigo_institucion_dest | character(12) | not null
-// codigo_carrera_dest     | character(12) | not null
-// codigo_asignatura       | character(12) | not null
-// codigo_equivalencia     | character(12) | not null
-        
-        for (int j=0; j<asigDest.length; j++) {
-            insercionEquivale = "INSERT INTO EQUIVALE VALUES ('"+
+          }
+          System.out.println(insercionIncluye);
+                
+          for (int j=0; j<asigDest.length; j++) {
+              insercionEquivale = "INSERT INTO EQUIVALE VALUES ('"+
                             codigoInstitucionOrigen+"','"+
                             codigoCarreraOrigen+"','"+
                             codigoInstitucionDestino+"','"+
                             codigoCarreraDestino+"','"+
                             asigDest[j]+"','"+
-                            j+
+                            nuevoCodigo+
                             "');";
-        }
-        System.out.println(insercionEquivale);
+          }
+          System.out.println(insercionEquivale);
 
         
-        try {
 
-            /* Se establece la conexion a la base de datos */
-            Connection conexion = bd.establecerConexion();
-            Statement st = conexion.createStatement();
-            /* Se inserta la tupla en la base de datos */
-            st.execute(insercionEquivale);
-            st.execute(insercionIncluye);
-            res = true;
-            st.close();
-            bd.terminarConexion(conexion);
+          /* Se inserta la tupla en la base de datos */
+          st.execute(insercionEquivale);
+          st.execute(insercionIncluye);
+          res = true;
+          st.close();
+          bd.terminarConexion(conexion);
 
         } catch(Exception e) {
             String error = 
