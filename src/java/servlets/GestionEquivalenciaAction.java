@@ -44,5 +44,27 @@ public class GestionEquivalenciaAction extends DispatchAction {
         
         return mapping.findForward("registrarEquivalencia");
     }
+    
+     public ActionForward Agregar_Equivalencia(ActionMapping mapping,
+                                     ActionForm form,
+                                     HttpServletRequest request,
+                                     HttpServletResponse response) 
+    throws Exception {
+    
+         String forward = "";
+         
+         GestionEquivalencia gestEquiv = new GestionEquivalencia();
+         
+         EquivalenciaForm ef = (EquivalenciaForm) form;
+         
+         if (gestEquiv.agregarEquivalencia(ef)) {
+             forward = "successAddEquivalencia";
+         } else {
+             forward = "errorAddEquivalencia";
+         }
+         
+         return mapping.findForward(forward);
+         
+    }
   
 }

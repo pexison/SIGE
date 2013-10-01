@@ -127,6 +127,10 @@
                 scope="request" type="servlets.GestionEquivalenciaAction"
                 parameter="operacionEquivalencia">
             <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
+            <forward name="errorAddEquivalencia" path="/errorAddEquivalencia.jsp"/>
+            <forward name="addEquivalencia" path="/addEquivalencia.jsp"/>
+
+
         </action>
         
         <!--<action name="ListaAsignaturasDinamicasForm" path="/listaAsignaturasDinamicas"

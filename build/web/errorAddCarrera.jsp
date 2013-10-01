@@ -1,5 +1,5 @@
 <%-- 
-    Document   : successAddCarrera
+    Document   : errorAddCarrera
     Created on : May 28, 2013, 10:34:15 PM
     Author     : fertaku
 --%>

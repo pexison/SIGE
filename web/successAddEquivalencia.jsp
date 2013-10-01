@@ -1,7 +1,7 @@
 <%-- 
-    Document   : successAddCarrera
+    Document   : successAddEquivalencia
     Created on : May 28, 2013, 10:34:15 PM
-    Author     : fertaku
+    Author     : john
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
         <title>SEA - Carrera registrada con éxito</title>
     </head>
     <body>
-        <h1>¡Carrera agregada con éxito!</h1>
+        <h1>¡Equivalencia agregada con éxito!</h1>
         <html:form action="/gestionInstitucion" method="POST">
             
             <%-- Obtener el nombre de la carrera y 
@@ -46,11 +46,7 @@
                    styleClass = "button" 
                    property   = "operacionInstitucion" 
                    value      = "Listar_Carreras"/>
-               
-               <html:submit 
-                   styleClass = "button" 
-                   property   = "operacionInstitucion" 
-                   value      = "Registrar_Carrera"/>
+
                
             </center>
         </html:form>

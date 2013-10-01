@@ -65,12 +65,14 @@
                
         %>
         
-         <table><tr>
-            <td>
-                <html:form 
+        
+        <html:form 
                         onsubmit = "return validarCampos()"
                         action   = "/gestionEquivalencia" 
                         method   = "POST">
+         <table><tr>
+            <td>
+                
                     <p> Seleccione Asignaturas Origen </p>
                     <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsOrigen">
                         <html:multibox property="selectedOptionsOrigen">
@@ -89,8 +91,21 @@
                            <bean:write name="item" property="label"/><br />
                        </logic:iterate>
 
-                </html:form>
-            </td></tr></table>      
+                           
+                
+            </td></tr>
+             <tr colspan="2">
+                <td><center>
+                    <html:hidden property="operacionEquivalencia" value="Agregar_Equivalencia" />
+                    <html:submit 
+                        styleClass   =   "button"
+                        property     =   "submit"
+                        value        =   "Agregar Equivalencia"/></center></td>
+            </tr>
+            
+            </table>  
+            
+            </html:form>
        </center>      
     </body>
     

@@ -1,7 +1,7 @@
 <%-- 
     Document   : errorAddCarrera
     Created on : May 28, 2013, 10:34:15 PM
-    Author     : fertaku
+    Author     : john
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,10 +13,10 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
-        <title>SEA - Error al registrar Carrera</title>
+        <title>SEA - Error al registrar Equivalencia</title>
     </head>
     <body>
-        <h1>No se ha podido cargar la carrera al sistema.</h1>
+        <h1>No se ha podido cargar la equivalencia al sistema.</h1>
         
         <html:form action="/gestionInstitucion" method="POST">
             
@@ -25,7 +25,7 @@
                request.getAttribute("CarreraForm")) ;
                String cInst = cf.getCodigoInstitucion();%>
             <center>
-               <li>El código de carrera ingresado ya se encuentra en el
+               <li>El código de Equivalencia ingresado ya se encuentra en el
                    sistema </li>
                
                <li><h2>Volver: </h2></li>
