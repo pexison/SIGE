@@ -1,0 +1,14 @@
+La gestion de tablas de equivalencia se hara fuera de gestion institucion
+
+Como estara estructurado?
+
+Se mostraran dos listas de las instituciones disponibles,
+la primera de la isntitucion de origen, la segunda de la instuticion destino
+Despues se mostrara listar_tablas: las tablas de equivalencia entre ambas instituciones
+
+En listar tablas de equivalencia, se pueden modificar una tabla, o agregar una tabla nueva, ver detalle de tabla
+
+En agregar una tabla nueva, se muestran las carreras de ambas instituciones
+
+En ver detalles de tabla de equivalencia aparece: agregar_equivalencias, se deben mostrar las listas de asignaturas asociadas a cada
+carrera y luego hacer las relaciones
