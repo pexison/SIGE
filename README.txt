@@ -1,0 +1,35 @@
+-- MiDocumentacion
+
+1) ***** Listado no ordenado, cada li es una vi;eta, debe estar contenido
+en ul /ul para su uso ******
+<ul>
+    <li>Mi Vinieta</li>
+</ul>
+
+2) **** Listado ordenado, cada li sera una vi;eta de enumeracion.
+<ol>
+    <li>Mi Vinieta</li>
+</ol>
+
+
+3) *** Titulos. <h1>, <h2> Agrega titulos y subtitulos
+<h1>TituloPrincipal</h1>
+
+<h2>Subtitulo<h2>   
+
+4) ***** Lineas en blanco. Se inserta una linea
+<br/>
+
+5) La funcion confirm("mi mensaje") levanta una ventana de confirmacion,
+returna true si se presiona ok, false en caso contrario. Ejemplo de activacion:
+<html:link onclick="return miConfirmacion()" forward="login">Salir</html:link>
+
+donde miConfirmacion es una funcion definida en javascript. IMPORTANTE: 
+onclick
+
+
+stromae VOCALISTA FRANCESPOP :D ESCUCHAR** alors on dance
+te quiero, "like %papatoi"
+
+
+

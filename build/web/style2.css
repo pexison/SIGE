@@ -1,0 +1,97 @@
+/* 
+    Document   : style
+    Created on : Jun 5, 2013, 3:53:07 PM
+    Author     : dalia057
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+    h1 {
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        text-align:center;                
+    }
+    h2 {
+        font-family: Verdana,Arial,Helvetica,sans-serif;            
+    }
+    p {
+        text-align:justify;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+    }
+    text {
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+    }
+    table {
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+    }
+    a {
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+        text-decoration: none;}
+    a:hover, a:active {
+        color: #0099cc;
+    }
+
+    tr {
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 11px;
+    }
+    
+    ul {
+
+        list-style: none;
+        font-family: Verdana,Arial,Helvetica,sans-serif;        
+         
+    }
+    
+    li {
+                display: inline;
+    }
+    .button {
+                
+        display: inline;
+        font-weight:  bold;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+        color: #000000;
+        background-color: #c9c9c9;
+        border-style: none;
+               
+        text-align:center;
+        padding:4px;
+        text-decoration:none;
+    }
+    .button:hover,.button:active {
+                              
+        color: #000000; background-color: #b8b8b8;
+        -o-transition: color .2s ease-out, background .3s ease-in;
+        -ms-transition: color .2s ease-out, background .3s ease-in;
+        -moz-transition: color .2s ease-out, background .3s ease-in;
+        -webkit-transition: color .2s ease-out, background .3s ease-in; 
+        transition: color .2s ease-out, background .3s ease-in;
+    }
+                
+    body {
+       background-color: #FFFFFF; 
+       background-image: url('image/top_bar_dace.jpg');
+       background-repeat: no-repeat;
+       background-position: center top;
+       margin-top: 200px;
+    }        
+    
+    .input {
+                
+        display: inline;
+        font-weight:  lighter;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        font-size: 12px;
+        color: #000000;
+        background-color: #d8d8d8;
+        border-style: ridge;
+        padding:4px;
+        text-decoration:none;
+    }
+                

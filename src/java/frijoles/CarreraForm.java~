@@ -1,0 +1,49 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package frijoles;
+import org.apache.struts.action.*;
+
+/**
+ *
+ * @author fertaku
+ */
+
+/* Clase para el formulario de las carreras */
+public class CarreraForm extends ActionForm {
+    
+    private String codigoCarrera;
+    private String nombreCarrera;
+    private String codigoInstitucion;
+    
+    /* Metodo para obtener el codigo de la carrera */
+    public String getCodigoCarrera() {
+        return this.codigoCarrera;
+    }
+    
+    /* Metodo para obtener el nombre de la carrera */
+    public String getNombreCarrera() {
+        return this.nombreCarrera;
+    }
+    
+    /* Metodo para obtener el codigo de la institucion que ofrece la carrera */
+    public String getCodigoInstitucion() {
+        return this.codigoInstitucion;
+    }
+    
+    /* Metodo para fijar el codigo de la carrera */
+    public void setCodigoCarrera(String codCar) {
+        this.codigoCarrera=codCar;
+    }
+    
+    /* Metodo para fijar el nombre de la carrera */
+    public void setNombreCarrera(String nomCar) {
+        this.nombreCarrera=nomCar;
+    }
+    
+    public void setCodigoInstitucion(String nomIns) {
+        this.codigoInstitucion=nomIns;
+    }
+    
+}

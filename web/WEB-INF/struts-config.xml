@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="RegistroForm" type="frijoles.RegistroForm"/>
+        <form-bean name="ValidacionForm" type="frijoles.ValidacionForm"/>
+        <form-bean name="InstitucionForm" type="frijoles.InstitucionForm"/>
+        <form-bean name="ListaInstitucion" type="frijoles.InstitucionForm"/>
+        <form-bean name="ListaCarreras" type="frijoles.CarreraForm"/>
+        <form-bean name="TablaEquivalenciaForm" type="frijoles.TablaEquivalenciaForm"/>
+        <form-bean name="AsignaturaForm" type="frijoles.AsignaturaForm"/>
+        <form-bean name="ListaAsignaturas" type="frijoles.AsignaturaForm"/>
+        <form-bean name="ListaAsignaturasRequeridas" type="frijoles.CarreraRequiereAsignaturaForm"/>
+        <form-bean name="ListaAsignaturasNoRequeridas" type="frijoles.CarreraRequiereAsignaturaForm"/>
+        <form-bean name="CarreraRequiereAsignaturaForm" type="frijoles.CarreraRequiereAsignaturaForm"/>
+        <form-bean name="ListaTablas" type="frijoles.TablaEquivalenciaForm"/>
+        <form-bean name="ListaEquivalencias" type="frijoles.EquivalenciaForm"/>
+        <form-bean name="EquivalenciaForm" type="frijoles.EquivalenciaForm"/>
+        <form-bean name="CarreraForm" type="frijoles.CarreraForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="login" path="/login.jsp"/>
+        <forward name="pararegistro" path="/registro.jsp"/>
+        <forward name="registrarInstitucion" path="/newInstitucion.jsp"/>
+        <forward name="registrarCarrera" path="/newCarrera.jsp"/>
+        
+    </global-forwards>
+
+    <action-mappings>
+        
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        
+        <action name="ValidacionForm" path="/validar"
+            scope="request" type="servlets.ValidarAction">
+            <forward name="bienvenida" path="/bienvenida.jsp"/>
+            <forward name="errorLogin" path="/errorLogin.jsp"/>
+        </action>
+        
+        <action name="RegistroForm" path="/registrar"
+            scope="request" type="servlets.RegistrarAction">
+            <forward name="successRegister" path="/successRegister.jsp"/>
+            <forward name="errorRegister" path="/errorRegister.jsp"/>
+        </action>
+        
+        <action name="InstitucionForm" path="/gestionInstitucion"
+            scope="request" type="servlets.GestionInstitucionAction"
+            parameter="operacionInstitucion">
+            <forward name="addInstitucion" path="/addInstitucion.jsp"/>
+            <forward name="errorAddInstitucion" path="/errorAddInstitucion.jsp"/>
+            <forward name="listarInstitucion" path="/listarInstitucion.jsp"/>
+            <forward name="listarCarreras" path="/listarCarreras.jsp"/>
+            <forward name="listarAsignaturas" path="/listarAsignaturas.jsp"/>
+            <forward name="verInstitucion" path="/detalleInstitucion.jsp"/>
+            <forward name="successModifyInstitucion" path="/successModifyInstitucion.jsp"/>
+            <forward name="errorModifyInstitucion" path="/errorModifyInstitucion.jsp"/>
+            <forward name="successRmInstitucion" path="/successRmInstitucion.jsp"/>
+            <forward name="errorRmInstitucion" path="/errorRmInstitucion.jsp"/>
+            <forward name="modificarInstitucion" path="/modificarInstitucion.jsp"/>
+            <forward name="errorVerInstitucion" path="/errorVerInstitucion.jsp"/>
+
+        </action>
+        
+        <action name="CarreraForm" path="/gestionCarrera"
+                scope="request" type="servlets.GestionCarreraAction"
+                parameter="operacionCarrera">
+            <forward name="successAddCarrera" path="/successAddCarrera.jsp"/>
+            <forward name="errorAddCarrera" path="/errorAddCarrera.jsp"/>
+            <forward name="listarCarreras" path="/listarCarreras.jsp"/>
+            <forward name="verCarrera" path="/verCarrera.jsp"/>
+            <forward name="newCarrera" path="/newCarrera.jsp"/>
+            <forward name="modificarCarrera" path="/modificarCarrera.jsp"/>
+            <forward name="successModifyCarrera" path="/successModifyCarrera.jsp"/>
+            <forward name="errorModifyCarrera" path="/errorModifyCarrera.jsp"/>
+            <forward name="successRmCarrera" path="/successRmCarrera.jsp"/>
+            <forward name="errorRmCarrera" path="/errorRmCarrera.jsp"/>
+            <forward name="errorModifCarrera" path="/errorModifCarrera.jsp"/>
+            <forward name="listarAsignaturas" path="/listarAsignaturasCarrera.jsp"/>
+        </action>
+        
+        <action name="AsignaturaForm" path="/gestionAsignatura"
+                scope="request" type="servlets.GestionAsignaturaAction"
+                parameter="operacionAsignatura">
+            <forward name="verAsignatura" path="/verAsignatura.jsp"/>
+            <forward name="newAsignatura" path="/newAsignatura.jsp"/>
+            <forward name="successAddAsignatura" path="/successAddAsignatura.jsp"/>
+            <forward name="errorAddAsignatura" path="/errorAddAsignatura.jsp"/>
+            <forward name="successRmAsignatura" path="/successRmAsignatura.jsp"/>
+            <forward name="errorRmAsignatura" path="/errorRmAsignatura.jsp"/>
+            <forward name="successModifyAsignatura" path="/successModifyAsignatura.jsp"/>
+            <forward name="errorModifyAsignatura" path="/errorModifyAsignatura.jsp"/>
+            <forward name="modificarAsignatura" path="/modificarAsignatura.jsp"/>
+        </action>
+        
+        <action name="CarreraRequiereAsignaturaForm" path="/gestionCarreraRequiereAsignatura"
+                scope="request" type="servlets.GestionCarreraRequiereAsignaturaAction"
+                parameter="operacionRequiereAsignatura">
+            <forward name="listarAsignaturas" path="/listarAsignaturasCarrera.jsp"/>
+        </action>
+        
+        <action name="TablaEquivalenciaForm" path="/gestionTablaEquivalencia"
+                scope="request" type="servlets.GestionTablaEquivalenciaAction"
+                parameter="operacionTabla">
+            <forward name="verTablaEquivalencia" path="/verTablaEquivalencia.jsp"/>
+            <forward name="listarTablas" path="/listarTablas.jsp"/>
+            <forward name="registrarTabla" path="/newTablaEquivalencia.jsp"/>
+            <forward name="listarInstitucionesTablasEquivalencia" path="/listarInstitucionesTablasEquivalencia.jsp"/>
+            <forward name="successAddTablaEquivalencia" path="/successAddTablaEquivalencia.jsp"/>
+            <forward name="errorAddTablaEquivalencia" path="/errorAddTablaEquivalencia.jsp"/>
+            
+        </action>
+        
+        <action name="EquivalenciaForm" path="/gestionEquivalencia"
+                scope="request" type="servlets.GestionEquivalenciaAction"
+                parameter="operacionEquivalencia">
+            <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
