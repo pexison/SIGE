@@ -32,7 +32,7 @@ public class EquivalenciaForm extends ActionForm {
         super();
     }
     
-    public EquivalenciaForm(ArrayList<AsignaturaForm> asigReqOrigen, ArrayList<AsignaturaForm> asigReqDestino) {
+    public void AdjuntarListasAsignaturas(ArrayList<AsignaturaForm> asigReqOrigen, ArrayList<AsignaturaForm> asigReqDestino) {
         // Initialise the LabelValueBeans in the possibleOptions array.
         LabelValueBean[] lvBeansOrigen  = new LabelValueBean[asigReqOrigen.size()];
         LabelValueBean[] lvBeansDestino = new LabelValueBean[asigReqDestino.size()];

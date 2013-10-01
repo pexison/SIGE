@@ -85,6 +85,8 @@
                     <td><%=asigActual.getNombreAsignatura()%></td>
                     <td><%=asigActual.getCreditos()%></td>
 
+                    <%} else {%>
+                    <td/><td/><td/>
                     <%}%>
 
                     <%if (j<asignaturasDestino.size()) {
@@ -94,6 +96,8 @@
                     <td><%=asigActual.getNombreAsignatura()%></td>
                     <td><%=asigActual.getCreditos()%></td>
 
+                    <%} else {%>
+                    <td/><td/><td/>
                     <%}%>
 
                 </tr><tr bgcolor="#F0F0F0" align="center">

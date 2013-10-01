@@ -7,6 +7,7 @@ package modelo;
 import java.sql.*;
 import frijoles.*;
 import java.util.ArrayList;
+import java.lang.Integer;
 
 /**
  *
@@ -41,37 +42,35 @@ public class GestionEquivalencia {
           String codigoInstitucionOrigen  = eq.getCodigoInstitucionOrigen();
           String codigoInstitucionDestino = eq.getCodigoInstitucionDestino();
           String codigoCarreraOrigen      = eq.getCodigoCarreraOrigen();
-          String codigoCarreraDestino     = eq.getCodigoInstitucionDestino();
+          String codigoCarreraDestino     = eq.getCodigoCarreraDestino();
 
           String maximoCodigo = "SELECT max(codigo_equivalencia) FROM equivalencia;";
           ResultSet codigoMaximo = st.executeQuery(maximoCodigo);
 
-          String codigoAnterior;
+          int codigoAnterior;
+          
+          System.out.println(codigoMaximo);
           
           if (codigoMaximo.next()) {
-            codigoAnterior = codigoMaximo.getString(1);
+            codigoAnterior = codigoMaximo.getInt(1);
           } else {
-            codigoAnterior = "0";  
+            codigoAnterior = 0;  
           }         
 
-          int codigoNuevo =  Integer.parseInt(codigoAnterior) + 1;
-                              System.out.println(codigoNuevo);
-                    System.out.println("Fernando");
-
+          int codigoNuevo =  codigoAnterior + 1;
+          
           String codigoNuevoString = ""+codigoNuevo;
-                    System.out.println(codigoNuevoString);
 
-
-          String insertEquivale = "INSERT INTO EQUIVALENCIA VALUES ('"+
+          
+          String insertEquivalencia = "INSERT INTO EQUIVALENCIA VALUES ('"+
                             codigoInstitucionOrigen + "','" +
                             codigoCarreraOrigen+"','"+
                             codigoInstitucionDestino+"','"+
                             codigoCarreraDestino+"','"+
                             codigoNuevoString +                   
                             "');";
-   System.out.println("************************************************");
        
-          System.out.println("equivalePrimario: "+insertEquivale);
+          System.out.println("equivalePrimario: "+insertEquivalencia);
 
         
           for (int i=0; i<asigOrig.length; i++) {
@@ -85,9 +84,11 @@ public class GestionEquivalencia {
                             "');";
           }
           System.out.println("incluye: "+insercionIncluye);
-                
+          
+          insercionEquivale = "";
+          
           for (int j=0; j<asigDest.length; j++) {
-              insercionEquivale = "INSERT INTO EQUIVALE VALUES ('"+
+              insercionEquivale = insercionEquivale + " INSERT INTO EQUIVALE VALUES ('"+
                             codigoInstitucionOrigen+"','"+
                             codigoCarreraOrigen+"','"+
                             codigoInstitucionDestino+"','"+
@@ -101,8 +102,13 @@ public class GestionEquivalencia {
         
 
           /* Se inserta la tupla en la base de datos */
-          st.execute(insercionEquivale);
+          st = conexion.createStatement();
+          st.execute(insertEquivalencia);
+          st = conexion.createStatement();
           st.execute(insercionIncluye);
+          st = conexion.createStatement();
+          st.execute(insercionEquivale);
+          
           res = true;
           st.close();
           bd.terminarConexion(conexion);

@@ -27,7 +27,7 @@ public class BaseDatos {
         try {
            Class.forName("org.postgresql.Driver");
            conexion = 
-           DriverManager.getConnection(url, "johndelgado", "una");
+           DriverManager.getConnection(url, "postgres", "postgres");
            
            if (conexion != null) {
                System.out.println("...Conectando a la base de datos...");

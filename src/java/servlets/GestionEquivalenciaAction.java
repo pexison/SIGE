@@ -37,10 +37,10 @@ public class GestionEquivalenciaAction extends DispatchAction {
         ArrayList<AsignaturaForm> listaAsigRequeridasDest = ga.listarAsignaturas(
                 ef.getCodigoInstitucionDestino(), ef.getCodigoCarreraDestino());
         
-        EquivalenciaForm listaDin = new EquivalenciaForm(listaAsigRequeridasOrig,listaAsigRequeridasDest);
-  
+        ef.AdjuntarListasAsignaturas(listaAsigRequeridasOrig, listaAsigRequeridasDest);        
+        
         // Agregar lista de asignaturas requeridas por la carrera de origen
-        request.setAttribute("EquivalenciaForm", listaDin);     
+        request.setAttribute("EquivalenciaForm", ef);     
         
         return mapping.findForward("registrarEquivalencia");
     }
@@ -56,6 +56,8 @@ public class GestionEquivalenciaAction extends DispatchAction {
          GestionEquivalencia gestEquiv = new GestionEquivalencia();
          
          EquivalenciaForm ef = (EquivalenciaForm) form;
+         
+         System.out.println("ALERTANUEVA: " + ef.getCodigoInstitucionOrigen() + ef.getCodigoInstitucionDestino());
          
          if (gestEquiv.agregarEquivalencia(ef)) {
              forward = "successAddEquivalencia";

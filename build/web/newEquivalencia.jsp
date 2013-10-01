@@ -105,6 +105,18 @@
             
             </table>  
             
+                    <html:hidden  property = "codigoInstitucionOrigen" 
+                                  value    = "<%=codigoInstOrigen%>"/>
+                                  
+                    <html:hidden  property = "codigoInstitucionDestino" 
+                                  value    = "<%=codigoInstDestino%>"/>
+                                  
+                    <html:hidden  property = "codigoCarreraOrigen" 
+                                  value    = "<%=codigoCarrOrigen%>"/>
+                                  
+                    <html:hidden  property = "codigoCarreraDestino" 
+                                  value    = "<%=codigoCarrDestino%>"/>
+            
             </html:form>
        </center>      
     </body>
