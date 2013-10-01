@@ -30,7 +30,21 @@
         
         <%ArrayList<EquivalenciaForm> listaEquiv = 
             ((ArrayList<EquivalenciaForm>) 
-            request.getAttribute("ListaEquivalencias")); %>
+            request.getAttribute("ListaEquivalencias")); 
+            TablaEquivalenciaForm te = (TablaEquivalenciaForm) 
+                    request.getAttribute("TablaEquivalenciaForm");
+            
+            String codInstOrig = te.getCodigoInstitucionOrigen();
+            String codInstDest = te.getCodigoInstitucionDestino();
+            String codCarrOrig = te.getCodigoCarreraOrigen();
+            String codCarrDest = te.getCodigoCarreraDestino();
+            
+            %>
+            
+
+
+            
+            
             
         <h1>Detalles de las equivalencias ofrecidas para la Tabla</h1>
         
@@ -97,18 +111,35 @@
         <%}%>
         
         
-        
         <html:form action="/gestionEquivalencia" method="POST">
-        <%-- Botón para regresar a las instituciones de las Tablas --%>
+        <%-- Botón para crear una nueva equivalencia --%>
+        
+        <html:hidden 
+            property = "codigoInstitucionOrigen"
+            value = "<%=codInstOrig%>"/>
+            
+        <html:hidden 
+            property = "codigoInstitucionDestino"
+            value = "<%=codInstDest%>"/>
+            
+        <html:hidden 
+            property = "codigoCarreraOrigen"
+            value = "<%=codCarrOrig%>"/>
+            
+        <html:hidden 
+            property = "codigoCarreraDestino"
+            value = "<%=codCarrDest%>"/>
+            
         <html:submit 
                  styleClass = "button"  
                  property   = "operacionEquivalencia" 
                  value      = "Crear_Equivalencia"/>
 
         <br/><br/>
+            
         </html:form>
-        
-        <br/><br/>
+            
+            
         <li><h2>Volver: </h2></li>
         
         <html:form action="/gestionTablaEquivalencia" method="POST">

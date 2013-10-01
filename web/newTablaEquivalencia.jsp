@@ -57,25 +57,14 @@
           
           String nombreInstOrigen  = instOrig.getNombreInstitucion();
           String nombreInstDestino = instDest.getNombreInstitucion();%>
-          
+        
           
           <html:hidden  property = "codigoInstitucionOrigen" 
                         value    = "<%=codInstOrig%>"/>
                         
           <html:hidden  property = "codigoInstitucionDestino" 
                         value    = "<%=codInstDest%>"/>
-                        
-        <%if (listaCarrOrig.isEmpty()) {%>
-        
-            <p>La institucion <%=nombreInstOrigen%> no tiene carreras registradas. 
-               Por favor agregue una carrera para esta institucion antes de continuar</p>
-        
-        <%} else if (listaCarrDest.isEmpty()) {%>
-        
-            <p>La institucion <%=nombreInstDestino%> no tiene carreras registradas. 
-               Por favor agregue una carrera para esta institucion antes de continuar</p>
-        
-        <%} else {%>
+            
         <table><tr>
                 
                
@@ -125,8 +114,7 @@
                         property     =   "submit"
                         value        =   "Agregar Tabla de Equivalencia"/>
                 </center>
-        <%}%>
-    
+                            
         </html:form>       
     
     </body>

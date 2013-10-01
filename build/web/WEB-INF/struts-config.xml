@@ -20,8 +20,11 @@
         <form-bean name="CarreraRequiereAsignaturaForm" type="frijoles.CarreraRequiereAsignaturaForm"/>
         <form-bean name="ListaTablas" type="frijoles.TablaEquivalenciaForm"/>
         <form-bean name="ListaEquivalencias" type="frijoles.EquivalenciaForm"/>
+        <form-bean name="ListaAsigOrigEquiv" type="frijoles.EquivalenciaForm"/>
+        <form-bean name="ListaAsigDestEquiv" type="frijoles.EquivalenciaForm"/>
         <form-bean name="EquivalenciaForm" type="frijoles.EquivalenciaForm"/>
         <form-bean name="CarreraForm" type="frijoles.CarreraForm"/>
+        <form-bean name="ListaAsignaturasDinamicasForm" type="frijoles.ListaAsignaturasDinamicasForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -125,6 +128,12 @@
                 parameter="operacionEquivalencia">
             <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
         </action>
+        
+        <!--<action name="ListaAsignaturasDinamicasForm" path="/listaAsignaturasDinamicas"
+                scope="request" type="servlets.GestionEquivalenciaAction"
+                parameter="operacionEquivalencia">
+            <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
+        </action>-->
         
     </action-mappings>
     

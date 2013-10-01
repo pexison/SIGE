@@ -20,7 +20,6 @@ en ul /ul para su uso ******
 4) ***** Lineas en blanco. Se inserta una linea
 <br/>
 
-
 5) La funcion confirm("mi mensaje") levanta una ventana de confirmacion,
 returna true si se presiona ok, false en caso contrario. Ejemplo de activacion:
 <html:link onclick="return miConfirmacion()" forward="login">Salir</html:link>

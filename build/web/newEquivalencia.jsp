@@ -8,6 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+
 
 <%@page import="java.util.* , frijoles.*, modelo.*" %>
 <!DOCTYPE html>
@@ -44,84 +47,50 @@
         <center>
 
             <h1>Registro de Equivalencias</h1>
+            
+       <%EquivalenciaForm eq = 
+                ((EquivalenciaForm)request.getAttribute("EquivalenciaForm"));
+       String codigoInstOrigen = eq.getCodigoInstitucionOrigen();
+       String codigoInstDestino = eq.getCodigoInstitucionDestino();
+       String codigoCarrOrigen = eq.getCodigoCarreraOrigen();
+       String codigoCarrDestino = eq.getCodigoCarreraDestino();
+       
+       GestionInstitucion gi = new GestionInstitucion();
+       GestionAsignatura ga  = new GestionAsignatura();
+       
+       InstitucionForm ifOrigen = gi.obtenerInstitucion(codigoInstOrigen);
+       InstitucionForm ifDestino = gi.obtenerInstitucion(codigoInstDestino);
+       ArrayList<AsignaturaForm> listaAsigOrigen  = ga.listarAsignaturas(codigoInstOrigen, codigoCarrOrigen);
+       ArrayList<AsignaturaForm> listaAsigDestino = ga.listarAsignaturas(codigoInstDestino, codigoCarrDestino);
+               
+        %>
         
-        <html:form 
-                onsubmit = "return validarCampos()"
-                action   = "/gestionEquivalencia" 
-                method   = "POST">
-        <%TablaEquivalenciaForm teq = 
-                ((TablaEquivalenciaForm)request.getAttribute("TablaEquivalenciaForm"));
-        
-          String codInstOrig  = teq.getCodigoCarreraOrigen();
-          String codInstDest  = teq.getCodigoCarreraDestino();
-          GestionInstitucion gestionInst = new GestionInstitucion();
-          GestionAsignatura  gestionAsig = new GestionAsignatura();
-        
-          InstitucionForm instOrig = gestionInst.obtenerInstitucion(codInstOrig);
-          InstitucionForm instDest = gestionInst.obtenerInstitucion(codInstDest);
-          ArrayList<AsignaturaForm> listaAsigOrig = gestionAsig.listarAsignaturas(codInstOrig);
-          ArrayList<AsignaturaForm> listaAsigDest = gestionAsig.listarAsignaturas(codInstDest);%>
-        
-        <table>
-            <tr>    
-                <%-- Campo para el código de la carrera --%>
-                <td>Código de la Equivalencia:</td>        
-                         <td>
-                         <html:text 
-                               styleClass  =  "input" 
-                               maxlength   =  "12" 
-                               styleId     =  "CodEquivalencia"
-                               property    =  "codigoEquivalencia"/>
-                         </td>
-             </tr>
-             
-             <tr>
-                 <td>Seleccione las materias de Origen a ser equivalidas:</td>  
-                 
-                  <html:select styleClass="button" property="asignaturasOrigen">
+         <table><tr>
+            <td>
+                <html:form 
+                        onsubmit = "return validarCampos()"
+                        action   = "/gestionEquivalencia" 
+                        method   = "POST">
+                    <p> Seleccione Asignaturas Origen </p>
+                    <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsOrigen">
+                        <html:multibox property="selectedOptionsOrigen">
+                            <bean:write name="item" property="value"/>
+                        </html:multibox>
+                        <bean:write name="item" property="label"/><br />
+                    </logic:iterate>
+  
+            </td><td>
+                
+                       <p> Seleccione Asignaturas Destino </p>
+                       <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsDestino">
+                           <html:multibox property="selectedOptionsDestino">
+                               <bean:write name="item" property="value"/>
+                           </html:multibox>
+                           <bean:write name="item" property="label"/><br />
+                       </logic:iterate>
 
-                    <% for (int i=0; i<listaAsigOrig.size();i++) { 
-                    String nombreAsig=listaAsigOrig.get(i).getNombreAsignatura();
-                    String codAsig = listaAsigOrig.get(i).getCodigoAsignatura();%>
-
-                    <html:option value="<%=codAsig%>">
-                            <%=codAsig%> - <%=nombreAsig%>
-                    </html:option>
-
-                    <%}%>
-                </html:select>
-                 
-                 
-                 
-                 
-                 
-             </tr>
-
-             <tr>
-                 <td>Seleccione las materias de Destino a ser incluidas:</td> 
-                 
-                   <html:select styleClass="button" property="asignaturasDestino">
-
-                    <% for (int i=0; i<listaAsigOrig.size();i++) { 
-                    String nombreAsigDest=listaAsigDest.get(i).getNombreAsignatura();
-                    String codAsigDest = listaAsigDest.get(i).getCodigoAsignatura();%>
-
-                    <html:option value="<%=codAsigDest%>">
-                            <%=codAsigDest%> - <%=nombreAsigDest%>
-                    </html:option>
-
-                    <%}%>
-                </html:select>
-                 
-                 
-             </tr>   
-                 
-                 
-                 
-                 
-                 
-        </html:form>
-              
+                </html:form>
+            </td></tr></table>      
        </center>      
     </body>
     

@@ -24,7 +24,25 @@ public class GestionEquivalenciaAction extends DispatchAction {
                                      HttpServletRequest request,
                                      HttpServletResponse response) 
     throws Exception {
+        
+        EquivalenciaForm ef = (EquivalenciaForm) form;
+        GestionAsignatura ga = new GestionAsignatura();    
+        
+        // Se requiere agregar las listas correspondientes a asignaturas
+        // requeridas y asignaturas ofrecidas
+        
+        ArrayList<AsignaturaForm> listaAsigRequeridasOrig = ga.listarAsignaturas(
+                ef.getCodigoInstitucionOrigen(), ef.getCodigoCarreraOrigen());
+        
+        ArrayList<AsignaturaForm> listaAsigRequeridasDest = ga.listarAsignaturas(
+                ef.getCodigoInstitucionDestino(), ef.getCodigoCarreraDestino());
+        
+        EquivalenciaForm listaDin = new EquivalenciaForm(listaAsigRequeridasOrig,listaAsigRequeridasDest);
+  
+        // Agregar lista de asignaturas requeridas por la carrera de origen
+        request.setAttribute("EquivalenciaForm", listaDin);     
+        
         return mapping.findForward("registrarEquivalencia");
     }
-   
+  
 }

@@ -74,7 +74,7 @@ public class GestionClientes {
         ArrayList listaTipos = new ArrayList();
                 
         try {
-            Connection conexion = bd.establecerConexion();
+            Connection conexion = bd.establecerConexion();           
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery(consulta);
             
@@ -89,8 +89,10 @@ public class GestionClientes {
             bd.terminarConexion(conexion);
             
         } catch(Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Error al obtener lista tipo usuario.");
         }
+        System.out.println(listaTipos);
         return listaTipos; 
     }
 }
