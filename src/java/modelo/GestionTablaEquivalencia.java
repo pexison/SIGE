@@ -358,6 +358,8 @@ public class GestionTablaEquivalencia {
                 listaEquivalencias.add(equivActual);
 
            }
+     
+           bd.terminarConexion(conexion);
           
             
         } catch(Exception e) {

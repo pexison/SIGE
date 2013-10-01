@@ -129,6 +129,7 @@
             <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
             <forward name="errorAddEquivalencia" path="/errorAddEquivalencia.jsp"/>
             <forward name="addEquivalencia" path="/addEquivalencia.jsp"/>
+          <forward name="successAddEquivalencia" path="/successAddEquivalencia.jsp"/>
 
 
         </action>
