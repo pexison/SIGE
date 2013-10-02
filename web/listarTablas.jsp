@@ -32,6 +32,12 @@
                 var confirmarE = confirm("Desea abandonar la Sesion?");
                 return confirmarE;       
             }
+            
+            function execute(frm)
+            {
+                frm.action = "gestionTablaEquivalencia.do?method=Listar_Tablas";
+                frm.submit();
+            }
         </script>
         
         
@@ -39,23 +45,16 @@
         <%ArrayList<TablaEquivalenciaForm> listaTablas = 
             ((ArrayList<TablaEquivalenciaForm>) 
             request.getAttribute("ListaTablas"));
-        GestionCarrera gestionCarr = new GestionCarrera();
-        GestionInstitucion gestionInst = new GestionInstitucion();%>
-            
-            
-        
-            <html:form action="/gestionTablaEquivalencia" method="POST">
+            TablaEquivalenciaForm te = (TablaEquivalenciaForm)
+                    request.getAttribute("TablaEquivalenciaForm");
+            GestionCarrera gestionCarr = new GestionCarrera();
+            GestionInstitucion gestionInst = new GestionInstitucion();%>
             
             <%TablaEquivalenciaForm tf = (TablaEquivalenciaForm) 
                     request.getAttribute("TablaEquivalenciaForm");
             String codInstOrig = tf.getCodigoInstitucionOrigen();
-            String codInstDest = tf.getCodigoInstitucionDestino();%>    
-            
-            <html:hidden  property = "codigoInstitucionOrigen" 
-                          value    = "<%=codInstOrig%>"/>
-                          
-            <html:hidden  property = "codigoInstitucionDestino" 
-                          value    = "<%=codInstDest%>"/>
+            String codInstDest = tf.getCodigoInstitucionDestino();%>  
+        
             
             <% if (!listaTablas.isEmpty()) {
             InstitucionForm instOrig = gestionInst.obtenerInstitucion(codInstOrig);
@@ -63,13 +62,33 @@
             String nombreInstOrigen  = instOrig.getNombreInstitucion();
             String nombreInstDestino  = instDest.getNombreInstitucion();%>
             
-            
-            
             <p>Tablas de equivalencia desde <u><%=nombreInstOrigen%></u> hacia 
                 <u><%=nombreInstDestino%></u></p>
             
-                <html:select styleClass="button" property="codigoCarreraOrigen">
+            <table><tr><td>
+            <html:form action="/gestionTablaEquivalencia" method="POST">
+            
+              
+            
+            <html:hidden  property = "codigoInstitucionOrigen" 
+                          value    = "<%=codInstOrig%>"/>
+                          
+            <html:hidden  property = "codigoInstitucionDestino" 
+                          value    = "<%=codInstDest%>"/>
+            
+            
+            
+                <html:hidden
+                    property   = "operacionTabla" 
+                    value      = "Listar_Tablas"/>
 
+                <html:select styleClass="button" property="codigoCarreraOrigen" onchange="execute(this.form)">
+                
+                <%if (te.getCodigoCarreraOrigen()==null) {%>    
+                    <html:option value="ninguno"> -- Seleccione la Carrera de Origen -- 
+                    </html:option> 
+                <%}%>
+                
                 <%for (int i=0; i<listaTablas.size();i++) { 
                  String codCarreraOrig = listaTablas.get(i).getCodigoCarreraOrigen();
                  CarreraForm carreraOrig = gestionCarr.obtenerCarrera(codInstOrig, codCarreraOrig);
@@ -79,24 +98,68 @@
                  String nombCarreraDest = carreraDest.getNombreCarrera();%>
                  
                     <%-- Creamos la lista desplegable con las tablas disponibles --%>
-                    <html:option value="<%=codCarreraOrig%>"> 
+                    <html:option value="<%=codCarreraOrig%>" > 
 
-                        Equivalencias desde <%=nombCarreraOrig%> hacia <%=nombCarreraDest%>
+                       <%=nombCarreraOrig%>
                         
-                        <html:hidden property="codigoCarreraDestino" value="<%=codCarreraDest%>"/>
-                                     
+                        
                     </html:option>
                             
-                    <%}%>
-                    
+                <%}%>
+                
+  
 
                 </html:select>
+                
+                </html:form></td>
 
+                
+                               
+                <td><html:form action="/gestionTablaEquivalencia" method="POST">    
+                
+                    <html:hidden  property = "codigoInstitucionOrigen" 
+                          value    = "<%=codInstOrig%>"/>
+                          
+                    <html:hidden  property = "codigoInstitucionDestino" 
+                                  value    = "<%=codInstDest%>"/>
+                                  
+                    <html:hidden  property = "codigoCarreraOrigen" 
+                                  value    = "<%=te.getCodigoCarreraOrigen()%>"/>
+                    
+                <%if ((te != null) & (te.getCodigoCarreraOrigen() != null)) {%>
+
+                <html:select styleClass="button" property="codigoCarreraDestino">
+                    <%  String codSeleccionado = te.getCodigoCarreraOrigen();
+                        String codCarreraDestino;
+                        CarreraForm carreraDest;
+                        for (int i=0; i<listaTablas.size();i++) { %>
+
+                            <%if (listaTablas.get(i).getCodigoCarreraOrigen().equals(codSeleccionado)) {
+
+                                codCarreraDestino = listaTablas.get(i).getCodigoCarreraDestino();
+                                carreraDest = gestionCarr.obtenerCarrera(codInstDest, codCarreraDestino);%>
+
+                                <html:option value="<%=codCarreraDestino%>"> 
+
+                                    <%=carreraDest.getNombreCarrera()%>
+
+                                </html:option>
+
+                            <%}%>
+
+                        <%}%>
+                </html:select>
+                
                 <html:submit 
                     styleClass = "button" 
                     property   = "operacionTabla" 
                     value      = "Detalles">
-                </html:submit>   
+                </html:submit>
+                
+                <%}%>       
+                
+
+            </html:form> </td>
                         
             <%} else {%>
             
@@ -104,12 +167,21 @@
             
             <%}%>
             
-            <%-- Boton para ir al formulario de creacion de una tabla --%>            
+            <td><html:form action="/gestionTablaEquivalencia" method="POST">
+            
+                <html:hidden  property = "codigoInstitucionOrigen" 
+                              value    = "<%=codInstOrig%>"/>
+                          
+                <html:hidden  property = "codigoInstitucionDestino" 
+                              value    = "<%=codInstDest%>"/>
+                
+            <%-- Boton para ir al formulario de creacion de una tabla --%>
+            
             <html:submit 
                 styleClass = "button" 
                 property   = "operacionTabla" 
                 value      = "Crear_Tabla">
-            </html:submit>
+            </html:submit></td></tr></table>
             
            <br/><br/>
            <li><h2>Volver: </h2></li>
