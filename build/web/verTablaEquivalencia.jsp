@@ -28,6 +28,23 @@
     </head>
     <body>
         
+        <script type="text/javascript">
+        <%-- Función para confirmar si se desea salir --%>
+        function confirmarEliminacionEquivalencia(){
+            var confirmarE = confirm("La equivalencia sera eliminada, ¿Desea continuar?");
+            return confirmarE;       
+        }    
+            
+            
+        <%-- Función para confirmar si se desea salir --%>
+        function confirmarExit(){
+            var confirmarE = confirm("¿Desea abandonar la Sesión?");
+            return confirmarE;       
+        }
+        // -->
+        </script>
+        
+        
         <%ArrayList<EquivalenciaForm> listaEquiv = 
             ((ArrayList<EquivalenciaForm>) 
             request.getAttribute("ListaEquivalencias")); 
@@ -120,7 +137,7 @@
                 <th width="120px" rowspan="2"> Codigo Equivalencia </th>
                 <th width="500px" colspan="3"> Materias ofrecidas en la institucion de Origen </th>
                 <th width="500px" colspan="3"> Materias ofrecidas en la institucion de Destino </th>
-                <th rowspan="2"> Acción </th>
+                <th rowspan="2" colspan ="3"> Acción </th>
             </tr>
             
             <tr bgcolor="6699CC" align="center">
@@ -190,11 +207,18 @@
                     
                     <%if (j == maxNumeroMaterias - 1) {%>
                         <td><html:submit 
-                            styleClass = "button"  
+                            styleClass = "button"
+                            onclick    = "return confirmarEliminacionEquivalencia()" 
                             property   = "operacionEquivalencia" 
                             value      = "Eliminar_Equivalencia"/></td>
+                        
+                        <td><html:submit 
+                            styleClass = "button" 
+                            property   = "operacionEquivalencia" 
+                            value      = "Modificar"/></td>
                     <%} else {%>
                         <td/>
+                        <td></td>
                     <%}%>
                     
                 </tr><tr bgcolor="#F0F0F0" align="center">

@@ -126,19 +126,17 @@
         <action name="EquivalenciaForm" path="/gestionEquivalencia"
                 scope="request" type="servlets.GestionEquivalenciaAction"
                 parameter="operacionEquivalencia">
-            <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
-            <forward name="errorAddEquivalencia" path="/errorAddEquivalencia.jsp"/>
-            <forward name="addEquivalencia" path="/addEquivalencia.jsp"/>
+          <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
+          <forward name="errorAddEquivalencia" path="/errorAddEquivalencia.jsp"/>
+          <forward name="addEquivalencia" path="/addEquivalencia.jsp"/>
+          <forward name="successModifyEquivalencia" path="/successModifyEquivalencia.jsp"/>
+          <forward name="modificacionEquivalencia" path="/modificacionEquivalencia.jsp"/>
+          <forward name="errorModifyEquivalencia" path="/errorModifyEquivalencia.jsp"/>
+          <forward name="listarTablas" path="/verTablaEquivalencia.jsp"/>
           <forward name="successAddEquivalencia" path="/successAddEquivalencia.jsp"/>
 
 
         </action>
-        
-        <!--<action name="ListaAsignaturasDinamicasForm" path="/listaAsignaturasDinamicas"
-                scope="request" type="servlets.GestionEquivalenciaAction"
-                parameter="operacionEquivalencia">
-            <forward name="registrarEquivalencia" path="/newEquivalencia.jsp"/>
-        </action>-->
         
     </action-mappings>
     

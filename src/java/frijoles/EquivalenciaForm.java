@@ -32,6 +32,9 @@ public class EquivalenciaForm extends ActionForm {
         super();
     }
     
+    /* se agregan en possibleOptionsOrigen las asignaturas de origen
+     * y en possibleOptionDesitno las asignaturas de destino
+     */
     public void AdjuntarListasAsignaturas(ArrayList<AsignaturaForm> asigReqOrigen, ArrayList<AsignaturaForm> asigReqDestino) {
         // Initialise the LabelValueBeans in the possibleOptions array.
         LabelValueBean[] lvBeansOrigen  = new LabelValueBean[asigReqOrigen.size()];
@@ -61,7 +64,7 @@ public class EquivalenciaForm extends ActionForm {
         this.possibleOptionsDestino = lvBeansDestino;
     
     }
-
+    
     public LabelValueBean[] getPossibleOptionsOrigen() {
     return possibleOptionsOrigen;
     }
