@@ -50,6 +50,49 @@
         
         <% if (!listaEquiv.isEmpty()) { %>
         
+        <table><tr>
+            
+            <td>
+            <html:form action="/gestionEquivalencia" method="POST">
+            <%-- Botón para crear una nueva equivalencia --%>
+
+            <html:hidden 
+                property = "codigoInstitucionOrigen"
+                value = "<%=codInstOrig%>"/>
+
+            <html:hidden 
+                property = "codigoInstitucionDestino"
+                value = "<%=codInstDest%>"/>
+
+            <html:hidden 
+                property = "codigoCarreraOrigen"
+                value = "<%=codCarrOrig%>"/>
+
+            <html:hidden 
+                property = "codigoCarreraDestino"
+                value = "<%=codCarrDest%>"/>
+
+            <html:submit 
+                     styleClass = "button"  
+                     property   = "operacionEquivalencia" 
+                     value      = "Crear_Equivalencia"/>
+
+            <br/><br/>
+
+            </html:form></td>
+        
+        
+            <td><html:form action="/gestionTablaEquivalencia" method="POST">
+            <%-- Botón para regresar a las instituciones de las Tablas --%>
+            <html:submit 
+                     styleClass = "button"  
+                     property   = "operacionTabla" 
+                     value      = "Listar_Instituciones"/>
+
+            <br/><br/>
+
+            </html:form></td>
+        </tr></table>
         <table>
             <tr bgcolor="6699CC">
                 <th width="120px" rowspan="2"> Codigo Equivalencia </th>
@@ -114,48 +157,7 @@
         
         <%}%>
         
-        
-        <html:form action="/gestionEquivalencia" method="POST">
-        <%-- Botón para crear una nueva equivalencia --%>
-        
-        <html:hidden 
-            property = "codigoInstitucionOrigen"
-            value = "<%=codInstOrig%>"/>
-            
-        <html:hidden 
-            property = "codigoInstitucionDestino"
-            value = "<%=codInstDest%>"/>
-            
-        <html:hidden 
-            property = "codigoCarreraOrigen"
-            value = "<%=codCarrOrig%>"/>
-            
-        <html:hidden 
-            property = "codigoCarreraDestino"
-            value = "<%=codCarrDest%>"/>
-            
-        <html:submit 
-                 styleClass = "button"  
-                 property   = "operacionEquivalencia" 
-                 value      = "Crear_Equivalencia"/>
 
-        <br/><br/>
-            
-        </html:form>
-            
-            
-        <li><h2>Volver: </h2></li>
-        
-        <html:form action="/gestionTablaEquivalencia" method="POST">
-        <%-- Botón para regresar a las instituciones de las Tablas --%>
-        <html:submit 
-                 styleClass = "button"  
-                 property   = "operacionTabla" 
-                 value      = "Listar_Instituciones"/>
-
-        <br/><br/>
-        </html:form>
-        
         <%-- Enlace para salir del sistema --%>
         <html:link 
                   onclick    = "return confirmarExit()" 
