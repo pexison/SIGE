@@ -24,19 +24,24 @@
     </head>
     <body>
         
+        
+        <%-- Script auxiliar para confirmar los vinculos de retorno --%>
         <script type="text/javascript">
-        <!--
-
-        <%-- Función para verificar que los campos estén llenos --%>
-        function validarCampos() {
+        
+        
+        <%-- Función que verifica que las instituciones Orig y Dest difieran --%>
+        function verificar() {
             return true;
         }
-        
-        <%-- Función para confirmar que se desea modificar la institución --%>
-        function confirmarAccion(){
-            var confirmarM = confirm("¿Desea continuar?");
-            return confirmarM;       
-        }
+           
+            
+            
+        <%-- Funcion que pregunta si de verdad se desea abandonar la sesion --%>
+            function confirmarExit(){
+                var confirmarE = confirm("Desea abandonar la Sesion?");
+                return confirmarE;       
+            }
+        </script>
         
         // -->
         </script>

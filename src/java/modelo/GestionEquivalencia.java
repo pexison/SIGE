@@ -60,6 +60,7 @@ public class GestionEquivalencia {
           int codigoNuevo =  codigoAnterior + 1;
           
           String codigoNuevoString = ""+codigoNuevo;
+          eq.setCodigoEquivalencia(codigoNuevoString);
 
           
           String insertEquivalencia = "INSERT INTO EQUIVALENCIA VALUES ('"+

@@ -16,35 +16,64 @@
     </head>
     <body>
         <h1>¡Equivalencia agregada con éxito!</h1>
-        <html:form action="/gestionInstitucion" method="POST">
             
             <%-- Obtener el nombre de la carrera y 
                  el código de la institución --%>
 
             <% EquivalenciaForm ef = ((EquivalenciaForm) 
                request.getAttribute("EquivalenciaForm")) ;
-               String nEquivalencia = ef.getCodigoEquivalencia();%>
+            
+               String nEquivalencia = ef.getCodigoEquivalencia();
+               String codInstOrig = ef.getCodigoInstitucionOrigen();
+               String codInstDest = ef.getCodigoInstitucionDestino();
+               String codCarrOrig = ef.getCodigoCarreraOrigen();
+               String codCarrDest = ef.getCodigoCarreraDestino(); %>
                
             <center>
-               <li>Se ha agregado la equivalencia <%=nEquivalencia%></li>
-               
+               <li>Se ha agregado la equivalencia de codigo '<%=nEquivalencia%>'</li>
+               <p> Para consultar el estado actual de la tabla de equivalencia </p>
+               <p> presione el boton "Detalles" </p>
+                
                <li><h2>Volver: </h2></li>
                                   
-               <%-- Botón para volver a detalles de la institución --%>
-               <html:submit 
-                   styleClass = "button" 
-                   property   = "operacionInstitucion" 
-                   value      = "Detalle_Institucion"/>
-                   
-               <%-- Botón para volver a listar carreras --%>
-               <html:submit 
-                   styleClass = "button" 
-                   property   = "operacionInstitucion" 
-                   value      = "Listar_Carreras"/>
-
                
-            </center>
-        </html:form>
-        
+               <html:form action="/gestionTablaEquivalencia" method="POST">
+               
+                    <html:hidden  property = "codigoInstitucionOrigen" 
+                          value    = "<%=codInstOrig%>"/>
+                          
+                    <html:hidden  property = "codigoInstitucionDestino" 
+                          value    = "<%=codInstDest%>"/>
+                   
+                    <html:hidden  property = "codigoCarreraOrigen" 
+                          value    = "<%=codCarrOrig%>"/>
+                          
+                    <html:hidden  property = "codigoCarreraDestino" 
+                          value    = "<%=codCarrDest%>"/>      
+                           
+                    <%-- Botón para volver a detalles de la institución --%>
+                    <html:submit 
+                        styleClass = "button" 
+                        property   = "operacionTabla" 
+                        value      = "Listar_Instituciones"/>
+                   
+                     <%-- Botón para volver a ver las Equivalencias--%>
+                     
+                      <html:submit 
+                         styleClass = "button" 
+                         property   = "operacionTabla" 
+                         value      = "Detalles">
+                      </html:submit>   
+
+               </html:form>
+         
+               
+               <%-- Enlace para salir del sistema --%>
+               <html:link 
+                        onclick    = "return confirmarExit()" 
+                        forward    = "login">Salir
+               </html:link>
+               
+        </center>
     </body>
 </html>
