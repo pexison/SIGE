@@ -89,7 +89,10 @@
                     </html:option> 
                 <%}%>
                 
-                <%for (int i=0; i<listaTablas.size();i++) { 
+                <%
+                 ArrayList<String> listaAux = new ArrayList();
+                 
+                 for (int i=0; i<listaTablas.size();i++) { 
                  String codCarreraOrig = listaTablas.get(i).getCodigoCarreraOrigen();
                  CarreraForm carreraOrig = gestionCarr.obtenerCarrera(codInstOrig, codCarreraOrig);
                  String nombCarreraOrig = carreraOrig.getNombreCarrera();
@@ -97,13 +100,21 @@
                  CarreraForm carreraDest = gestionCarr.obtenerCarrera(codInstDest, codCarreraDest);
                  String nombCarreraDest = carreraDest.getNombreCarrera();%>
                  
+                 <%                 
+                    if (!listaAux.contains(codCarreraOrig)) { %>
+                 
                     <%-- Creamos la lista desplegable con las tablas disponibles --%>
+                    
                     <html:option value="<%=codCarreraOrig%>" > 
 
                        <%=nombCarreraOrig%>
                         
                         
                     </html:option>
+                    
+                    <% listaAux.add(codCarreraOrig); %>
+                    
+                    <%}%>
                             
                 <%}%>
                 
