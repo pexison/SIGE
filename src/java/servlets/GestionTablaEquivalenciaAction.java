@@ -136,9 +136,7 @@ public class GestionTablaEquivalenciaAction extends DispatchAction {
     throws Exception {
         
         TablaEquivalenciaForm tablaPadre = (TablaEquivalenciaForm) form;
-        
-        System.out.println("TABLAAA: "+tablaPadre.getCodigoCarreraDestino());
-        
+                
         GestionTablaEquivalencia gestion = new GestionTablaEquivalencia();
         ArrayList<EquivalenciaForm> listaEquivalencia = gestion.obtenerEquivalencias(tablaPadre);
         request.setAttribute("ListaEquivalencias", listaEquivalencia);

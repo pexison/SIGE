@@ -217,7 +217,7 @@
         
 
         <%-- Enlace para salir del sistema --%>
-        <html:link 
+        <html:link
                   onclick    = "return confirmarExit()" 
                   forward    = "login">Salir
         </html:link>
