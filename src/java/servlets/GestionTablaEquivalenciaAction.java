@@ -67,13 +67,14 @@ public class GestionTablaEquivalenciaAction extends DispatchAction {
         /* Se crean las variables necesarias */
         GestionTablaEquivalencia gt = new GestionTablaEquivalencia();
         TablaEquivalenciaForm tf = (TablaEquivalenciaForm) form;
-        String valorForward = "error";
+        String valorForward;
         /* Se elimina la tabla de equivalencia de la base de datos */
-        if (gt.eliminarTablaEquivalencia(tf)) {
-            valorForward = "successRmTablaEquivalencia";
-        } else {
-            valorForward = "errorRmTablaEquivalencia";
-        }
+        gt.eliminarTablaEquivalencia(tf);
+        ArrayList listaTablas = gt.listarTablasEquivalencia(tf.getCodigoInstitucionOrigen(),
+                                                            tf.getCodigoInstitucionDestino());
+        /* Se le fija un atributo a la lista y se hace el forwarding */
+        request.setAttribute("ListaTablas", listaTablas);
+        valorForward = "listarTablas";
         return mapping.findForward(valorForward);
     }
     
@@ -92,6 +93,7 @@ public class GestionTablaEquivalenciaAction extends DispatchAction {
                                                             tablaEquiv.getCodigoInstitucionDestino());
         /* Se le fija un atributo a la lista y se hace el forwarding */
         request.setAttribute("ListaTablas", listaTablas);
+        request.setAttribute("TablaEquivalenciaForm", tablaEquiv);
         String valorForward = "listarTablas";
         return mapping.findForward(valorForward);
     }

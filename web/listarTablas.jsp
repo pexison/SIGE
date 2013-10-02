@@ -46,19 +46,24 @@
         
             <html:form action="/gestionTablaEquivalencia" method="POST">
             
-            <% if (!listaTablas.isEmpty()) {
-            String codInstOrig = listaTablas.get(0).getCodigoInstitucionOrigen();
-            String codInstDest = listaTablas.get(0).getCodigoInstitucionDestino();
-            InstitucionForm instOrig = gestionInst.obtenerInstitucion(codInstOrig);
-            InstitucionForm instDest = gestionInst.obtenerInstitucion(codInstDest);
-            String nombreInstOrigen  = instOrig.getNombreInstitucion();
-            String nombreInstDestino  = instDest.getNombreInstitucion();%>
+            <%TablaEquivalenciaForm tf = (TablaEquivalenciaForm) 
+                    request.getAttribute("TablaEquivalenciaForm");
+            String codInstOrig = tf.getCodigoInstitucionOrigen();
+            String codInstDest = tf.getCodigoInstitucionDestino();%>    
             
             <html:hidden  property = "codigoInstitucionOrigen" 
                           value    = "<%=codInstOrig%>"/>
                           
             <html:hidden  property = "codigoInstitucionDestino" 
                           value    = "<%=codInstDest%>"/>
+            
+            <% if (!listaTablas.isEmpty()) {
+            InstitucionForm instOrig = gestionInst.obtenerInstitucion(codInstOrig);
+            InstitucionForm instDest = gestionInst.obtenerInstitucion(codInstDest);
+            String nombreInstOrigen  = instOrig.getNombreInstitucion();
+            String nombreInstDestino  = instDest.getNombreInstitucion();%>
+            
+            
             
             <p>Tablas de equivalencia desde <u><%=nombreInstOrigen%></u> hacia 
                 <u><%=nombreInstDestino%></u></p>

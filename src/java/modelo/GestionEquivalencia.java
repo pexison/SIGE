@@ -123,4 +123,33 @@ public class GestionEquivalencia {
         return res;
     }
     
+    public boolean eliminarEquivalencia(EquivalenciaForm ef) {
+        
+       boolean res = false;
+       
+       String codEquiv = ef.getCodigoEquivalencia();
+        
+       String query = "DELETE FROM INCLUYE WHERE (CODIGO_EQUIVALENCIA = '"+codEquiv+"'); ";
+       query = query + "DELETE FROM EQUIVALE WHERE (CODIGO_EQUIVALENCIA = '"+codEquiv+"'); ";
+       query = query + "DELETE FROM EQUIVALENCIA WHERE (CODIGO_EQUIVALENCIA = '"+codEquiv+"');";
+       
+       try {
+           
+           /* Se establece la conexion a la base de datos */    
+          Connection conexion = bd.establecerConexion();
+          Statement st = conexion.createStatement();  
+          st.execute(query);
+          res = true;
+          st.close();
+          bd.terminarConexion(conexion);
+           
+       } catch(Exception e) {
+            String error = 
+                   "ERROR: Problema al eliminar equivalencia a la Base de Datos.";
+            System.out.println(error);
+        }
+     
+       return res;
+    }
+    
  }

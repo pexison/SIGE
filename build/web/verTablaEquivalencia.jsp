@@ -42,20 +42,48 @@
             %>
             
 
-
-            
-            
-            
         <h1>Detalles de las equivalencias ofrecidas para la Tabla</h1>
         
-        <% if (!listaEquiv.isEmpty()) { %>
+        <html:form action="/gestionTablaEquivalencia" method="POST">
+        <%-- Botón para regresar a las instituciones de las Tablas --%>
+        
+            <html:hidden 
+                property = "codigoInstitucionOrigen"
+                value = "<%=codInstOrig%>"/>
+
+            <html:hidden 
+                property = "codigoInstitucionDestino"
+                value = "<%=codInstDest%>"/>
+
+            <html:hidden 
+                property = "codigoCarreraOrigen"
+                value = "<%=codCarrOrig%>"/>
+
+            <html:hidden 
+                property = "codigoCarreraDestino"
+                value = "<%=codCarrDest%>"/>
+        
+            <html:submit 
+                     styleClass = "button"  
+                     property   = "operacionTabla" 
+                     value      = "Listar_Instituciones"/>
+
+            <html:submit 
+                     styleClass = "button"  
+                     property   = "operacionTabla" 
+                     value      = "Eliminar_Tabla"/>
+
+            <br/><br/>
+
+        </html:form>
         
         <table><tr>
             
             <td>
             <html:form action="/gestionEquivalencia" method="POST">
             <%-- Botón para crear una nueva equivalencia --%>
-
+            
+            
             <html:hidden 
                 property = "codigoInstitucionOrigen"
                 value = "<%=codInstOrig%>"/>
@@ -76,28 +104,23 @@
                      styleClass = "button"  
                      property   = "operacionEquivalencia" 
                      value      = "Crear_Equivalencia"/>
+        
 
             <br/><br/>
 
             </html:form></td>
         
+        </tr></table>    
+            
+        <% if (!listaEquiv.isEmpty()) { %>
+         
         
-            <td><html:form action="/gestionTablaEquivalencia" method="POST">
-            <%-- Botón para regresar a las instituciones de las Tablas --%>
-            <html:submit 
-                     styleClass = "button"  
-                     property   = "operacionTabla" 
-                     value      = "Listar_Instituciones"/>
-
-            <br/><br/>
-
-            </html:form></td>
-        </tr></table>
         <table>
             <tr bgcolor="6699CC">
                 <th width="120px" rowspan="2"> Codigo Equivalencia </th>
                 <th width="500px" colspan="3"> Materias ofrecidas en la institucion de Origen </th>
                 <th width="500px" colspan="3"> Materias ofrecidas en la institucion de Destino </th>
+                <th rowspan="2"> Acción </th>
             </tr>
             
             <tr bgcolor="6699CC" align="center">
@@ -107,7 +130,29 @@
             
             <%for (int i=0; i<listaEquiv.size();i++) { 
               EquivalenciaForm equiv = listaEquiv.get(i);%>
+                
+            <html:form action="/gestionEquivalencia" method="POST"> 
               
+                <html:hidden 
+                    property = "codigoInstitucionOrigen"
+                    value = "<%=codInstOrig%>"/>
+
+                <html:hidden 
+                    property = "codigoInstitucionDestino"
+                    value = "<%=codInstDest%>"/>
+
+                <html:hidden 
+                    property = "codigoCarreraOrigen"
+                    value = "<%=codCarrOrig%>"/>
+
+                <html:hidden 
+                    property = "codigoCarreraDestino"
+                    value = "<%=codCarrDest%>"/>
+                    
+                <html:hidden 
+                    property = "codigoEquivalencia"
+                    value = "<%=equiv.getCodigoEquivalencia()%>"/>
+                    
                 <%ArrayList<AsignaturaForm> asignaturasOrigen = equiv.getAsignaturasOrigen();
                     AsignaturaForm asigActual;%>
                     
@@ -142,11 +187,23 @@
                     <%} else {%>
                     <td/><td/><td/>
                     <%}%>
-
+                    
+                    <%if (j == maxNumeroMaterias - 1) {%>
+                        <td><html:submit 
+                            styleClass = "button"  
+                            property   = "operacionEquivalencia" 
+                            value      = "Eliminar_Equivalencia"/></td>
+                    <%} else {%>
+                        <td/>
+                    <%}%>
+                    
                 </tr><tr bgcolor="#F0F0F0" align="center">
                 <%}%>
                 </tr>
                 
+                
+                
+                </html:form>
                 
             <%}%>
         <table>
@@ -156,6 +213,7 @@
             <p>No hay equivalencias disponibles para esta tabla</p>
         
         <%}%>
+        
         
 
         <%-- Enlace para salir del sistema --%>

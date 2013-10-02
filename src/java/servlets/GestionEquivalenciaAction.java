@@ -68,5 +68,20 @@ public class GestionEquivalenciaAction extends DispatchAction {
          return mapping.findForward(forward);
          
     }
+     
+    public ActionForward Eliminar_Equivalencia(ActionMapping mapping,
+                                     ActionForm form,
+                                     HttpServletRequest request,
+                                     HttpServletResponse response) 
+    throws Exception {
+        
+        String valorForward = "listarTablas";
+        EquivalenciaForm ef = (EquivalenciaForm) form;
+        GestionEquivalencia ge = new GestionEquivalencia();
+        
+        ge.eliminarEquivalencia(ef);
+        
+        return mapping.findForward(valorForward);
+    }
   
 }

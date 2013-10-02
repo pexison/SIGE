@@ -80,12 +80,47 @@ public class GestionTablaEquivalencia {
                        "') AND (CODIGO_CARRERA_DEST = '"+
                        tf.getCodigoCarreraDestino()+"')";
         
+        String queryEquivalencia = "DELETE FROM EQUIVALENCIA WHERE"+
+                       " (CODIGO_INSTITUCION_ORIG = '"+
+                       tf.getCodigoInstitucionOrigen()+
+                       "') AND (CODIGO_CARRERA_ORIG = '"+
+                       tf.getCodigoCarreraOrigen()+
+                       "') AND (CODIGO_INSTITUCION_DEST = '"+
+                       tf.getCodigoInstitucionDestino()+
+                       "') AND (CODIGO_CARRERA_DEST = '"+
+                       tf.getCodigoCarreraDestino()+"')";
+        
+        String queryEquivale = "DELETE FROM EQUIVALE WHERE"+
+                       " (CODIGO_INSTITUCION_ORIG = '"+
+                       tf.getCodigoInstitucionOrigen()+
+                       "') AND (CODIGO_CARRERA_ORIG = '"+
+                       tf.getCodigoCarreraOrigen()+
+                       "') AND (CODIGO_INSTITUCION_DEST = '"+
+                       tf.getCodigoInstitucionDestino()+
+                       "') AND (CODIGO_CARRERA_DEST = '"+
+                       tf.getCodigoCarreraDestino()+"')";
+        
+        String queryIncluye = "DELETE FROM INCLUYE WHERE"+
+                       " (CODIGO_INSTITUCION_ORIG = '"+
+                       tf.getCodigoInstitucionOrigen()+
+                       "') AND (CODIGO_CARRERA_ORIG = '"+
+                       tf.getCodigoCarreraOrigen()+
+                       "') AND (CODIGO_INSTITUCION_DEST = '"+
+                       tf.getCodigoInstitucionDestino()+
+                       "') AND (CODIGO_CARRERA_DEST = '"+
+                       tf.getCodigoCarreraDestino()+"')";
+        
         try {
             /* Se establece conexion con la base de datos */
             Connection conexion = bd.establecerConexion();
             Statement st = conexion.createStatement();
             /* Se ejecuta el query */
+            st.execute(queryEquivale);
+            st.execute(queryIncluye);
+            st.execute(queryEquivalencia);
+            //RIKITI
             st.execute(query);
+            
             st.close();
             /* Se tuvo exito al ejecutar el query, cambiamos resultado a true */
             res = true;
