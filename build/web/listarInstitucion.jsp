@@ -97,8 +97,18 @@
 
             
         </html:form>
+            
         
         <li><h2>Volver:</h2></li>
+        
+        <html:form action="/validar" method="POST">
+            <html:hidden property="operacionValidar" value="retornar" />
+            <html:submit
+                styleClass   =   "button"
+                property     =   "submit" 
+                value        =   "Atrás"/>                
+
+        </html:form>
         
         <%-- Link para abandonar al sistema. --%>
         <html:link onclick="return confirmarExit()" forward="login">Salir</html:link>

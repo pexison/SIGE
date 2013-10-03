@@ -42,7 +42,7 @@
                             <%-- Botón para validar los datos ingresados --%>
                             <html:submit
                                 styleClass   =   "button"
-                                property     =   "submit" 
+                                property     =   "operacionValidar" 
                                 value        =   "Validar"/>
 
                             <%--&nbsp; &nbsp;--%>

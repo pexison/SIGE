@@ -45,11 +45,12 @@
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         
         <action name="ValidacionForm" path="/validar"
-            scope="request" type="servlets.ValidarAction">
+            scope="request" type="servlets.ValidarAction"
+            parameter="operacionValidar">
             <forward name="bienvenida" path="/bienvenida.jsp"/>
             <forward name="errorLogin" path="/errorLogin.jsp"/>
         </action>
-        
+           
         <action name="RegistroForm" path="/registrar"
             scope="request" type="servlets.RegistrarAction">
             <forward name="successRegister" path="/successRegister.jsp"/>
