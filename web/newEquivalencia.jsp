@@ -147,7 +147,30 @@
                                   value    = "<%=codigoCarrDestino%>"/>
             
             </html:form>
-       </center>      
+       </center>
+    
+        <li><h2>Volver:</h2></li>
+        <html:form action="/gestionTablaEquivalencia" method="POST">
+            <html:hidden  property = "codigoInstitucionOrigen" 
+                            value    = "<%=codigoInstOrigen%>"/>
+
+            <html:hidden  property = "codigoInstitucionDestino" 
+                            value    = "<%=codigoInstDestino%>"/>
+            
+            <html:hidden  property = "codigoCarreraOrigen" 
+                            value    = "<%=codigoCarrOrigen%>"/>
+                            
+            <html:hidden  property = "codigoCarreraDestino" 
+                            value    = "<%=codigoCarrDestino%>"/>
+                            
+            <html:hidden property="operacionTabla" value="Detalles" />
+            
+            
+            <html:submit 
+                styleClass   =   "button"
+                property     =   "submit"
+                value        =   "Volver a los detalles de la tabla"/>           
+        </html:form>
     </body>
     
     

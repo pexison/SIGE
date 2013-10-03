@@ -47,7 +47,7 @@
         <html:submit 
             styleClass   =   "button"
             property     =   "submit"
-            value        =   "Gestionar Tablas"/>
+            value        =   "Gestionar Tablas de Equivalencia"/>
     </html:form>
                 
      <li><h2>Volver: </h2></li> 

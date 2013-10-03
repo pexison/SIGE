@@ -38,18 +38,15 @@
             
         <%-- Funcion que pregunta si de verdad se desea abandonar la sesion --%>
             function confirmarExit(){
-                var confirmarE = confirm("Desea abandonar la Sesion?");
+                var confirmarE = confirm("¿Desea abandonar la Sesión?");
                 return confirmarE;       
             }
         </script>
         
-        // -->
         </script>
         
-        <html:form action="/gestionTablaEquivalencia" method="POST">   
-           
         <%TablaEquivalenciaForm teq = 
-                ((TablaEquivalenciaForm)request.getAttribute("TablaEquivalenciaForm"));
+        ((TablaEquivalenciaForm)request.getAttribute("TablaEquivalenciaForm"));
         
           String codInstOrig = teq.getCodigoInstitucionOrigen(); 
           String codInstDest= teq.getCodigoInstitucionDestino();
@@ -63,6 +60,8 @@
           String nombreInstOrigen  = instOrig.getNombreInstitucion();
           String nombreInstDestino = instDest.getNombreInstitucion();%>
         
+        <html:form action="/gestionTablaEquivalencia" method="POST">   
+ 
           
           <html:hidden  property = "codigoInstitucionOrigen" 
                         value    = "<%=codInstOrig%>"/>
@@ -110,7 +109,7 @@
 
         </tr></table>
                 
-               <br><br><br><br><br><br/><br/><br/><br/><br/>
+               <br><br><br><br/><br/><br/>
                 <center>
                     <html:hidden property="operacionTabla" value="Agregar" />
                                         
@@ -120,8 +119,25 @@
                         value        =   "Agregar Tabla de Equivalencia"/>
                 </center>
                             
-        </html:form>       
-    
+        </html:form> 
+        
+        <br/><br/>
+        <li><h2>Volver: </h2></li>
+        <html:form action="/gestionTablaEquivalencia" method="POST">
+            <html:hidden  property = "codigoInstitucionOrigen" 
+                            value    = "<%=codInstOrig%>"/>
+
+            <html:hidden  property = "codigoInstitucionDestino" 
+                            value    = "<%=codInstDest%>"/>
+                            
+            <html:hidden property="operacionTabla" value="Listar_Tablas" />
+            
+            
+            <html:submit 
+                styleClass   =   "button"
+                property     =   "submit"
+                value        =   "Listar Tablas"/>           
+        </html:form>
     </body>
     
 </html>

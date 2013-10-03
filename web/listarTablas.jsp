@@ -62,9 +62,12 @@
             String nombreInstOrigen  = instOrig.getNombreInstitucion();
             String nombreInstDestino  = instDest.getNombreInstitucion();%>
             
-            <p>Tablas de equivalencia desde <u><%=nombreInstOrigen%></u> hacia 
-                <u><%=nombreInstDestino%></u></p>
+            <center><h1> Tablas de Equivalencia </h1>
             
+            <p>Equivalencias desde la institución <b><%=nombreInstOrigen%></b> hacia
+               la institución <b><%=nombreInstDestino%></b></p>
+            </center>
+    
             <table><tr><td>
             <html:form action="/gestionTablaEquivalencia" method="POST">
             
@@ -85,7 +88,7 @@
                 <html:select styleClass="button" property="codigoCarreraOrigen" onchange="execute(this.form)">
                 
                 <%if (te.getCodigoCarreraOrigen()==null) {%>    
-                    <html:option value="ninguno"> -- Seleccione la Carrera de Origen -- 
+                    <html:option value="<%=listaTablas.get(0).getCodigoCarreraOrigen()%>"> -- Seleccione la Carrera de Origen -- 
                     </html:option> 
                 <%}%>
                 

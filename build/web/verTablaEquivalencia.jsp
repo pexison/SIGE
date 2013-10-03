@@ -29,13 +29,25 @@
     <body>
         
         <script type="text/javascript">
-        <%-- Función para confirmar si se desea salir --%>
+        <%-- Función para confirmar si se desea eliminar la equivalencia --%>
         function confirmarEliminacionEquivalencia(){
-            var confirmarE = confirm("La equivalencia sera eliminada, ¿Desea continuar?");
+            var confirmarE = confirm("La equivalencia será eliminada, ¿Desea continuar?");
             return confirmarE;       
         }    
             
-            
+        <%-- Función para confirmar si se desea eliminar la tabla de equivalencia --%>
+        function confirmarEliminacionTablaEquivalencia(){
+            var confirmarE = confirm("La Tabla de Equivalencia actual será eliminada, ¿Desea continuar?");
+            return (confirmarE && confirmarEliminacionTablaEquivalenciaAux());       
+        }        
+    
+        <%-- Función para confirmar si se desea eliminar la tabla de equivalencia --%>
+        function confirmarEliminacionTablaEquivalenciaAux(){
+            var confirmarE = confirm("Está a punto de eliminar la tabla y todas sus equivalencias. ¿Continuar?");
+            return confirmarE;       
+        }        
+    
+    
         <%-- Función para confirmar si se desea salir --%>
         function confirmarExit(){
             var confirmarE = confirm("¿Desea abandonar la Sesión?");
@@ -83,10 +95,11 @@
             <html:submit 
                      styleClass = "button"  
                      property   = "operacionTabla" 
-                     value      = "Listar_Instituciones"/>
+                     value      = "Listar_Tablas"/>
 
             <html:submit 
                      styleClass = "button"  
+                     onclick    = "return confirmarEliminacionTablaEquivalencia()"
                      property   = "operacionTabla" 
                      value      = "Eliminar_Tabla"/>
 

@@ -55,11 +55,16 @@
             <html:form action="/gestionTablaEquivalencia" method="POST">
             
                 
-                <table><tr>
+                <table>
+                    
+                    <% if (!listaInst.isEmpty()) { %>
+                    
+                    <th> Seleccione la institución de Origen </th>
+                    <th> Seleccione la institución de Destino </th>
+                    <th>  </th>
+                    <tr>
                     
                     <td>
-                        
-                        <p>Seleccione la institución de Origen:</p>
                         
                         <html:select styleClass="button" property="codigoInstitucionOrigen" >
 
@@ -77,7 +82,7 @@
                         
                     <td>
                         
-                        <p>Seleccione la institución de Destino:</p>
+                        
                         
                         <html:select styleClass="button" property="codigoInstitucionDestino" >
 
@@ -91,10 +96,9 @@
 
 
                         </html:select>
-                    </td>
-                </tr></table>
-            
-                <center>
+                        
+                    </td><td>
+                            
                     <html:hidden property="operacionTabla" value="Listar_Tablas" />
                                         
                     <html:submit 
@@ -102,7 +106,17 @@
                         onclick      =   "return verificarInstitucionesDifentes()"
                         property     =   "submit"
                         value        =   "Mostrar Tablas de Equivalencia"/>
-                </center>
+
+                    </td></tr></table>
+                    <% } else { %>
+                    
+                        <li><p>No hay instituciones registradas. Por favor, diríjase a la
+                               sección de gestión de instituciones para añadirlas. </p></li>
+                    
+                    <%}%>
+                
+            
+                
             </html:form>
             
             
