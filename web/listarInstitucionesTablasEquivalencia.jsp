@@ -17,9 +17,11 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SEA - Gestión de Tablas de Equivalencia</title>
+        <title>SIGE - Gestión de Tablas de Equivalencias</title>
     </head>
     <body>
+        
+    <center><h1>Gestión de Tablas de Equivalencia</h1></center>
         
         <%-- Script auxiliar para confirmar los vinculos de retorno --%>
         <script type="text/javascript">

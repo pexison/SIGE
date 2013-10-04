@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Detalles de Carrera</title>
+        <title>SIGE - Detalles de Carrera</title>
     </head>
     <body>
         

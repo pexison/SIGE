@@ -20,7 +20,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SEA - Registrar Tabla de Equivalencia</title>
+        <title>SIGE - Registrar Tabla de Equivalencias</title>
     </head>
     <body>
         

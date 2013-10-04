@@ -13,7 +13,7 @@ Document   : errorRmInstitucion
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-        <title>Error</title>
+        <title>SIGE - Error al ver la institución</title>
     </head>
      <body>
      <center>

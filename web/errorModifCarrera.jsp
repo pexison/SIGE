@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Error</title>
+        <title>SIGE - Error al modificar la carrera</title>
     </head>
     <body>
         <h1>Error al modificar carrera</h1>

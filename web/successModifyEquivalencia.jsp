@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Equivalencia modificada con éxito</title>
+        <title>SIGE - Equivalencia modificada con éxito</title>
     </head>
     <body>
         <h1>¡Equivalencia modificada con éxito!</h1>

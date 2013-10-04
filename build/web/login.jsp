@@ -13,11 +13,11 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-        <title>Login</title>
+        <title>SIGE</title>
     </head>
     <body>
         <center>
-            <h1>SEA - Sistema de Equivalencias Automatizado</h1>
+            <h1>SIGE - Sistema de Gestión de Equivalencias</h1>
             <html:form action="/validar" method="POST">
                 <table>
                     <tr>

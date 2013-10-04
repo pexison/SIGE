@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Asignatura eliminada con éxito</title>
+        <title>SIGE - Asignatura eliminada con éxito</title>
     </head>
     <body>
         <h1>¡Asignatura eliminada con éxito!</h1>

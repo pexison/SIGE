@@ -17,7 +17,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SEA - Gestión de Tablas de Equivalencia</title>
+        <title>SIGE - Gestión de Tablas de Equivalencia</title>
     </head>
     
     <body>
@@ -40,6 +40,7 @@
             }
         </script>
         
+    <center><h1> Tablas de Equivalencia </h1></center>
         
         
         <%ArrayList<TablaEquivalenciaForm> listaTablas = 
@@ -62,7 +63,7 @@
             String nombreInstOrigen  = instOrig.getNombreInstitucion();
             String nombreInstDestino  = instDest.getNombreInstitucion();%>
             
-            <center><h1> Tablas de Equivalencia </h1>
+            <center>
             
             <p>Equivalencias desde la institución <b><%=nombreInstOrigen%></b> hacia
                la institución <b><%=nombreInstDestino%></b></p>

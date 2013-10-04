@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
-        <title>Institución Agregada.</title>
+        <title>SIGE - Institución Agregada</title>
     </head>
     <body>
         <h1>La institución se agregó con éxito</h1>

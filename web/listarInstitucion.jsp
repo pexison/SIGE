@@ -19,7 +19,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SEA - Gestión de Instituciones</title>
+        <title>SIGE - Gestión de Instituciones</title>
         
     </head>
      <body>

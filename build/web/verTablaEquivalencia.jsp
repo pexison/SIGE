@@ -24,7 +24,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SEA - Gestión de Tablas de Equivalencia</title>
+        <title>SIGE - Gestión de Tablas de Equivalencia</title>
     </head>
     <body>
         

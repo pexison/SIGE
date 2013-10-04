@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-        <title>SEA - Tabla de Equivalencia registrada con éxito</title>
+        <title>SIGE - Tabla de Equivalencias registrada con éxito</title>
     </head>
     <body>
         

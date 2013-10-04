@@ -16,7 +16,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Carrera modificada con éxito</title>
+        <title>SIGE - Carrera modificada con éxito</title>
     </head>
     
     <body>

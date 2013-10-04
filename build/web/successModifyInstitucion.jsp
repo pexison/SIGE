@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - La institución fue modificada con éxito</title>
+        <title>SIGE - La institución fue modificada con éxito</title>
     </head>
     <body>
         

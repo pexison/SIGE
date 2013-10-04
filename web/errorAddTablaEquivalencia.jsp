@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-        <title>SEA - Error al agregar la Tabla de Equivalencia</title>
+        <title>SIGE - Error al agregar la Tabla de Equivalencia</title>
     </head>
     <body>
         

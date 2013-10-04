@@ -14,7 +14,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
-        <title>SEA - Asignaturas Requeridas</title>
+        <title>SIGE - Asignaturas Requeridas</title>
     </head>
     <body>
          <%-- Script auxiliar para las diversas confirmaciones --%>

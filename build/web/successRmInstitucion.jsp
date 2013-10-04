@@ -11,7 +11,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Institución eliminada exitosamente</title>
+        <title>SIGE - Institución eliminada exitosamente</title>
     </head>
     <body>
         <h1>La institución se eliminó con éxito.</h1>

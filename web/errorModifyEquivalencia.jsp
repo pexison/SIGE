@@ -18,7 +18,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Equivalencia no fue modificada con éxito</title>
+        <title>SIGE - Error al modificar la equivalencia</title>
     </head>
     <body>
         <h1>Error. No fue posible modificar la equivalencia.</h1>

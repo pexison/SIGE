@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>SIGE - Bienvenida</title>
     </head>
     
     <script type="text/javascript">
@@ -33,6 +33,7 @@
     <html:form action="/gestionInstitucion" method="POST">
 
         <%-- Botón para ir a la página de Gestionar Instituciones --%>
+        <h3>  ¿Usted desea gestionar instituciones? </h3>
         <html:hidden property="operacionInstitucion" value="Listar_Instituciones" />
         <html:submit 
             styleClass   =   "button"
@@ -43,6 +44,7 @@
     <html:form action="/gestionTablaEquivalencia" method="POST">
 
         <%-- Botón para ir a la página de Gestionar Tablas --%>
+        <h3>  ¿Usted desea gestionar tablas de equivalencias? </h3>        
         <html:hidden property="operacionTabla" value="Listar_Instituciones" />
         <html:submit 
             styleClass   =   "button"

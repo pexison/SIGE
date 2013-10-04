@@ -12,7 +12,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEA - Carrera registrada con éxito</title>
+        <title>SIGE - Carrera registrada con éxito</title>
     </head>
     <body>
         <h1>¡Carrera agregada con éxito!</h1>

@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    
-        <title>Registrar Institución</title>
+        <title>SIGE - Registrar Institución</title>
     </head>
     <body>
         
