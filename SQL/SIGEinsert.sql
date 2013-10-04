@@ -1,0 +1,857 @@
+INSERT INTO TIPO_USUARIO VALUES ('Administrador');
+
+INSERT INTO USUARIO VALUES
+    ('USUARIO', 'claveusuario', 'USUARIO', 'USUARIO', 'admin@usb.ve', 'Administrador');
+
+INSERT INTO INSTITUCION VALUES
+    ('USB107', 'Universidad Simon Bolivar', 'Sartenejas', 'Venezuela'),
+    ('UCAB132', 'Universidad Catolica Andres Bello', 'Montalban', 'Venezuela'),
+    ('UCV106', 'Universidad Central de Venezuela', 'Plaza Venezuela', 'Venezuela'),
+    ('UNIMET131', 'Universidad Metropolitana', 'Final Avenida Boyaca', 'Venezuela'),
+    ('USM133', 'Universidad Santa Maria', 'Miranda', 'Venezuela'),
+    ('LUZ277', 'Universidad de Zulia', 'Maracaibo', 'Venezuela'),
+    ('ULA198', 'Universidad de Los Andes', 'Merida', 'Venezuela'),
+    ('UC003', 'Universidad de Carabobo', 'Valencia', 'Venezuela'),
+    ('UJAP15', 'Universidad Privada Jose Antonio Paez', 'Valencia', 'Venezuela'),
+    ('UNEFA129', 'Universidad Nacional Experimental', 'Chuao', 'Venezuela');
+    
+INSERT INTO CARRERA VALUES
+
+   -- Carreras USB
+    ('0100', 'USB107', 'Ingenieria Electrica'),
+    ('0200', 'USB107', 'Ingenieria Mecanica'),
+    ('0300', 'USB107', 'Ingenieria Quimica'),
+    ('0600', 'USB107', 'Ingenieria Electronica'),
+    ('1500', 'USB107', 'Ingenieria Materiales'),
+    ('0800', 'USB107', 'Ingenieria en Computacion'),
+    ('1700', 'USB107', 'Ingenieria de Produccion'),
+    
+   -- Carreras UCAB
+    ('10134', 'UCAB132', 'Ingenieria Civil'),
+    ('10132', 'UCAB132', 'Ingenieria en Telecomunicaciones'),
+    ('10133', 'UCAB132', 'Ingenieria Industrial'),
+    ('10131', 'UCAB132', 'Ingenieria en Informatica'),
+    
+   -- Carreras UCV
+    ('10004', 'UCV106', 'Ingenieria Geofisica'),
+    ('10011', 'UCV106', 'Computacion'),
+    ('10012', 'UCV106', 'Ingenieria Electrica'),
+    ('10013', 'UCV106', 'Ingenieria Mecanica'),
+    ('10014', 'UCV106', 'Ingenieria Quimica'),
+    
+   -- Carreras UNIMET
+   ('10168', 'UNIMET131', 'Ingenieria de Sistemas'),
+   ('10169', 'UNIMET131', 'Ingenieria Electrica'),
+   ('10170', 'UNIMET131', 'Ingenieria Mecanica'),
+   ('10171', 'UNIMET131', 'Ingenieria Quimica'),
+   ('10172', 'UNIMET131', 'Ingenieria Civil'),
+   ('13089', 'UNIMET131', 'Ingenieria de Produccion'),
+   
+   -- Carreras USM
+   ('10154', 'USM133', 'Ingenieria de Sistemas'),
+   ('10156', 'USM133', 'Ingenieria Industrial'),
+   ('10157', 'USM133', 'Ingenieria Civil'),
+   ('13345', 'USM133', 'Ingenieria de Telecomunicaciones'),
+   
+   -- Carreras LUZ 
+   ('10467', 'LUZ277', 'Computacion'),
+   ('10468', 'LUZ277', 'Ingenieria Electrica'),
+   ('10469', 'LUZ277', 'Ingenieria Mecanica'),
+   ('10470', 'LUZ277', 'Ingenieria Quimica'),
+   
+   -- Carreras ULA 
+   ('10548', 'ULA198', 'Ingenieria de Sistemas'),
+   ('10549', 'ULA198', 'Ingenieria Electrica'),
+   ('10550', 'ULA198', 'Ingenieria Mecanica'),
+   ('10551', 'ULA198', 'Ingenieria Quimica'),
+   
+   -- Carreras UC
+   ('10244', 'UC003', 'Computacion'),
+   ('10245', 'UC003', 'Ingenieria Electrica'),
+   ('13826', 'UC003', 'Ingenieria de Telecomunicaciones'),
+   
+   -- Carreras UJAP 
+   ('10325', 'UJAP15', 'Ingenieria en Computacion'),
+   ('10326', 'UJAP15', 'Ingenieria Electronica'),
+   ('10891', 'UJAP15', 'Ingenieria en Telecomunicaciones'),
+      
+   -- Carreras UNEFA 
+   ('10125', 'UNEFA129', 'Ingenieria de Sistemas'),
+   ('10126', 'UNEFA129', 'Ingenieria Civil'),
+   ('13331', 'UNEFA129', 'Ingenieria Electronica');
+
+
+INSERT INTO ASIGNATURA VALUES
+
+   -- Ciclo Basico USB
+      -- Matematicas
+    ('USB107', 'MA1111', 'Matematicas I', 4),
+    ('USB107', 'MA1112', 'Matematicas II', 4),
+    ('USB107', 'MA1116', 'Matematicas III', 4),
+    ('USB107', 'MA2115', 'Matematicas IV', 4),
+    ('USB107', 'MA2112', 'Matematicas V', 4),
+    ('USB107', 'MA2113', 'Matematicas VI', 4),
+    ('USB107', 'MA3111', 'Matematicas VII', 4),
+    
+      -- Lenguajes
+    ('USB107', 'LLA111', 'Lenguaje I',3),
+    ('USB107', 'LLA112', 'Lenguaje II',3),
+    ('USB107', 'LLA113', 'Lenguaje III',3),
+    
+      -- Sociales
+    ('USB107', 'CSA211', 'Sociales I',3),
+    ('USB107', 'CSA212', 'Sociales II',3),
+    ('USB107', 'CSA213', 'Sociales III',3),
+    
+    -- Ingles
+    ('USB107', 'ID1111', 'Ingles I', 3),
+    ('USB107', 'ID1112', 'Ingles II', 3),
+    ('USB107', 'ID1113', 'Ingles III', 3),
+    
+    
+      -- Fisica    
+    ('USB107', 'FS1111', 'Fisica I', 3),
+    ('USB107', 'FS1112', 'Fisica II', 3),
+    ('USB107', 'FS2211', 'Fisica III', 3),
+    ('USB107', 'FS2212', 'Fisica IV', 3),
+    ('USB107', 'FS2213', 'Fisica V', 3),
+    
+      -- Materias Quimica
+    ('USB107', 'QM1121', 'Quimica General I', 4),
+    ('USB107', 'QM1122', 'Quimica General II', 4),
+    ('USB107', 'QM1123', 'Quimica General III', 4),
+
+    ('USB107', 'FS2181', 'Lab. Fisica I', 2),
+    ('USB107', 'FS2281', 'Lab. Fisica II', 4),
+    ('USB107', 'TF1312', 'Principios de Ingenieria Quimica', 4),
+    ('USB107', 'QM1181', 'Lab. Quimica General I', 2),
+    ('USB107', 'QM1182', 'Lab. Quimica General II', 2),
+    
+    ('USB107', 'QM2421', 'Quimica Organica I', 4),   
+    ('USB107', 'QM2422', 'Quimica Organica II', 4),    
+    
+    ('USB107', 'TF1121', 'Termodinamica I', 4),
+    ('USB107', 'TF2323', 'Termodinamica II', 4),
+    ('USB107', 'TF2126', 'Termodinamica III', 4),
+    
+    
+      -- Materias Computacion
+    ('USB107', 'CI2511', 'Logica Simbolica', 4),
+    ('USB107', 'CI2525', 'Estructuras Disctretas I', 4),
+    ('USB107', 'CI2526', 'Estructuras Disctretas II', 4),
+    ('USB107', 'CI2527', 'Estructuras Disctretas III', 4),
+    ('USB107', 'CI2611', 'Algoritmos y Estructuras I', 3),
+    ('USB107', 'CI2612', 'Algoritmos y Estructuras II', 3),            
+    ('USB107', 'CI2613', 'Algoritmos y Estructuras III', 3),
+    ('USB107', 'CI2691', 'Lab. Algoritmos y Estructuras I', 2),
+    ('USB107', 'CI2692', 'Lab. Algoritmos y Estructuras II', 2),            
+    ('USB107', 'CI2693', 'Lab. Algoritmos y Estructuras III', 2),   
+    ('USB107', 'CI3815', 'Organizacion del Computador', 5),
+    ('USB107', 'CI3825', 'Sistemas de Operacion I', 5),
+    ('USB107', 'CI3311', 'Sistemas de Base de Datos I', 3),
+    ('USB107', 'CI3391', 'Lab. Sistemas de Base de Datos I', 2),    
+    ('USB107', 'PS1115', 'Sistemas de Informacion I', 4),
+    
+    
+    -- Materias UCAB
+      -- Materias Generales
+    ('UCAB132', '10401', 'Calculo I', 7),
+    ('UCAB132', '20401', 'Calculo II', 6),
+    ('UCAB132', '30401', 'Calculo III', 5),
+    ('UCAB132', '40401', 'Calculo IV', 4),
+    ('UCAB132', '00401', 'Trigonometria', 3),
+    
+    ('UCAB132', '00403', 'Lengua y Comunicacion', 4),    
+    ('UCAB132', '10402', 'Humanidades I', 2),
+    ('UCAB132', '20405', 'Humanidades II', 2),
+    ('UCAB132', '30406', 'Humanidades III', 2),
+    ('UCAB132', '20402', 'Fisica General I', 5),
+    ('UCAB132', '30402', 'Fisica General II', 5),
+    
+      -- Materias Informatica    
+    ('UCAB132', '00402', 'Matematica Basica', 6),
+    ('UCAB132', '00407', 'Introduccion a la Informatica', 4),
+    ('UCAB132', '10405', 'Logica Computacional', 4),
+    ('UCAB132', '10403', 'Algoritmos y Programacion I', 5),
+    ('UCAB132', '20404', 'Algoritmos y Programacion II', 5),   
+    ('UCAB132', '30404', 'Algoritmos y Programacion III', 5),         
+    
+    ('UCAB132', '50403', 'Sistemas de Base de Datos I', 4),
+    ('UCAB132', '50405', 'Arquitectura del Computador', 5),
+    ('UCAB132', '40403', 'Sistemas de Operacion', 4),
+    
+    -- Materias LUZ
+      -- Materias Quimica      
+    ('LUZ277', '200101', 'Calculo I', 5),
+    ('LUZ277', '200104', 'Calculo II', 5),
+    ('LUZ277', '200105', 'Calculo III', 5),
+    ('LUZ277', '200106', 'Calculo IV', 5),
+    ('LUZ277', '200103', 'Geometria', 5),
+    ('LUZ277', '200102', 'Algebra Lineal', 5),
+    
+    ('LUZ277', '200301', 'Quimica I', 6),
+    ('LUZ277', '200302', 'Quimica II', 6),
+    ('LUZ277', '250311', 'Quimica Organica I', 6),
+    ('LUZ277', '250312', 'Quimica Organica II', 6),
+    
+    ('LUZ277', '200408', 'Ingles I', 4),
+    ('LUZ277', '200409', 'Ingles II', 4),
+    
+    ('LUZ277', '200201', 'Fisica I', 8),
+    ('LUZ277', '200202', 'Fisica II', 8),
+    
+    ('LUZ277', '290002', 'Programacion', 4),
+    ('LUZ277', '280101', 'Estadistica', 5),
+    
+    ('LUZ277', '250203', 'Termodinamica I', 5),
+    ('LUZ277', '250206', 'Termodinamica II', 5),
+    
+    ('LUZ277', '250208', 'Fisico-Quimica', 4);
+    
+    
+INSERT INTO REQUIERE VALUES
+
+   -- USB
+   -- Matematicas
+   ('MA1111', 'USB107', '0100'),
+   ('MA1111', 'USB107', '0200'),
+   ('MA1111', 'USB107', '0300'),   
+   ('MA1111', 'USB107', '0800'),
+   ('MA1111', 'USB107', '0600'),
+   ('MA1111', 'USB107', '1500'),
+   ('MA1111', 'USB107', '1700'),
+   
+   ('MA1112', 'USB107', '0100'),
+   ('MA1112', 'USB107', '0200'),
+   ('MA1112', 'USB107', '0300'),   
+   ('MA1112', 'USB107', '0800'),
+   ('MA1112', 'USB107', '0600'),
+   ('MA1112', 'USB107', '1500'),
+   ('MA1112', 'USB107', '1700'),
+   
+   ('MA1116', 'USB107', '0100'),
+   ('MA1116', 'USB107', '0200'),
+   ('MA1116', 'USB107', '0300'),   
+   ('MA1116', 'USB107', '0800'),
+   ('MA1116', 'USB107', '0600'),
+   ('MA1116', 'USB107', '1500'),
+   ('MA1116', 'USB107', '1700'), 
+ 
+   ('MA2115', 'USB107', '0100'),
+   ('MA2115', 'USB107', '0200'),
+   ('MA2115', 'USB107', '0300'),   
+   ('MA2115', 'USB107', '0800'),
+   ('MA2115', 'USB107', '0600'),
+   ('MA2115', 'USB107', '1500'),
+   ('MA2115', 'USB107', '1700'),
+   
+   ('MA2112', 'USB107', '0100'),
+   ('MA2112', 'USB107', '0200'),
+   ('MA2112', 'USB107', '0300'),   
+   ('MA2112', 'USB107', '0800'),
+   ('MA2112', 'USB107', '0600'),
+   ('MA2112', 'USB107', '1500'),
+   ('MA2112', 'USB107', '1700'),   
+   
+   ('MA2113', 'USB107', '0100'),
+   ('MA2113', 'USB107', '0200'),
+   ('MA2113', 'USB107', '0300'),   
+   ('MA2113', 'USB107', '0600'),
+   ('MA2113', 'USB107', '1500'),
+   ('MA2113', 'USB107', '1700'),   
+   
+   ('MA3111', 'USB107', '0100'),
+   ('MA3111', 'USB107', '0200'),
+   ('MA3111', 'USB107', '0300'),   
+   ('MA3111', 'USB107', '0600'),
+   ('MA3111', 'USB107', '1500'),
+   ('MA3111', 'USB107', '1700'),   
+   
+   -- Ciclo Basico
+   -- Lenguajes
+   ('LLA111', 'USB107', '0100'),
+   ('LLA111', 'USB107', '0200'),
+   ('LLA111', 'USB107', '0300'),   
+   ('LLA111', 'USB107', '0800'),
+   ('LLA111', 'USB107', '0600'),
+   ('LLA111', 'USB107', '1500'),
+   ('LLA111', 'USB107', '1700'),   
+   
+   ('LLA112', 'USB107', '0100'),
+   ('LLA112', 'USB107', '0200'),
+   ('LLA112', 'USB107', '0300'),   
+   ('LLA112', 'USB107', '0800'),
+   ('LLA112', 'USB107', '0600'),
+   ('LLA112', 'USB107', '1500'),
+   ('LLA112', 'USB107', '1700'), 
+      
+   ('LLA113', 'USB107', '0100'),
+   ('LLA113', 'USB107', '0200'),
+   ('LLA113', 'USB107', '0300'),   
+   ('LLA113', 'USB107', '0800'),
+   ('LLA113', 'USB107', '0600'),
+   ('LLA113', 'USB107', '1500'),
+   ('LLA113', 'USB107', '1700'),      
+   
+   -- Sociales
+   
+   ('CSA211', 'USB107', '0100'),
+   ('CSA211', 'USB107', '0200'),
+   ('CSA211', 'USB107', '0300'),   
+   ('CSA211', 'USB107', '0800'),
+   ('CSA211', 'USB107', '0600'),
+   ('CSA211', 'USB107', '1500'),
+   ('CSA211', 'USB107', '1700'),   
+
+   ('CSA212', 'USB107', '0100'),
+   ('CSA212', 'USB107', '0200'),
+   ('CSA212', 'USB107', '0300'),   
+   ('CSA212', 'USB107', '0800'),
+   ('CSA212', 'USB107', '0600'),
+   ('CSA212', 'USB107', '1500'),
+   ('CSA212', 'USB107', '1700'),   
+   
+   ('CSA213', 'USB107', '0100'),
+   ('CSA213', 'USB107', '0200'),
+   ('CSA213', 'USB107', '0300'),   
+   ('CSA213', 'USB107', '0800'),
+   ('CSA213', 'USB107', '0600'),
+   ('CSA213', 'USB107', '1500'),
+   ('CSA213', 'USB107', '1700'), 
+   
+   -- Ingles
+   
+   ('ID1111', 'USB107', '0100'),
+   ('ID1111', 'USB107', '0200'),
+   ('ID1111', 'USB107', '0300'),   
+   ('ID1111', 'USB107', '0800'),
+   ('ID1111', 'USB107', '0600'),
+   ('ID1111', 'USB107', '1500'),
+   ('ID1111', 'USB107', '1700'),   
+   
+   ('ID1112', 'USB107', '0100'),
+   ('ID1112', 'USB107', '0200'),
+   ('ID1112', 'USB107', '0300'),   
+   ('ID1112', 'USB107', '0800'),
+   ('ID1112', 'USB107', '0600'),
+   ('ID1112', 'USB107', '1500'),
+   ('ID1112', 'USB107', '1700'),   
+   
+   ('ID1113', 'USB107', '0100'),
+   ('ID1113', 'USB107', '0200'),
+   ('ID1113', 'USB107', '0300'),   
+   ('ID1113', 'USB107', '0800'),
+   ('ID1113', 'USB107', '0600'),
+   ('ID1113', 'USB107', '1500'),
+   ('ID1113', 'USB107', '1700'),   
+   
+   -- Fisica
+   
+   ('FS1111', 'USB107', '0100'),
+   ('FS1111', 'USB107', '0200'),
+   ('FS1111', 'USB107', '0300'),   
+   ('FS1111', 'USB107', '0800'),
+   ('FS1111', 'USB107', '0600'),
+   ('FS1111', 'USB107', '1500'),
+   ('FS1111', 'USB107', '1700'),  
+   
+   ('FS1112', 'USB107', '0100'),
+   ('FS1112', 'USB107', '0200'),
+   ('FS1112', 'USB107', '0300'),   
+   ('FS1112', 'USB107', '0800'),
+   ('FS1112', 'USB107', '0600'),
+   ('FS1112', 'USB107', '1500'),
+   ('FS1112', 'USB107', '1700'),   
+   
+   ('FS2211', 'USB107', '0100'),
+   ('FS2211', 'USB107', '0200'),
+   ('FS2211', 'USB107', '0300'),   
+   ('FS2211', 'USB107', '0600'),
+   ('FS2211', 'USB107', '1500'),
+   ('FS2211', 'USB107', '1700'),   
+   
+   ('FS2212', 'USB107', '0100'),
+   ('FS2212', 'USB107', '0200'), 
+   ('FS2212', 'USB107', '0600'),
+   ('FS2212', 'USB107', '1500'),
+   ('FS2212', 'USB107', '1700'),   
+   
+   ('FS2213', 'USB107', '0100'),
+   ('FS2213', 'USB107', '0200'),
+   ('FS2213', 'USB107', '0600'),
+   ('FS2213', 'USB107', '1500'),
+   ('FS2213', 'USB107', '1700'),   
+   
+   
+   -- Materias Quimica  
+
+   ('QM1121', 'USB107', '0300'),   
+   ('QM1122', 'USB107', '0300'),   
+   ('QM1123', 'USB107', '0300'),   
+   
+   ('FS2181', 'USB107', '0300'),   
+   ('FS2281', 'USB107', '0300'),     
+   ('TF1312', 'USB107', '0300'),  
+   ('QM1181', 'USB107', '0300'),   
+   ('QM1182', 'USB107', '0300'),   
+   
+   ('QM2421', 'USB107', '0300'),     
+   ('QM2422', 'USB107', '0300'),   
+   
+   ('TF1121', 'USB107', '0300'),   
+   ('TF2323', 'USB107', '0300'),   
+   ('TF2126', 'USB107', '0300'),       
+   
+
+   -- Materias Computacion
+   
+   ('CI2511', 'USB107', '0800'),
+   ('CI2525', 'USB107', '0800'),
+   ('CI2526', 'USB107', '0800'),
+   ('CI2527', 'USB107', '0800'),
+   ('CI2611', 'USB107', '0800'),
+   ('CI2612', 'USB107', '0800'),
+   ('CI2613', 'USB107', '0800'),
+   ('CI2691', 'USB107', '0800'),
+   ('CI2692', 'USB107', '0800'),
+   ('CI2693', 'USB107', '0800'),
+   ('CI3311', 'USB107', '0800'),
+   ('CI3391', 'USB107', '0800'),
+   ('CI3815', 'USB107', '0800'),
+   ('CI3825', 'USB107', '0800'),
+   ('PS1115', 'USB107', '0800'),
+   
+   -- UCAB
+   
+   -- Matematicas
+   ('00401', 'UCAB132', '10134'),
+   ('00401', 'UCAB132', '10132'),
+   ('00401', 'UCAB132', '10133'),
+   ('00401', 'UCAB132', '10131'),
+
+   ('10401', 'UCAB132', '10134'),
+   ('10401', 'UCAB132', '10132'),
+   ('10401', 'UCAB132', '10133'),
+   ('10401', 'UCAB132', '10131'),
+   
+   ('20401', 'UCAB132', '10134'),
+   ('20401', 'UCAB132', '10132'),
+   ('20401', 'UCAB132', '10133'),
+   ('20401', 'UCAB132', '10131'),
+   
+   ('30401', 'UCAB132', '10134'),
+   ('30401', 'UCAB132', '10132'),
+   ('30401', 'UCAB132', '10133'),
+   ('30401', 'UCAB132', '10131'),
+   
+   ('40401', 'UCAB132', '10134'),
+   ('40401', 'UCAB132', '10132'),
+   ('40401', 'UCAB132', '10133'),
+   ('40401', 'UCAB132', '10131'),   
+   
+   ('00402', 'UCAB132', '10134'),
+   ('00402', 'UCAB132', '10132'),
+   ('00402', 'UCAB132', '10133'),
+   ('00402', 'UCAB132', '10131'),
+   
+   -- Generales
+   
+   ('00403', 'UCAB132', '10134'),
+   ('00403', 'UCAB132', '10132'),
+   ('00403', 'UCAB132', '10133'),
+   ('00403', 'UCAB132', '10131'),   
+   
+   ('10402', 'UCAB132', '10134'),
+   ('10402', 'UCAB132', '10132'),
+   ('10402', 'UCAB132', '10133'),
+   ('10402', 'UCAB132', '10131'),   
+
+   ('20405', 'UCAB132', '10134'),
+   ('20405', 'UCAB132', '10132'),
+   ('20405', 'UCAB132', '10133'),
+   ('20405', 'UCAB132', '10131'),
+   
+   ('30406', 'UCAB132', '10134'),
+   ('30406', 'UCAB132', '10132'),
+   ('30406', 'UCAB132', '10133'),
+   ('30406', 'UCAB132', '10131'),   
+   
+   -- Informatica
+   
+   ('00407', 'UCAB132', '10131'),  
+   ('10405', 'UCAB132', '10131'),
+   ('10403', 'UCAB132', '10131'),
+   ('20404', 'UCAB132', '10131'),
+   ('30404', 'UCAB132', '10131'),
+   ('50403', 'UCAB132', '10131'),
+   ('50405', 'UCAB132', '10131'),
+   
+   
+   -- LUZ
+      
+   ('200101', 'LUZ277', '10470'), 
+   ('200104', 'LUZ277', '10470'), 
+   ('200105', 'LUZ277', '10470'), 
+   ('200106', 'LUZ277', '10470'),
+   ('200103', 'LUZ277', '10470'),
+   ('200102', 'LUZ277', '10470'),
+   
+   ('200301', 'LUZ277', '10470'),
+   ('200302', 'LUZ277', '10470'),
+   ('250311', 'LUZ277', '10470'),
+   ('250312', 'LUZ277', '10470'),
+   
+   ('200408', 'LUZ277', '10470'),
+   ('200409', 'LUZ277', '10470'),
+   
+   ('200201', 'LUZ277', '10470'),
+   ('200202', 'LUZ277', '10470'),
+   
+   ('290002', 'LUZ277', '10470'),
+   ('280101', 'LUZ277', '10470'),
+   
+   ('250203', 'LUZ277', '10470'),
+   ('250206', 'LUZ277', '10470'),
+   
+   ('250208', 'LUZ277', '10470');
+    
+    
+    
+   
+INSERT INTO TABLA_EQUIVALENCIA VALUES
+    ('USB107', '0800', 'UCAB132', '10131', CURRENT_DATE);
+
+INSERT INTO EQUIVALENCIA VALUES
+    ('USB107', '0800', 'UCAB132', '10131', 1),
+    ('USB107', '0800', 'UCAB132', '10131', 2),
+    ('USB107', '0800', 'UCAB132', '10131', 3),
+    ('USB107', '0800', 'UCAB132', '10131', 4),
+    ('USB107', '0800', 'UCAB132', '10131', 5),
+    ('USB107', '0800', 'UCAB132', '10131', 6),
+    ('USB107', '0800', 'UCAB132', '10131', 7),
+    ('USB107', '0800', 'UCAB132', '10131', 8),
+    ('USB107', '0800', 'UCAB132', '10131', 9),
+    ('USB107', '0800', 'UCAB132', '10131', 10),
+    ('USB107', '0800', 'UCAB132', '10131', 11),
+    ('USB107', '0800', 'UCAB132', '10131', 12),    
+    ('USB107', '0800', 'UCAB132', '10131', 13),
+    ('USB107', '0800', 'UCAB132', '10131', 14),
+    ('USB107', '0800', 'UCAB132', '10131', 15); 
+
+
+INSERT INTO INCLUYE VALUES
+
+   -- USB y UCAB
+
+   -- Matematicas
+    ('USB107', '0800', 'MA1111', 'UCAB132', '10131', '1'),
+    ('USB107', '0800', 'MA1112', 'UCAB132', '10131', '2'),
+    ('USB107', '0800', 'MA1116', 'UCAB132', '10131', '2'),
+    ('USB107', '0800', 'MA2115', 'UCAB132', '10131', '3'),
+    ('USB107', '0800', 'MA2112', 'UCAB132', '10131', '4'),
+
+    -- General
+    
+    ('USB107', '0800', 'LLA111', 'UCAB132', '10131', '5'),
+    ('USB107', '0800', 'LLA112', 'UCAB132', '10131', '5'),
+    ('USB107', '0800', 'LLA113', 'UCAB132', '10131', '6'),
+    ('USB107', '0800', 'CSA211', 'UCAB132', '10131', '7'),
+    ('USB107', '0800', 'CSA212', 'UCAB132', '10131', '8'),
+    ('USB107', '0800', 'CSA213', 'UCAB132', '10131', '8'),
+    
+    -- Computacion / Informatica
+    
+    ('USB107', '0800', 'CI2511', 'UCAB132', '10131', '9'), -- Logica
+    ('USB107', '0800', 'CI2611', 'UCAB132', '10131', '10'), -- Algoritmos 1
+    ('USB107', '0800', 'CI2691', 'UCAB132', '10131', '10'),
+    ('USB107', '0800', 'CI2612', 'UCAB132', '10131', '11'), -- Algoritmos 2
+    ('USB107', '0800', 'CI2692', 'UCAB132', '10131', '11'),
+    ('USB107', '0800', 'CI2613', 'UCAB132', '10131', '12'), -- Algoritmos 3
+    ('USB107', '0800', 'CI2693', 'UCAB132', '10131', '12'),    
+        
+    ('USB107', '0800', 'CI3815', 'UCAB132', '10131', '13'), -- Organizacion
+    ('USB107', '0800', 'CI3825', 'UCAB132', '10131', '14'), -- Operativos
+    ('USB107', '0800', 'CI3311', 'UCAB132', '10131', '15'), -- Bases
+    ('USB107', '0800', 'CI3391', 'UCAB132', '10131', '15');   
+  
+    
+    
+INSERT INTO EQUIVALE VALUES
+
+   -- USB y UCAB
+
+   -- Matematicas
+    ('USB107', '0800', 'UCAB132', '10131', '00401', '1'),
+    ('USB107', '0800', 'UCAB132', '10131', '00402', '1'),
+    ('USB107', '0800', 'UCAB132', '10131', '10401', '2'),
+    ('USB107', '0800', 'UCAB132', '10131', '20401', '3'),
+    ('USB107', '0800', 'UCAB132', '10131', '30401', '4'),     
+    
+    -- General
+    
+    ('USB107', '0800', 'UCAB132', '10131', '00403', '5'),
+    ('USB107', '0800', 'UCAB132', '10131', '10402', '6'),
+    ('USB107', '0800', 'UCAB132', '10131', '20405', '7'),
+    ('USB107', '0800', 'UCAB132', '10131', '30406', '8'),       
+    
+    -- Computacion / Informatica
+    
+    ('USB107', '0800', 'UCAB132', '10131', '10405', '9'),
+    ('USB107', '0800', 'UCAB132', '10131', '10403', '10'),
+    ('USB107', '0800', 'UCAB132', '10131', '20404', '11'),
+    ('USB107', '0800', 'UCAB132', '10131', '30404', '12'), 
+    
+    ('USB107', '0800', 'UCAB132', '10131', '50405', '13'),
+    ('USB107', '0800', 'UCAB132', '10131', '40403', '14'),
+    ('USB107', '0800', 'UCAB132', '10131', '50403', '15');
+
+    
+    
+    
+INSERT INTO PAIS (NOMBRE) VALUES
+   ('Afganistan'),
+   ('Albania'),
+   ('Algeria'), 
+   ('American Samoa'),
+   ('Andorra'),
+   ('Angola'), 
+   ('Anguilla'), 
+   ('Antigua &amp; Barbuda'),
+   ('Argentina'),
+   ('Armenia'),
+   ('Aruba'),
+   ('Australia'),
+   ('Austria'),
+   ('Azerbaijan'),
+   ('Bahamas'),
+   ('Bahrain'),
+   ('Bangladesh'),
+   ('Barbados'),
+   ('Belarus'),
+   ('Belgium'),
+   ('Belize'), 
+   ('Benin'),
+   ('Bermuda'), 
+   ('Bhutan'), 
+   ('Bolivia'),
+   ('Bonaire'),
+   ('Bosnia &amp; Herzegovina'), 
+   ('Botswana'), 
+   ('Brazil'), 
+   ('British Indian Ocean Ter'),
+   ('Brunei'),
+   ('Bulgaria'),
+   ('Burkina Faso'),
+   ('Burundi'), 
+   ('Cambodia'),
+   ('Cameroon'),  
+   ('Canada'), 
+   ('Canary Islands'),
+   ('Cape Verde'), 
+   ('Cayman Islands'),  
+   ('Central African Republic'),
+   ('Chad'),
+   ('Channel Islands'),
+   ('Chile'), 
+   ('China'), 
+   ('Christmas Island'),
+   ('Cocos Island'),
+   ('Colombia'), 
+   ('Comoros'),
+   ('Congo'),
+   ('Cook Islands'),  
+   ('Costa Rica'),
+   ('Cote DIvoire'),  
+   ('Croatia'),
+   ('Cuba'),
+   ('Curaco'),
+   ('Cyprus'),
+   ('Czech Republic'),
+   ('Denmark'),
+   ('Djibouti'),
+   ('Dominica'),
+   ('Dominican Republic'), 
+   ('East Timor'),
+   ('Ecuador'),
+   ('Egypt'),
+   ('El Salvador'),
+   ('Equatorial Guinea'),
+   ('Eritrea'),  
+   ('Estonia'),
+   ('Ethiopia'),  
+   ('Falkland Islands'),
+   ('Faroe Islands'),
+   ('Fiji'),  
+   ('Finland'),  
+   ('France'),  
+   ('French Guiana'),
+   ('French Polynesia'),  
+   ('French Southern Ter'),
+   ('Gabon'),
+   ('Gambia'),
+   ('Georgia'),
+   ('Germany'),
+   ('Ghana'),
+   ('Gibraltar'),
+   ('Great Britain'),
+   ('Greece'),
+   ('Greenland'),
+   ('Grenada'),
+   ('Guadeloupe'),
+   ('Guam'),
+   ('Guatemala'),
+   ('Guinea'),
+   ('Guyana'),
+   ('Haiti'),
+   ('Hawaii'),
+   ('Honduras'),
+   ('Hong Kong'),
+   ('Hungary'),
+   ('Iceland'),
+   ('India'),
+   ('Indonesia'),
+   ('Iran'), 
+   ('Iraq'),  
+   ('Ireland'),
+   ('Isle of Man'),
+   ('Israel'),
+   ('Italy'),
+   ('Jamaica'),
+   ('Japan'),
+   ('Jordan'),
+   ('Kazakhstan'),
+   ('Kenya'), 
+   ('Kiribati'),
+   ('Korea North'),  
+   ('Korea Sout'),  
+   ('Kuwait'),
+   ('Kyrgyzstan'),  
+   ('Laos'),
+   ('Latvia'),
+   ('Lebanon'),
+   ('Lesotho'),
+   ('Liberia'),  
+   ('Libya'),  
+   ('Liechtenstein'),  
+   ('Lithuania'),
+   ('Luxembourg'),
+   ('Macau'),
+   ('Macedonia'),
+   ('Madagascar'),
+   ('Malaysia'),
+   ('Malawi'),
+   ('Maldives'),
+   ('Mali'),
+   ('Malta'),
+   ('Marshall Islands'), 
+   ('Martinique'),  
+   ('Mauritania'),
+   ('Mauritius'),
+   ('Mayotte'),
+   ('Mexico'),
+   ('Midway Islands'),
+   ('Moldova'),  
+   ('Monaco'), 
+   ('Mongolia'),
+   ('Montserrat'),
+   ('Morocco'),
+   ('Mozambique'),
+   ('Myanmar'),
+   ('Nambia'), 
+   ('Nauru'), 
+   ('Nepal'),
+   ('Netherland Antilles'),
+   ('Netherlands'),
+   ('Nevis'),
+   ('New Caledonia'),
+   ('New Zealand'),
+   ('Nicaragua'),
+   ('Niger'),  
+   ('Nigeria'),  
+   ('Niue'),
+   ('Norfolk Island'),
+   ('Norway'),
+   ('Oman'),
+   ('Pakistan'),  
+   ('Palau Island'),
+   ('Palestine'),  
+   ('Panama'),  
+   ('Papua New Guinea'),
+   ('Paraguay'),  
+   ('Peru'),  
+   ('Phillipines'),
+   ('Pitcairn Island'),
+   ('Poland'),
+   ('Portugal'),  
+   ('Puerto Rico'),  
+   ('Qatar'),
+   ('Republic of Montenegro'),
+   ('Republic of Serbia'),
+   ('Reunion'), 
+   ('Romania'),
+   ('Russia'), 
+   ('Rwanda'),  
+   ('St Barthelemy'),  
+   ('St Eustatius'),
+   ('St Helena'), 
+   ('St Kitts-Nevis'),
+   ('St Lucia'),
+   ('St Maarten'), 
+   ('St Pierre &amp; Miquelon'),
+   ('St Vincent &amp; Grenadines'),
+   ('Saipan'),
+   ('Samoa'), 
+   ('Samoa American'),
+   ('San Marino'),  
+   ('Sao Tome & Principe'),
+   ('Saudi Arabia'),
+   ('Senegal'),
+   ('Seychelles'),
+   ('Sierra Leone'),
+   ('Singapore'),
+   ('Slovakia'),
+   ('Slovenia'),
+   ('Solomon Islands'),
+   ('Somalia'),
+   ('South Africa'),
+   ('Spain'),
+   ('Sri Lanka'),
+   ('Sudan'),
+   ('Suriname'),
+   ('Swaziland'),
+   ('Sweden'),
+   ('Switzerland'),
+   ('Syria'),
+   ('Tahiti'),
+   ('Taiwan'),
+   ('Tajikistan'),
+   ('Tanzania'),
+   ('Thailand'),
+   ('Togo'),
+   ('Tokelau'),
+   ('Tonga'),
+   ('Trinidad &amp; Tobago'),
+   ('Tunisia'), 
+   ('Turkey'),  
+   ('Turkmenistan'),
+   ('Turks &amp; Caicos Is'),
+   ('Tuvalu'),
+   ('Uganda'), 
+   ('Ukraine'),  
+   ('United Arab Erimates'),
+   ('United Kingdom'),
+   ('United States of America'),
+   ('Uraguay'),
+   ('Uzbekistan'),
+   ('Vanuatu'),  
+   ('Vatican City State'),
+   ('Venezuela'),
+   ('Vietnam'),
+   ('Virgin Islands (Brit)'),
+   ('Virgin Islands (USA)'),
+   ('Wake Island'),
+   ('Wallis &amp; Futana Is'),
+   ('Yemen'),
+   ('Zaire'),
+   ('Zambia'), 
+   ('Zimbabwe');
