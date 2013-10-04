@@ -45,6 +45,12 @@
         function confirmarEliminacionTablaEquivalenciaAux(){
             var confirmarE = confirm("Está a punto de eliminar la tabla y todas sus equivalencias. ¿Continuar?");
             return confirmarE;       
+        }   
+        
+        <%-- Función para confirmar si se desea eliminar la tabla de equivalencia --%>
+        function confirmarModificacionEquivalencia(){
+            var confirmarE = confirm("Está a punto de modificar esta equivalencia. ¿Desea Continuar?");
+            return confirmarE;       
         }        
     
     
@@ -227,7 +233,8 @@
                         
                         <td><html:submit 
                             styleClass = "button" 
-                            property   = "operacionEquivalencia" 
+                            onclick    = "return confirmarModificacionEquivalencia()"
+                            property   = "operacionEquivalencia"
                             value      = "Modificar"/></td>
                     <%} else {%>
                         <td/>

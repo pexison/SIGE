@@ -14,11 +14,11 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-        <title>SEA - Exito al agregar la Tabla de Equivalencia</title>
+        <title>SEA - Tabla de Equivalencia registrada con éxito</title>
     </head>
     <body>
         
-        <h1>Exito - Se creao la Tabla de Equivalencia satisfactoriamente  </h1>
+        <h1>La Tabla de Equivalencia fue agregada satisfactoriamente  </h1>
         
         <html:form action="/gestionTablaEquivalencia" method="POST">
             

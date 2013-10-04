@@ -27,21 +27,19 @@
     <body>
         
         <script type="text/javascript">
-        <!--
 
-        <%-- Función para verificar que los campos estén llenos --%>
-        <%-- Función que verifica que las instituciones Orig y Dest difieran --%>
-        function verificarCamposVacios() {
-            return true;
+        <%-- Función para confirmar que se desea abandonar la pagina --%>
+        function confirmarVolver(){
+            var confirmarM = confirm("¿Abandonar esta página?");
+            return confirmarM;       
         }
-        
-        <%-- Función para confirmar que se desea modificar la institución --%>
+
+        <%-- Función para confirmar que se desea modificar la equivalencia --%>
         function confirmarAccion(){
             var confirmarM = confirm("¿Desea continuar?");
             return confirmarM;       
         }
         
-        // -->
         </script>
         
         
@@ -79,7 +77,8 @@
                 <% if (!listaAsigOrigenVacia) { %>
                 
                 
-                    <p> Seleccione Asignaturas Origen </p>
+                    <p> Seleccione las Asignaturas correspondientes a la Institución 
+                        de Origen. Puede seleccionar una o más opciones:</p>
                     <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsOrigen">
                         <html:multibox property="selectedOptionsOrigen">
                             <bean:write name="item" property="value"/>
@@ -100,7 +99,8 @@
                 
             
                 <% if (!listaAsigDestinoVacia) { %>    
-                       <p> Seleccione Asignaturas Destino </p>
+                      <p> Seleccione las Asignaturas correspondientes a la Institución 
+                        de Destino. Puede seleccionar una o más opciones:</p>
                        <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsDestino">
                            <html:multibox property="selectedOptionsDestino">
                                <bean:write name="item" property="value"/>
@@ -126,7 +126,7 @@
                         <html:hidden property="operacionEquivalencia" value="Agregar_Equivalencia" />
                         <html:submit 
                             styleClass   =   "button"
-                            onclick      =   "return verificarCamposVacios()"
+                            onclick      =   "return confirmarAccion()"
                             property     =   "submit"
                             value        =   "Agregar Equivalencia"/></center></td>
                   </tr>
@@ -168,6 +168,7 @@
             
             <html:submit 
                 styleClass   =   "button"
+                onclick      =   "return confirmarVolver()"
                 property     =   "submit"
                 value        =   "Volver a los detalles de la tabla"/>           
         </html:form>

@@ -36,7 +36,9 @@
                String codCarrDest = ef.getCodigoCarreraDestino(); %>
                
             <center>
-               <li>No se ha podido modificar la equivalencia de codigo '<%=nEquivalencia%>'</li>
+               <li>Ocurrió un error al intentar ser modificada la equivalencia
+                   de código '<%=nEquivalencia%>'. Por inténtelo nuevamente 
+                   (recuerde seleccionar al menos una asignatura para cada institución).</li>
                <p> Para consultar el estado actual de la tabla de equivalencia </p>
                <p> presione el boton "Detalles" </p>
                 

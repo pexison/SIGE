@@ -23,22 +23,6 @@
         
         <%-- Script auxiliar para confirmar los vinculos de retorno --%>
         <script type="text/javascript">
-        
-        
-        <%-- Función que verifica que las instituciones Orig y Dest difieran --%>
-        function verificarInstitucionesDifentes(codOrig,codDest) {
-            
-            var codOrig = document.forms["TablaEquivalenciaForm"]["codigoInstitucionOrigen"].value;
-            var codDest = document.forms["TablaEquivalenciaForm"]["codigoInstitucionDestino"].value;
-            
-            if (codDest == codOrig) {
-                alert("Las instituciones no deben ser iguales");
-                return false;
-            }
-            return true;
-        }
-           
-            
             
         <%-- Funcion que pregunta si de verdad se desea abandonar la sesion --%>
             function confirmarExit(){
@@ -103,7 +87,6 @@
                                         
                     <html:submit 
                         styleClass   =   "button"
-                        onclick      =   "return verificarInstitucionesDifentes()"
                         property     =   "submit"
                         value        =   "Mostrar Tablas de Equivalencia"/>
 

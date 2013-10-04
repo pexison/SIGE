@@ -30,7 +30,7 @@
                String codCarrDest = ef.getCodigoCarreraDestino(); %>
                
             <center>
-               <li>Se ha modificado la equivalencia de codigo '<%=nEquivalencia%>'</li>
+               <li>Se ha modificado la equivalencia de código '<%=nEquivalencia%>'</li>
                <p> Para consultar el estado actual de la tabla de equivalencia </p>
                <p> presione el boton "Detalles" </p>
                 
