@@ -24,6 +24,7 @@
     </head>
     <body>
         
+    <center><h1>Registrar Tabla de Equivalencias</h1>
         
         <%-- Script auxiliar para confirmar los vinculos de retorno --%>
         <script type="text/javascript">

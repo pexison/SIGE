@@ -40,7 +40,7 @@
             }
         </script>
         
-    <center><h1> Tablas de Equivalencia </h1></center>
+    <center><h1> Tablas de Equivalencias</h1></center>
         
         
         <%ArrayList<TablaEquivalenciaForm> listaTablas = 
@@ -178,7 +178,7 @@
                         
             <%} else {%>
             
-                <p> No hay tablas de equivalencia disponibles </p>
+                <p><h2> No hay tablas de equivalencias disponibles.</h2> </p>
             
             <%}%>
             

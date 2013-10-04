@@ -15,7 +15,7 @@
         <title>SIGE - Carrera registrada con éxito</title>
     </head>
     <body>
-        <h1>¡Equivalencia agregada con éxito!</h1>
+    <center><h1>¡Equivalencia agregada con éxito!</h1></center>
             
             <%-- Obtener el nombre de la carrera y 
                  el código de la institución --%>

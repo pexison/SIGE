@@ -21,7 +21,7 @@
     </head>
     <body>
         
-    <center><h1>Gestión de Tablas de Equivalencia</h1></center>
+    <center><h1>Gestión de Tablas de Equivalencias</h1></center>
         
         <%-- Script auxiliar para confirmar los vinculos de retorno --%>
         <script type="text/javascript">
