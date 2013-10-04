@@ -72,13 +72,16 @@
                         onsubmit = "return validarCampos()"
                         action   = "/gestionEquivalencia" 
                         method   = "POST">
-         <table><tr>
-            <td>
+         <table>
+            <th> Seleccione las Asignaturas correspondientes a la Institución 
+                        de Origen. Puede seleccionar una o más opciones: </th>
+            
+            <th> Seleccione las Asignaturas correspondientes a la Institución 
+                        de Destino. Puede seleccionar una o más opciones: </th>
+            <tr><br/></tr><tr>
+            <td valign="top">
                 <% if (!listaAsigOrigenVacia) { %>
                 
-                
-                    <p> Seleccione las Asignaturas correspondientes a la Institución 
-                        de Origen. Puede seleccionar una o más opciones:</p>
                     <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsOrigen">
                         <html:multibox property="selectedOptionsOrigen">
                             <bean:write name="item" property="value"/>
@@ -95,12 +98,11 @@
             
                <%}%>
                             
-            </td><td>
+            </td><td valign="top">
                 
             
                 <% if (!listaAsigDestinoVacia) { %>    
-                      <p> Seleccione las Asignaturas correspondientes a la Institución 
-                        de Destino. Puede seleccionar una o más opciones:</p>
+
                        <logic:iterate name="EquivalenciaForm" id="item" property="possibleOptionsDestino">
                            <html:multibox property="selectedOptionsDestino">
                                <bean:write name="item" property="value"/>
@@ -121,7 +123,7 @@
              
                 <% if (!listaAsigOrigenVacia & !listaAsigDestinoVacia) { %>
                    <tr colspan="2">
-                   <td><center>
+                       <td colspan="2"><center>
                         
                         <html:hidden property="operacionEquivalencia" value="Agregar_Equivalencia" />
                         <html:submit 
