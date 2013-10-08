@@ -519,9 +519,12 @@ INSERT INTO REQUIERE VALUES
     
    
 INSERT INTO TABLA_EQUIVALENCIA VALUES
-    ('USB107', '0800', 'UCAB132', '10131', CURRENT_DATE);
+    ('USB107', '0800', 'UCAB132', '10131', CURRENT_DATE),
+    ('USB107', '0200', 'USB107', '0300', CURRENT_DATE);
 
 INSERT INTO EQUIVALENCIA VALUES
+   
+      -- USB y UCAB
     ('USB107', '0800', 'UCAB132', '10131', 1),
     ('USB107', '0800', 'UCAB132', '10131', 2),
     ('USB107', '0800', 'UCAB132', '10131', 3),
@@ -536,9 +539,15 @@ INSERT INTO EQUIVALENCIA VALUES
     ('USB107', '0800', 'UCAB132', '10131', 12),    
     ('USB107', '0800', 'UCAB132', '10131', 13),
     ('USB107', '0800', 'UCAB132', '10131', 14),
-    ('USB107', '0800', 'UCAB132', '10131', 15); 
+    ('USB107', '0800', 'UCAB132', '10131', 15),
 
-
+      -- USB y USB (Mecanica a Quimica)
+      
+    ('USB107', '0200', 'USB107', '0300', 16),
+    ('USB107', '0200', 'USB107', '0300', 17),    
+    ('USB107', '0200', 'USB107', '0300', 18),
+    ('USB107', '0200', 'USB107', '0300', 19);  
+    
 INSERT INTO INCLUYE VALUES
 
    -- USB y UCAB
@@ -572,9 +581,16 @@ INSERT INTO INCLUYE VALUES
     ('USB107', '0800', 'CI3815', 'UCAB132', '10131', '13'), -- Organizacion
     ('USB107', '0800', 'CI3825', 'UCAB132', '10131', '14'), -- Operativos
     ('USB107', '0800', 'CI3311', 'UCAB132', '10131', '15'), -- Bases
-    ('USB107', '0800', 'CI3391', 'UCAB132', '10131', '15');   
+    ('USB107', '0800', 'CI3391', 'UCAB132', '10131', '15'),   
   
     
+    -- USB y USB (Mecanica a Quimica)
+    
+    ('USB107', '0200', 'MA1111', 'USB107', '0300', '16'),
+    ('USB107', '0200', 'MA1112', 'USB107', '0300', '17'),
+    ('USB107', '0200', 'MA1116', 'USB107', '0300', '18'),
+    ('USB107', '0200', 'MA2112', 'USB107', '0300', '19');
+
     
 INSERT INTO EQUIVALE VALUES
 
@@ -603,10 +619,14 @@ INSERT INTO EQUIVALE VALUES
     
     ('USB107', '0800', 'UCAB132', '10131', '50405', '13'),
     ('USB107', '0800', 'UCAB132', '10131', '40403', '14'),
-    ('USB107', '0800', 'UCAB132', '10131', '50403', '15');
-
+    ('USB107', '0800', 'UCAB132', '10131', '50403', '15'),
     
+    -- USB y USB (Mecanica a Quimica)
     
+    ('USB107', '0200', 'USB107', '0300', 'MA1111', '16'),
+    ('USB107', '0200', 'USB107', '0300', 'MA1112', '17'),    
+    ('USB107', '0200', 'USB107', '0300', 'MA1116', '18'),    
+    ('USB107', '0200', 'USB107', '0300', 'MA2112', '19');
     
 INSERT INTO PAIS (NOMBRE) VALUES
    ('Afganistan'),
