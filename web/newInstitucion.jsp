@@ -28,11 +28,13 @@
             var direccionInst = document.forms["InstitucionForm"]["direccionInstitucion"].value;
             var paisInst      = document.forms["InstitucionForm"]["paisInstitucion"].value;
             
+            codigoInst = codigoInst.replace(/\s+/g, '');
+            
             if (nombreInst == null || nombreInst == "") {
                 alert("Por favor inserte el nombre de la Institucion");
                 return false;
-            } else if (codigoInst == null  || codigoInst == '') {
-              aleter("POr favor inserte el codigo de la Institucion");
+            } else if (codigoInst == null  || codigoInst == "") {
+                alert("POr favor inserte el codigo de la Institucion");
               return false;    
             } else if (direccionInst == null || direccionInst == "") {
                 alert("Por favor inserte la direccion de la Institucion");
