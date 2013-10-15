@@ -32,6 +32,12 @@ CREATE TABLE PLANILLA(
     TIPO_INGRESO            VARCHAR(15)  NOT NULL  -- Tipo de equivalencia solicitada
 );
 
+CREATE TABLE RECAUDO(
+    CODIGO_PLANILLA         CHAR(12)     NOT NULL, -- Codigo de la planilla asociada
+    TIPO_RECAUDO            TEXT         NOT NULL, -- Tipo que identifica al recaudo
+    DATOS_RECAUDO           BYTEA        NOT NULL  -- Contiene los datos del archivo
+);
+
 CREATE TABLE ASPIRANTE(
     ID_USUARIO              VARCHAR(14)    NOT NULL, -- ID del usuario remitente
     CEDULA                  CHAR(20)       NOT NULL, -- CI del aspirante
@@ -145,7 +151,7 @@ CREATE TABLE INCLUYE(
     CODIGO_ASIGNATURA           CHAR(12)    NOT NULL,  -- Codigo de la asignatura que se incluye
     CODIGO_INSTITUCION_DEST     CHAR(12)    NOT NULL, -- Codigo de la institucion de destino
     CODIGO_CARRERA_DEST         CHAR(12)    NOT NULL, -- Codigo de la carrera de destino
-    CODIGO_EQUIVALENCIA         CHAR(12)    NOT NULL  -- Codigo de la equivalencia
+    CODIGO_EQUIVALENCIA         INTEGER     NOT NULL  -- Codigo de la equivalencia
 );
 
 CREATE TABLE EQUIVALE(
@@ -154,7 +160,7 @@ CREATE TABLE EQUIVALE(
     CODIGO_INSTITUCION_DEST     CHAR(12)    NOT NULL, -- Codigo de la institucion de destino
     CODIGO_CARRERA_DEST         CHAR(12)    NOT NULL, -- Codigo de la carrera de destino
     CODIGO_ASIGNATURA           CHAR(12)    NOT NULL, -- Codigo de la asignatura que se equivale
-    CODIGO_EQUIVALENCIA         CHAR(12)    NOT NULL  -- Codigo de la equivalencia
+    CODIGO_EQUIVALENCIA         INTEGER     NOT NULL  -- Codigo de la equivalencia
 );
 
 
@@ -177,8 +183,13 @@ ALTER TABLE TELEFONO
 ALTER TABLE PLANILLA
     ADD CONSTRAINT PK_PLANILLA PRIMARY KEY (CODIGO_PLANILLA),
     ADD CONSTRAINT FK_PLANILLA_ASPIRANTE FOREIGN KEY (CEDULA_ASPIRANTE) REFERENCES ASPIRANTE (CEDULA),
-    ADD CONSTRAINT DOM_CHECK_ESTADO_PLANILLA CHECK (ESTADO_PLANILLA IN ('Pendiente','Rechazada')),
+    ADD CONSTRAINT DOM_CHECK_ESTADO_PLANILLA CHECK (ESTADO_PLANILLA IN ('Aprobada','Pendiente','Rechazada')),
     ADD CONSTRAINT DOM_CHECK_TIPO_INGRESO CHECK (TIPO_INGRESO IN ('Graduado_Usb','Ingreso','Validacion'));
+
+ALTER TABLE RECAUDO
+    ADD CONSTRAINT PK_RECAUDO PRIMARY KEY (CODIGO_PLANILLA, TIPO_RECAUDO),
+    ADD CONSTRAINT FK_RECAUDO_PLANILLA FOREIGN KEY (CODIGO_PLANILLA) REFERENCES PLANILLA (CODIGO_PLANILLA),
+    ADD CONSTRAINT DOM_CHECK_TIPO_RECAUDO CHECK (TIPO_RECAUDO IN ('A', 'B', 'C'));
    
 ALTER TABLE INSTITUCION
     ADD CONSTRAINT PK_INSTITUCION PRIMARY KEY (CODIGO_INSTITUCION);
