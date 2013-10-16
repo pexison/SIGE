@@ -32,7 +32,7 @@
                     RegistroForm rf = gc.obtenerCliente(usr);
                     String tipo_usuario = rf.getTipoUsuario();
                 %>
-                <%=usr%><%=tipo_usuario%></i></h1>
+                <%=usr%> <%=tipo_usuario%></i></h1>
     
     <%--Caso en el que el usuario es de tipo administrador o coordinador.
         Se pueden gestionar los diversos modelos del sistema--%>
@@ -64,7 +64,7 @@
 
             <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia --%>
             <h3>  ¿Usted desea gestionar las Peticiones de Equivalencia? </h3>        
-            <html:hidden property="operacionPlanilla" value="Listar_Planillas" />
+            <html:hidden property="operacionPlanilla" value="Consultar_Planillas" />
             <html:submit 
                 styleClass   =   "button"
                 property     =   "submit"
@@ -80,8 +80,8 @@
 
             <html:hidden  property = "id_usuario" 
                           value    = "<%=usr%>"/>
-            <%--Tanto el usuario como el adiministrador/coordinador
-                pueden solicitar una equivalenciaequivalencia--%>
+            <%--Tanto el usuario como el administrador/coordinador
+                pueden solicitar una equivalencia--%>
             <br>
             <h2>Usuario:</h2>
             <%-- Botón para ir a la página de  Solicitud de Equivalencia --%>

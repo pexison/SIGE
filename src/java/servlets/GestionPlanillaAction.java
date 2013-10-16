@@ -22,6 +22,8 @@ public class GestionPlanillaAction extends DispatchAction {
                                             HttpServletRequest request,
                                             HttpServletResponse response) 
     throws Exception {
+        
+        request.setAttribute("PlanillaForm", form);
         return mapping.findForward("registrarPlanilla");
     }
     
@@ -42,6 +44,17 @@ public class GestionPlanillaAction extends DispatchAction {
                 valorForward = "errorAddPlanilla";
         }
         return mapping.findForward(valorForward);
+    }
+    
+    public ActionForward Consultar_Planillas(ActionMapping mapping,
+                                            ActionForm form,
+                                            HttpServletRequest request,
+                                            HttpServletResponse response) 
+    throws Exception {
+        
+        String forward = "consultarPlanillas";
+        return mapping.findForward(forward);
+        
     }
     
      public ActionForward Listar_Planillas(ActionMapping mapping,

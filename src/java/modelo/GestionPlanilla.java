@@ -26,7 +26,11 @@ public class GestionPlanilla {
                 +pf.getCedula_aspirante()+"','"
                 +pf.getCodigo_planilla()+"','"
                 +pf.getEstado_planilla()+"','"
-                +pf.getTipo_ingreso()
+                +pf.getTipo_ingreso() + "','"
+                +pf.getNombre_institucion_origen() + "','"
+                +pf.getNombre_institucion_destino() + "','"
+                +pf.getNombre_carrera_origen() + "','"
+                +pf.getNombre_carrera_destino()
                 + "');";
         
         System.out.print(insercion);
@@ -152,7 +156,92 @@ public class GestionPlanilla {
         }
         return listaPlanilla; 
     }
+    
+    public ArrayList<PlanillaForm> mostrarPlanillasPendientes() {
+        
+        String consulta = "SELECT * FROM PLANILLA WHERE ESTADO_PLANILLA = 'Pendiente'";
+        ArrayList listaPlanilla = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            PlanillaForm PlanillaF;
+            
+            while (rs.next()) {
+                PlanillaF = new PlanillaForm();
+                PlanillaF.setCedula_aspirante(rs.getString(1));
+                PlanillaF.setCodigo_planilla(rs.getString(2));
+                PlanillaF.setEstado_planilla(rs.getString(3));
+                PlanillaF.setTipo_ingreso(rs.getString(4));
+                listaPlanilla.add(PlanillaF);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de planillas.");
+        }
+        return listaPlanilla; 
+    }
+    
+    public ArrayList<PlanillaForm> mostrarPlanillasAprobadas() {
+        
+        String consulta = "SELECT * FROM PLANILLA WHERE ESTADO_PLANILLA = 'Aprobada'";
+        ArrayList listaPlanilla = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            PlanillaForm PlanillaF;
+            
+            while (rs.next()) {
+                PlanillaF = new PlanillaForm();
+                PlanillaF.setCedula_aspirante(rs.getString(1));
+                PlanillaF.setCodigo_planilla(rs.getString(2));
+                PlanillaF.setEstado_planilla(rs.getString(3));
+                PlanillaF.setTipo_ingreso(rs.getString(4));
+                listaPlanilla.add(PlanillaF);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de planillas.");
+        }
+        return listaPlanilla; 
+    }
       
-      
+    public ArrayList<PlanillaForm> mostrarPlanillasRechazadas() {
+        
+        String consulta = "SELECT * FROM PLANILLA WHERE ESTADO_PLANILLA = 'Rechazada'";
+        ArrayList listaPlanilla = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            PlanillaForm PlanillaF;
+            
+            while (rs.next()) {
+                PlanillaF = new PlanillaForm();
+                PlanillaF.setCedula_aspirante(rs.getString(1));
+                PlanillaF.setCodigo_planilla(rs.getString(2));
+                PlanillaF.setEstado_planilla(rs.getString(3));
+                PlanillaF.setTipo_ingreso(rs.getString(4));
+                listaPlanilla.add(PlanillaF);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de planillas.");
+        }
+        return listaPlanilla; 
+    }
       
 }

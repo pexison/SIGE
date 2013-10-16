@@ -2,7 +2,8 @@ INSERT INTO TIPO_USUARIO VALUES ('Administrador');
 INSERT INTO TIPO_USUARIO VALUES ('Solicitante');
 
 INSERT INTO USUARIO VALUES
-    ('USUARIO', 'claveusuario', 'USUARIO', 'USUARIO', 'admin@usb.ve', 'Administrador');
+    ('USUARIO', 'claveusuario', 'USUARIO', 'USUARIO', 'admin@usb.ve', 'Administrador'),
+    ('usb', 'usb', 'usb', 'usb', 'usb', 'Administrador');
 
 INSERT INTO INSTITUCION VALUES
     ('USB107', 'Universidad Simon Bolivar', 'Sartenejas', 'Venezuela'),

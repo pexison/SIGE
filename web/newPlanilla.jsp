@@ -92,16 +92,41 @@
                             maxlength   =  "12"
                             property    =  "codigo_planilla"/></td>
                </tr>
+
+               <html:hidden 
+                       property    =  "estado_planilla"
+                       value       =  "Pendiente" />
+  
                <tr>
-                        <%-- Campo para el codigo de la planilla --%>
-                        <td>Estado la Planilla:</td>
-                        <td><html:text 
+                   <td> Institución de Origen: </td>
+                   <td> <html:text 
                             styleClass  =  "input" 
-                            maxlength   =  "20"
-                            readonly    =  "TRUE"
-                            property    =  "estado_planilla"
-                            value       =  "Pendiente" />
-                        </td>
+                            maxlength   =  "100"
+                            property    =  "nombre_institucion_origen"/></td>
+               </tr>
+               
+               <tr>
+                   <td> Carrera de Origen: </td>
+                   <td> <html:text 
+                            styleClass  =  "input" 
+                            maxlength   =  "50"
+                            property    =  "nombre_carrera_origen"/></td>
+               </tr>
+               
+               <tr>
+                   <td> Institución de Destino: </td>
+                   <td> <html:text 
+                            styleClass  =  "input" 
+                            maxlength   =  "100"
+                            property    =  "nombre_institucion_destino"/></td>
+               </tr>
+               
+               <tr>
+                   <td> Carrera de Destino: </td>
+                   <td> <html:text 
+                            styleClass  =  "input" 
+                            maxlength   =  "50"
+                            property    =  "nombre_carrera_destino"/></td>
                </tr>
                <tr>
                         <%-- Lista desplegable para el tipo de ingreso --%>

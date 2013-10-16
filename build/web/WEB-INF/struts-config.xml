@@ -147,8 +147,12 @@
                 parameter="operacionAspirante">
 
             <forward name="registrarAspirante" path="/newAspirante.jsp"/>
+            <forward name="verAspirante" path="/verAspirante.jsp"/>
+            <forward name="modifyAspirante" path="/modificarAspirante.jsp"/>
             <forward name="successAddAspirante" path="/successAddAspirante.jsp"/>
             <forward name="errorAddAspirante" path="/errorAddAspirante.jsp"/>
+            <forward name="successModifyAspirante" path="/successModifyAspirante.jsp"/>
+            <forward name="errorModifyAspirante" path="/errorModifyAspirante.jsp"/>
         </action>
         
         
@@ -161,6 +165,7 @@
             <forward name="successAddPlanilla" path="/successAddPlanilla.jsp"/>
             <forward name="errorAddPlanilla" path="/errorAddPlanilla.jsp"/>
             <forward name="listarPlanilla" path="/listarPlanilla.jsp"/>
+            <forward name="consultarPlanillas" path="/consultarPlanillas.jsp"/>
         </action>
         
         

@@ -29,7 +29,11 @@ CREATE TABLE PLANILLA(
     CEDULA_ASPIRANTE        CHAR(20)     NOT NULL, -- Cedula de identidad del aspirante
     CODIGO_PLANILLA         CHAR(12)     NOT NULL, -- Codigo de la planilla
     ESTADO_PLANILLA         VARCHAR(12)  NOT NULL, -- Estado actual de la planilla
-    TIPO_INGRESO            VARCHAR(15)  NOT NULL  -- Tipo de equivalencia solicitada
+    TIPO_INGRESO            VARCHAR(15)  NOT NULL, -- Tipo de equivalencia solicitada
+    INSTITUCION_ORIGEN      VARCHAR(100) NOT NULL, -- Institucion de origen del aspirante
+    INSTITUCION_DESTINO     VARCHAR(100) NOT NULL, -- Institucion de destino del aspirante
+    CARRERA_ORIGEN          VARCHAR(50)  NOT NULL, -- Carrera de origen del aspirante
+    CARRERA_DESTINO         VARCHAR(50)  NOT NULL  -- Carrera de destino del aspirante
 );
 
 CREATE TABLE RECAUDO(
