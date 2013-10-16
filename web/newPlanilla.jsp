@@ -1,0 +1,145 @@
+<%-- 
+    Document   : newPlanilla
+    Created on : 16/10/2013, 03:24:31 AM
+    Author     : andreso
+--%>
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+
+<%@page import="java.util.* , modelo.* , frijoles.*" %>
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SIGE - Registro de Planilla</title>
+    </head>
+    
+    <script type="text/javascript">
+       <%-- Función para confirmar que todos los campos fueron llenados --%>
+        function validarCampos() {
+            var cedulaAsp    = document.forms["PlanillaForm"]["cedula_aspirante"].value;
+            var codi_planilla = document.forms["PlanillaForm"]["codigo_planilla"].value;
+            var edo_planilla = document.forms["PlanillaForm"]["estado_planilla"].value;
+            var tipo_ingreso = document.forms["PlanillaForm"]["tipo_ingreso"].value;
+            
+            codi_planilla = codi_planilla.replace(/\s+/g,'');
+            
+            if (cedulaAsp == null || cedulaAsp == "") {
+                alert("Por favor inserte su Cedula");
+                return false;
+            } else if (codi_planilla == null || codi_planilla == ""){
+               alert("Por favor inserte el codigo de la planilla") 
+               return false; 
+            } else if (edo_planilla == null || edo_planilla == ""){
+               alert("Por favor inserte el estado de la planilla") 
+               return false; 
+            } else if (tipo_ingreso == null || tipo_ingreso == ""){
+               alert("Por favor inserte el tipo de ingreso") 
+               return false; 
+            } 
+            
+            return true;
+        } 
+        
+         <%-- Función para confirmar que se desea continuar con la operacion --%>
+        function confirmarAccion(){
+            var confirmarM = confirm("¿Desea continuar?");
+            return confirmarM;       
+        } 
+        
+       <%-- Función para confirmar si se desea salir --%>
+       function confirmarExit(){
+           var confirmarE = confirm("¿Desea abandonar la Sesión?");
+           return confirmarE;       
+       }
+       // -->
+    </script>
+    
+    <body>
+        <center><h1>Registro de la Planilla de Solicitud de Equivalencia</h1></center>
+        
+        <li><h2>Complemente debidamente la planilla con los datos solicitados.
+        Al finalizar pulse el botón Aceptar.</h2></li>
+        <center>
+          <html:form action="/gestionPlanilla" onsubmit="return validarCampos()" method="POST">
+           <%PlanillaForm pf= (PlanillaForm) request.getAttribute("PlanillaForm");
+             String cedula_aspirante  = pf.getCedula_aspirante();%>
+           <table>
+               <tr>
+                   
+                   <%-- Muestra la cedula del aspirante. Solo lectura --%>
+                    <td>Su cédula de Identidad:</td>
+                        <td>
+                            <html:text 
+                                styleClass  =  "input" 
+                                maxlength   =  "12" 
+                                readonly    =  "TRUE"
+                                property    =  "cedula_aspirante" 
+                                value       =  "<%=cedula_aspirante%>"/>
+                        </td>
+               </tr>
+               <tr>
+                        <%-- Campo para el codigo de la planilla --%>
+                        <td>Código de la Planilla:</td>
+                        <td><html:text 
+                            styleClass  =  "input" 
+                            maxlength   =  "12"
+                            property    =  "codigo_planilla"/></td>
+               </tr>
+               <tr>
+                        <%-- Campo para el codigo de la planilla --%>
+                        <td>Estado la Planilla:</td>
+                        <td><html:text 
+                            styleClass  =  "input" 
+                            maxlength   =  "20"
+                            readonly    =  "TRUE"
+                            property    =  "estado_planilla"
+                            value       =  "Pendiente" />
+                        </td>
+               </tr>
+               <tr>
+                        <%-- Lista desplegable para el tipo de ingreso --%>
+                        <td>Tipo de Ingreso:</td>
+                         
+                        <td><html:select styleClass="button" property="tipo_ingreso"> 
+                            <html:option value="Graduado_Usb">Graduado Usb</html:option>
+                            <html:option value="Ingreso">Ingreso</html:option>
+                            <html:option value="Validacion">Validacion</html:option>
+                        </html:select></td>
+               </tr>
+                <tr>
+                        <td colspan="2">
+                            <br/>
+                            <%-- Botón para agregar la informacion de la planilla --%>
+                            <html:submit 
+                                styleClass  =  "button" 
+                                property    =  "operacionPlanilla"
+                                onclick     =  "return confirmarAccion()"
+                                value       =  "Agregar"/>
+                            &nbsp; &nbsp;
+                            <%-- Botón para limpiar los campos --%>
+                            <html:reset 
+                                styleClass  =  "button" 
+                                value       =  "Limpiar"/>
+                        </td>
+                </tr>
+           </table>
+           </html:form>
+        </center>
+    
+        <li><h2>Volver:</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
+        
+    </body>
+    
+</html>

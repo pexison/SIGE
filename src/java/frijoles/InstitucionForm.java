@@ -3,8 +3,8 @@
  * and open the template in the editor.
  */
 package frijoles;
-
 import org.apache.struts.action.*;
+
 /**
  *
  * @author fertaku

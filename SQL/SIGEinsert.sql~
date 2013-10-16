@@ -1,5 +1,4 @@
-INSERT INTO TIPO_USUARIO VALUES ('Administrador');
-INSERT INTO TIPO_USUARIO VALUES ('Solicitante');
+INSERT INTO TIPO_USUARIO VALUES ('Administrador','Solicitante');
 
 INSERT INTO USUARIO VALUES
     ('USUARIO', 'claveusuario', 'USUARIO', 'USUARIO', 'admin@usb.ve', 'Administrador');

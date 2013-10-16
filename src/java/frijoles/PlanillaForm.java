@@ -5,13 +5,14 @@
 package frijoles;
 import java.util.*;
 import java.io.*;
+import org.apache.struts.action.*;
 
 
 /**
  *
  * @author fertaku
  */
-public class PlanillaForm {
+public class PlanillaForm extends ActionForm{
     
     private String cedula_aspirante;
     private String codigo_planilla;

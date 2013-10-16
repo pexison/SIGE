@@ -25,6 +25,8 @@
         <form-bean name="EquivalenciaForm" type="frijoles.EquivalenciaForm"/>
         <form-bean name="CarreraForm" type="frijoles.CarreraForm"/>
         <form-bean name="ListaAsignaturasDinamicasForm" type="frijoles.ListaAsignaturasDinamicasForm"/>
+        <form-bean name="AspiranteForm" type="frijoles.AspiranteForm"/>
+        <form-bean name="PlanillaForm" type="frijoles.PlanillaForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -138,6 +140,29 @@
 
 
         </action>
+        
+        
+        <action name="AspiranteForm" path="/gestionAspirante"
+                scope="request" type="servlets.GestionAspiranteAction"
+                parameter="operacionAspirante">
+
+            <forward name="registrarAspirante" path="/newAspirante.jsp"/>
+            <forward name="successAddAspirante" path="/successAddAspirante.jsp"/>
+            <forward name="errorAddAspirante" path="/errorAddAspirante.jsp"/>
+        </action>
+        
+        
+        
+        <action name="PlanillaForm" path="/gestionPlanilla"
+                scope="request" type="servlets.GestionPlanillaAction"
+                parameter="operacionPlanilla">
+
+            <forward name="registrarPlanilla" path="/newPlanilla.jsp"/>
+            <forward name="successAddPlanilla" path="/successAddPlanilla.jsp"/>
+            <forward name="errorAddPlanilla" path="/errorAddPlanilla.jsp"/>
+            <forward name="listarPlanilla" path="/listarPlanilla.jsp"/>
+        </action>
+        
         
     </action-mappings>
     

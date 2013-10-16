@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package frijoles;
+import org.apache.struts.action.*;
 import java.util.*;
 
 
@@ -10,7 +11,9 @@ import java.util.*;
  *
  * @author fertaku
  */
-public class AspiranteForm {
+
+/* Clase para el formulario del aspirante*/
+public class AspiranteForm extends ActionForm{
 
     private String cedula;
     private String id_usuario;

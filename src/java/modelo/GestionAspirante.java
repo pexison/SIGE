@@ -19,7 +19,7 @@ public class GestionAspirante {
         bd = new BaseDatos();
     }
     
-    public boolean agregarInstitucion(AspiranteForm af) {
+    public boolean agregarAspirante(AspiranteForm af) {
         boolean res = false;
         
         
@@ -129,5 +129,32 @@ public class GestionAspirante {
         }
         return res;
         
+    }
+      
+    
+     public ArrayList<String> mostrarPaises() {
+        
+        String consulta = "SELECT * FROM PAIS";
+        ArrayList listaPaises = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            String Pais;
+            
+            while (rs.next()) {
+                Pais = rs.getString(1);
+                listaPaises.add(Pais);
+                System.out.println(Pais);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de paises.");
+        }
+        return listaPaises; 
     }
 }

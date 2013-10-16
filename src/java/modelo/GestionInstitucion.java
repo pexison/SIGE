@@ -232,7 +232,7 @@ public class GestionInstitucion {
             bd.terminarConexion(conexion);
             
         } catch(Exception e) {
-            System.out.println("Error al obtener lista tipo usuario.");
+            System.out.println("Error al obtener lista de paises.");
         }
         return listaPaises; 
     }

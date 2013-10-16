@@ -95,4 +95,38 @@ public class GestionClientes {
         System.out.println(listaTipos);
         return listaTipos; 
     }
+     
+    
+    public RegistroForm obtenerCliente(String id_usuario) {
+        
+        String consulta = "SELECT * FROM USUARIO WHERE (ID_USUARIO"+
+                          "='"+id_usuario+"')";
+        
+        RegistroForm RegF = null;
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            
+            
+            while (rs.next()) {
+                RegF = new RegistroForm();
+                RegF.setUsuario(rs.getString(1));
+                RegF.setClave(rs.getString(2));
+                RegF.setNombre(rs.getString(3));
+                RegF.setApellido(rs.getString(4));
+                RegF.setEmail(rs.getString(5));
+                RegF.setTipoUsuario(rs.getString(6));
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener el cliente.");
+        }
+        return RegF; 
+    } 
+     
 }
