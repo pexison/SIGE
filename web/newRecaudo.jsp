@@ -23,8 +23,14 @@
     <body><center>
         <h1>Cargar un recaudo:</h1>
         
-        <%RecaudoForm rf = (RecaudoForm) request.getAttribute("RecaudoForm");%>
-        
+        <%RecaudoForm rf = (RecaudoForm) request.getAttribute("RecaudoForm");
+            ArrayList<RecaudoForm> listaRecaudos = 
+            ((ArrayList<RecaudoForm>) 
+            request.getAttribute("listaRecaudos"));
+            //la primera vez que entramos al jsp la lista de recaudos es nula
+            if (listaRecaudos == null){
+                 listaRecaudos = new ArrayList();    //seteamos como lista vacia
+            }%>
         <p><%=rf.getCodigo_planilla()%></p>
         <html:form action="/gestionRecaudo" enctype="multipart/form-data" method="POST">
             <html:hidden property="codigo_planilla" value="<%=rf.getCodigo_planilla()%>"/>
@@ -39,6 +45,22 @@
             <html:file  property="datos_recaudo"/>
             <html:submit property="submit" value ="Subir el recaudo"/>
         </html:form>
+        
+         <% if (!listaRecaudos.isEmpty()) { %>
+               
+                <h2>Archivos cargados:</h2>
+                <%for (int i=0; i<listaRecaudos.size();i++) { 
+       
+                    String rutaArchivo=listaRecaudos.get(i).getRuta_datos_recaudo();
+                    String[] results = rutaArchivo.split("/");
+                    String nombreArchivo = results[results.length-1];%>
+                    <li><td><%=nombreArchivo%></td><li>
+                <%}%>
+            
+            <% } else { %>
+                <li>No hay cargas realizadas. </li>
+          <%}%>
+                    
         
     </center></body>
 </html>

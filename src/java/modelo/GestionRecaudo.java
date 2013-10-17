@@ -6,6 +6,7 @@ package modelo;
 import java.sql.*;
 import frijoles.*;
 import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -113,5 +114,63 @@ public class GestionRecaudo {
         }
         return res;
         
+    }
+    
+    public ArrayList<RecaudoForm> listarRecaudos (){
+        
+        String consulta = "SELECT * FROM RECAUDO";
+        ArrayList<RecaudoForm> listaRecaudos = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            RecaudoForm rf;
+            
+            while (rs.next()) {
+                rf = new RecaudoForm();
+                rf.setCodigo_planilla(rs.getString(1));
+                rf.setTipo_recaudo(rs.getString(2));
+                rf.setRuta_datos_recaudo(rs.getString(3));
+                listaRecaudos.add(rf);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de Recaudos.");
+        }
+        return listaRecaudos;
+    }
+    
+     /*Devuelve la lista de recaudos asociados a un codigo de planilla*/
+     public ArrayList<RecaudoForm> listarRecaudosDePlanilla(String codigoPlanilla){
+        
+        String consulta = "SELECT * FROM RECAUDO WHERE CODIGO_PLANILLA='"
+                + codigoPlanilla + "';";
+        ArrayList<RecaudoForm> listaRecaudos = new ArrayList();
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+            
+            RecaudoForm rf;
+            
+            while (rs.next()) {
+                rf = new RecaudoForm();
+                rf.setCodigo_planilla(rs.getString(1));
+                rf.setTipo_recaudo(rs.getString(2));
+                rf.setRuta_datos_recaudo(rs.getString(3));
+                listaRecaudos.add(rf);
+            }
+
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al obtener lista de Recaudos.");
+        }
+        return listaRecaudos;
     }
 }

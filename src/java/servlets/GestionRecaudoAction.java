@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.*;
+import java.util.*;
 
 
 /**
@@ -87,99 +88,8 @@ public class GestionRecaudoAction extends DispatchAction {
             }
             rf.setRuta_datos_recaudo(filePath+"/"+fileName);
             gr.agregarRecaudo(rf);
-            
+            ArrayList<RecaudoForm> listaRecaudos = gr.listarRecaudosDePlanilla(rf.getCodigo_planilla());
+            request.setAttribute("listaRecaudos",listaRecaudos);
             return mapping.findForward("newRecaudo");
     }
-
-    /*
-    public ActionForward Agregar(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        
-        RecaudoForm rf = (RecaudoForm) form;
-        
-        File folder;
-        //obtenemos los archivos de un arraylist
-        int cant = 0;
-        int cantArchivos = 0;
-
-
-        //buscamos el path real para guardar el archivo, 
-        //este path lo guarda en el la capeta build/web/Documentos
-
-        String filePath =
-                getServlet().getServletContext().getRealPath("/") + "Documentos2/" + rf.getCodigo_planilla();
-        String documentos = getServlet().getServletContext().getRealPath("/") + "Documentos2/";
-        
-        
-        
-
-        folder = new File(documentos);
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
-
-        folder = new File(filePath);
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
-
-
-            //del archivo del form obtenemos el archivo como tal
-            FormFile file = (FormFile) rf.getDatos_recaudo();
-
-            //obtenemos el nombre
-            String fileName = file.getFileName();
-            //obtenemos el arreglo de bytes del archivo
-            byte[] fileData = file.getFileData();
-            Random r = new Random();
-            String f1=null;
-                        
-            if (!fileName.equals("")) {
-            * 
-            * 
-                System.out.println("Server path:" + filePath);
-                boolean existe=true;
-                while(existe){
-                f1 = "extmp"+ r.nextInt(1000) +".png";
-                File newFile=new File(filePath,f1);
-
-
-                // si existe el archivo lo sobreescribe
-                if (!newFile.exists()) {
-                    existe=false;
-                    FileOutputStream fos = new FileOutputStream(newFile);
-                    fos.write(file.getFileData());
-                    fos.flush();
-                    fos.close();
-                }
-
-                }
-
-            }
-            GestionRecaudo gi = new GestionRecaudo();
-            rf.setDatos_recaudoString(filePath+"/"+f1);
-            gi.agregarRecaudo(rf);
-            
-            
-        return mapping.findForward("newRecaudo");
-    }*/
-    
 }
-    
-    /*
-    
-    public ActionForward Agregar(ActionMapping mapping,
-                                        ActionForm form,
-                                        HttpServletRequest request,
-                                        HttpServletResponse response) 
-    throws Exception {
-        
-        RecaudoForm rf = (RecaudoForm) form;
-        GestionRecaudo gr = new GestionRecaudo();
-        
-        gr.agregarRecaudo(rf);
-        
-        request.setAttribute("RecaudoForm", rf);
-        return mapping.findForward("newRecaudo");
-    }*/
