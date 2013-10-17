@@ -17,19 +17,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SIGE - Planilla agregada con éxito<</title>
     </head>
-    <body>
+    <body><center>
         
-        <center><h1>Su Planilla de Solicitud ha sido registrada con éxito en el sistema</h1></center>
-        <h2>A partir de este momento su solicitud comenzará a ser analizada. 
-            Manténgase por favor al tanto de los medios de comunicación
-            (email y télefonos) indicados por ud.</h2>
-        
+        <% PlanillaForm pf = (PlanillaForm) request.getAttribute("PlanillaForm");%>
 
-            <li><h2>Volver</h2></li>
-            <%-- Enlace para salir del sistema --%>
-            <html:link
-                      onclick    = "return confirmarExit()" 
-                      forward    = "login">Salir
-            </html:link>
-    </body>
+        <h1>Proceda ahora con la carga de recaudos: </h1>
+        
+        <html:form action="/gestionRecaudo" method="POST">
+            
+            <html:hidden property="codigo_planilla" value="<%=pf.getCodigo_planilla()%>" />
+            
+            <html:hidden property="operacionRecaudo" value="Cargar_Recaudo"/>
+            
+            <html:submit 
+                styleClass = "button" 
+                value      = "Cargar un Recaudo">
+            </html:submit>
+        </html:form>
+        
+        <li><h2>Volver</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:link
+                  onclick    = "return confirmarExit()" 
+                  forward    = "login">Salir
+        </html:link>
+        
+        
+    </center></body>
 </html>

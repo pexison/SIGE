@@ -14,7 +14,6 @@ public class RecaudoForm extends ActionForm{
     
     private String codigo_planilla;
     private String tipo_recaudo;
-    private String nombre_archivo_recaudo;
     private File datos_recaudo;
 
     public String getCodigo_planilla() {
@@ -40,13 +39,5 @@ public class RecaudoForm extends ActionForm{
     public void setDatos_recaudo(File datos_recaudo) {
         this.datos_recaudo = datos_recaudo;
     }
-    
-    public String getNombre_archivo_recaudo(){
-        return nombre_archivo_recaudo;
-    }
-    
-    public void setNombre_archivo_recaudo(String nombre_archivo_recaudo) {
-        this.nombre_archivo_recaudo = nombre_archivo_recaudo;
-    }
-    
+
 }

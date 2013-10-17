@@ -27,6 +27,7 @@
         <form-bean name="ListaAsignaturasDinamicasForm" type="frijoles.ListaAsignaturasDinamicasForm"/>
         <form-bean name="AspiranteForm" type="frijoles.AspiranteForm"/>
         <form-bean name="PlanillaForm" type="frijoles.PlanillaForm"/>
+        <form-bean name="RecaudoForm" type="frijoles.RecaudoForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -169,9 +170,14 @@
             <forward name="detallePlanilla" path="/detallePlanilla.jsp"/>
             <forward name="successActualizarEstadoPlanilla" path="/successActualizarEstadoPlanilla.jsp"/>
             <forward name="errorActualizarEstadoPlanilla" path="/errorActualizarEstadoPlanilla.jsp"/>
-            
+            <forward name="newRecaudo" path="/newRecaudo.jsp"/>
         </action>
         
+        <action name="RecaudoForm" path="/gestionRecaudo"
+                scope="request" type="servlets.GestionRecaudoAction"
+                parameter="operacionRecaudo">
+            <forward name="newRecaudo" path="/newRecaudo.jsp"/>
+        </action>
         
     </action-mappings>
     

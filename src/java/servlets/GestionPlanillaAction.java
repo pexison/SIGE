@@ -39,6 +39,7 @@ public class GestionPlanillaAction extends DispatchAction {
         
         String valorForward = "error";
         if (ga.agregarPlanilla(pf)) {
+                request.setAttribute("PlanillaForm", pf);
                 valorForward = "successAddPlanilla";
         } else {
                 valorForward = "errorAddPlanilla";

@@ -25,18 +25,22 @@ public class GestionRecaudo {
         try {
             String insercion = "INSERT INTO RECAUDO VALUES ('"
                     +rf.getCodigo_planilla()+"','"
-                    +rf.getNombre_archivo_recaudo()+"','"
                     +rf.getTipo_recaudo()
                     +"',?);";
 
             System.out.print(insercion);
-            File file = new File(rf.getNombre_archivo_recaudo());
+            
+            File file = new File("PreguntaDeRecuperacion.pdf");
             FileInputStream fis = new FileInputStream(file);
 
+            System.out.println("ACA ESTA EL FIS: "+fis);
+            
             int fileLength = (int) file.length();
+            
             Connection conexion = bd.establecerConexion();
             PreparedStatement ps = conexion.prepareStatement(insercion);
             ps.setBinaryStream(1, fis, fileLength);
+            System.out.println("Kaboom");
             ps.executeUpdate();
             ps.close();
             res = true;

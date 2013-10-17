@@ -27,7 +27,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SIGE - Gestión de Tablas de Equivalencia</title>
+        <title>SIGE - Gestión de Planillas</title>
         
     </head>
     
