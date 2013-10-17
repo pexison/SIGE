@@ -26,7 +26,7 @@
         <%RecaudoForm rf = (RecaudoForm) request.getAttribute("RecaudoForm");%>
         
         <p><%=rf.getCodigo_planilla()%></p>
-        <html:form action="/gestionRecaudo" method="POST">
+        <html:form action="/gestionRecaudo" enctype="multipart/form-data" method="POST">
             <html:hidden property="codigo_planilla" value="<%=rf.getCodigo_planilla()%>"/>
             <html:select property="tipo_recaudo">
                 <html:option value = "A"/>
@@ -36,7 +36,7 @@
             </html:select>
             
             <html:hidden property="operacionRecaudo" value="Agregar"/>
-            <html:file property="datos_recaudo"/>
+            <html:file  property="datos_recaudo"/>
             <html:submit property="submit" value ="Subir el recaudo"/>
         </html:form>
         

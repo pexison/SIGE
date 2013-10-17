@@ -5,6 +5,7 @@
 package frijoles;
 import java.io.*;
 import org.apache.struts.action.*;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -12,10 +13,19 @@ import org.apache.struts.action.*;
  */
 public class RecaudoForm extends ActionForm{
     
-    private String codigo_planilla;
-    private String tipo_recaudo;
-    private File datos_recaudo;
+    private String   codigo_planilla;
+    private String   tipo_recaudo;
+    private FormFile datos_recaudo;
+    private String   ruta_datos_recaudo;
+    
+    public String getRuta_datos_recaudo() {
+        return ruta_datos_recaudo;
+    }
 
+    public void setRuta_datos_recaudo(String ruta_datos_recaudo) {
+        this.ruta_datos_recaudo = ruta_datos_recaudo;
+    }
+    
     public String getCodigo_planilla() {
         return codigo_planilla;
     }
@@ -32,11 +42,11 @@ public class RecaudoForm extends ActionForm{
         this.tipo_recaudo = tipo_recaudo;
     }
 
-    public File getDatos_recaudo() {
+    public FormFile getDatos_recaudo() {
         return datos_recaudo;
     }
 
-    public void setDatos_recaudo(File datos_recaudo) {
+    public void setDatos_recaudo(FormFile datos_recaudo) {
         this.datos_recaudo = datos_recaudo;
     }
 

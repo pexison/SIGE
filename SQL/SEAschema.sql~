@@ -37,9 +37,9 @@ CREATE TABLE PLANILLA(
 );
 
 CREATE TABLE RECAUDO(
-    CODIGO_PLANILLA         CHAR(12)     NOT NULL, -- Codigo de la planilla asociada
-    TIPO_RECAUDO            TEXT         NOT NULL, -- Tipo que identifica al recaudo
-    DATOS_RECAUDO           BYTEA        NOT NULL  -- Contiene los datos del archivo
+    CODIGO_PLANILLA         CHAR(12)        NOT NULL, -- Codigo de la planilla asociada
+    TIPO_RECAUDO            TEXT            NOT NULL, -- Tipo que identifica al recaudo
+    DATOS_RECAUDO           VARCHAR(1000)   NOT NULL  -- Contiene los datos del archivo
 );
 
 CREATE TABLE ASPIRANTE(

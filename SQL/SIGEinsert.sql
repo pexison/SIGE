@@ -630,6 +630,7 @@ INSERT INTO EQUIVALE VALUES
     ('USB107', '0200', 'USB107', '0300', 'MA1116', '18'),    
     ('USB107', '0200', 'USB107', '0300', 'MA2112', '19');
     
+    
 INSERT INTO PAIS (NOMBRE) VALUES
    ('Afganistan'),
    ('Albania'),

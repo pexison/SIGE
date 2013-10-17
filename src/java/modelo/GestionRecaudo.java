@@ -18,19 +18,19 @@ public class GestionRecaudo {
     public GestionRecaudo(){
         bd = new BaseDatos();
     }
-    
+  
     public boolean agregarRecaudo(RecaudoForm rf) {
         boolean res = false;
                 
         try {
             String insercion = "INSERT INTO RECAUDO VALUES ('"
                     +rf.getCodigo_planilla()+"','"
-                    +rf.getTipo_recaudo()
-                    +"',?);";
+                    +rf.getTipo_recaudo()+"','"
+                    +rf.getRuta_datos_recaudo()+"');";
 
             System.out.print(insercion);
             
-            File file = new File("PreguntaDeRecuperacion.pdf");
+      /*      File file = new File("PreguntaDeRecuperacion.pdf");
             FileInputStream fis = new FileInputStream(file);
 
             System.out.println("ACA ESTA EL FIS: "+fis);
@@ -47,6 +47,13 @@ public class GestionRecaudo {
             bd.terminarConexion(conexion);
 
             fis.close();
+            */
+            
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            st.execute(insercion);
+            st.close();
+            bd.terminarConexion(conexion);
             
         } catch(Exception e) {
             System.out.println("Error al registrar Recaudo.");
