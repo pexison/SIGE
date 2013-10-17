@@ -63,7 +63,21 @@ public class GestionPlanillaAction extends DispatchAction {
                                             HttpServletResponse response) 
     throws Exception {
         GestionPlanilla gp = new GestionPlanilla();
-        ArrayList listaPlanilla = gp.mostrarPlanillas();
+        PlanillaForm pf = (PlanillaForm) form;
+        String edo_planilla = pf.getEstado_planilla();
+        String planilla_aprobada = "Aprobada";
+        String planilla_rechazada = "Rechazada";
+        String planilla_pendiente = "Pendiente";
+        
+        ArrayList<PlanillaForm> listaPlanilla = new ArrayList();
+        
+        if (edo_planilla.equalsIgnoreCase(planilla_aprobada)){
+           listaPlanilla = gp.mostrarPlanillasAprobadas();
+        } else if (edo_planilla.equalsIgnoreCase(planilla_rechazada)){
+           listaPlanilla = gp.mostrarPlanillasRechazadas();
+        } else if (edo_planilla.equalsIgnoreCase(planilla_pendiente)){
+           listaPlanilla = gp.mostrarPlanillasPendientes();
+        }
         request.setAttribute("ListaPlanilla", listaPlanilla);
         String valorForward = "listarPlanilla";
         return mapping.findForward(valorForward);

@@ -21,13 +21,51 @@
         
         <html:form action="/gestionPlanilla" method="POST">
 
-            <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia --%>
+            <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia 
+                 que aun están pendientes--%>
             <h3>  ¿Desea listar las planillas pendientes? </h3>        
-            <html:hidden property="operacionPlanilla" value="Consultar_Planillas" />
+            <html:hidden property="operacionPlanilla" value="Listar_Planillas" />
+            
+            <html:hidden  property = "estado_planilla" 
+                          value    = "Pendiente"/>
+            
             <html:submit 
                 styleClass   =   "button"
                 property     =   "submit"
                 value        =   "Listar planillas de Equivalencia Pendientes"/>
+        </html:form>
+            
+        <html:form action="/gestionPlanilla" method="POST">
+
+              <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia 
+                 que están ya aprobadas--%>
+            <h3>  ¿Desea listar las planillas aprobadas? </h3>        
+            <html:hidden property="operacionPlanilla" value="Listar_Planillas" />
+            
+            <html:hidden  property = "estado_planilla" 
+                          value    = "Aprobada"/>
+            
+            <html:submit 
+                styleClass   =   "button"
+                property     =   "submit"
+                value        =   "Listar planillas de Equivalencia Aprobadas"/>
+        </html:form>
+            
+        <html:form action="/gestionPlanilla" method="POST">
+
+             <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia 
+                 que fueron rechazadas--%>
+             <h3>  ¿Desea listar las planillas rechazadas? </h3>        
+            <html:hidden property="operacionPlanilla" value="Listar_Planillas" />
+            
+            
+            <html:hidden  property = "estado_planilla" 
+                          value    = "Rechazada"/>
+            
+            <html:submit 
+                styleClass   =   "button"
+                property     =   "submit"
+                value        =   "Listar planillas de Equivalencia Rechazadas"/>
         </html:form>
         
     </center></body>

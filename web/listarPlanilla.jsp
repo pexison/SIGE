@@ -16,51 +16,72 @@
 <html>
     <head>
         
-        <link rel="stylesheet" type="text/css" href="style.css">
+         <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <style>
+            table { 
+                border-collapse: collapse; 
+                }
+            td, th { border: 1px solid #CCC;}
+        </style>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>SIGE - Gestión de Planillas</title>
+        <title>SIGE - Gestión de Tablas de Equivalencia</title>
         
     </head>
     
     <body>
         
-     <center><h1>Gestión de Instituciones</h1></center>
+     <center><h1>Gestión de Planillas</h1></center>
      
-     <li><h2>Planillas de Solicitud disponibles:</h2></li>
-        <%-- Obtenemos la lista de instituciones --%>
         
-        <%-- Lista de instituciones disponibles en la base de datos --%>
+        <%-- Lista de planillas disponibles en la base de datos --%>
         <html:form action="/gestionPlanilla" method="POST">
             
             <%ArrayList<PlanillaForm> listaPlanilla = 
             ((ArrayList<PlanillaForm>) 
-            request.getAttribute("ListaPlanilla")); %>
+            request.getAttribute("ListaPlanilla")); 
+            PlanillaForm pf = (PlanillaForm) request.getAttribute("PlanillaForm");
+            String edo_planilla = pf.getEstado_planilla();
+            %>
+            
+            
+            <li><h2>Planillas de Solicitud <%=edo_planilla%>s:</h2></li>
             
             <% if (!listaPlanilla.isEmpty()) { %>
-            <html:select styleClass="button" property="codigo_planilla" >
+            <table>
 
-                <%for (int i=0; i<listaPlanilla.size();i++) { 
-                    String ced_aspirante  =listaPlanilla.get(i).getCedula_aspirante();
-                    String cod_planilla   =listaPlanilla.get(i).getCodigo_planilla();
-                    String estado_planilla=listaPlanilla.get(i).getEstado_planilla();
-                    String tipo_ingreso   = listaPlanilla.get(i).getTipo_ingreso(); %>
-                    <%-- Creamos la lista desplegable con las instituciones --%>
-                    <html:option value="<%=cod_planilla%>">-<%=ced_aspirante%>-
-                          <%=cod_planilla%>-<%=estado_planilla%>-
-                          <%=tipo_ingreso%>
-                    </html:option>
-                <%}%>
-            </html:select>
-            
-            <%-- Boton para ver los detalles de la institucion seleccionada --%>            
-            <html:submit 
-                styleClass = "button" 
-                property   = "operacionPlanilla"
-                value      = "Detalle_Planilla">
-            </html:submit>
-            
+                <tr bgcolor="6699CC" align="center">
+                    <td>Codigo Planilla</td><td>Cedula Identidad Aspirante</td>
+                    <td>Estado Planilla Tipo Ingreso</td>
+                </tr>
+
+                <html:select styleClass="button" property="codigo_planilla" >
+
+                    <%for (int i=0; i<listaPlanilla.size();i++) { 
+                        String ced_aspirante  =listaPlanilla.get(i).getCedula_aspirante();
+                        String cod_planilla   =listaPlanilla.get(i).getCodigo_planilla();
+                        String estado_planilla=listaPlanilla.get(i).getEstado_planilla();
+                        String tipo_ingreso   = listaPlanilla.get(i).getTipo_ingreso(); %>
+                        <%-- Creamos la lista desplegable con las instituciones --%>
+                        <html:option value="<%=cod_planilla%>">-<%=ced_aspirante%>-
+                              <%=cod_planilla%>-<%=estado_planilla%>-
+                              <%=tipo_ingreso%>
+                        </html:option>
+                      
+                    <%}%>
+                </html:select>
+
+                <%-- Boton para ver los detalles de la institucion seleccionada --%>            
+                <html:submit 
+                    styleClass = "button" 
+                    property   = "operacionPlanilla"
+                    value      = "Detalle_Planilla">
+                </html:submit>
+              
+             </table>
+
             <% } else { %>
                 <li> No hay Planillas disponibles. </li>
             <%}%>
