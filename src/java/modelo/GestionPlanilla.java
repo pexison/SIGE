@@ -72,11 +72,12 @@ public class GestionPlanilla {
         return res;
         
     }
+     
     
     public boolean existePlanilla(String codigo_planilla) {
         
-        String consulta = "SELECT Count(*) FROM PLANILA WHERE "+
-                          "CODIGO_PLANILLA ='"+ codigo_planilla +"')";
+        String consulta = "SELECT Count(*) FROM PLANILLA WHERE "+
+                          "CODIGO_PLANILLA ='"+ codigo_planilla +"';";
         System.out.println(consulta);
         int rs = 0;
         try {
@@ -95,6 +96,47 @@ public class GestionPlanilla {
         }
         
         return (rs != 0);
+ 
+    }
+    
+    public PlanillaForm obtenerPlanilla(String codigo_planilla) {
+        
+        String consulta = "SELECT * FROM PLANILLA WHERE "+
+                          "CODIGO_PLANILLA ='"+ codigo_planilla +"';";
+        int rs = 0;
+        
+        PlanillaForm planilla = null;
+        
+        System.out.println(codigo_planilla);
+        
+        try {
+            
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet result = st.executeQuery(consulta);
+            
+            if (result.next()) {
+               planilla = new PlanillaForm();
+               planilla.setCedula_aspirante(result.getString(1));
+               planilla.setCodigo_planilla(result.getString(2));
+               planilla.setEstado_planilla(result.getString(3));
+               planilla.setTipo_ingreso(result.getString(4));
+               planilla.setNombre_institucion_origen(result.getString(5));
+               planilla.setNombre_institucion_destino(result.getString(6));
+               planilla.setNombre_carrera_origen(result.getString(7));
+               planilla.setNombre_carrera_destino(result.getString(8));
+            }
+            
+            st.close();
+            bd.terminarConexion(conexion);
+            
+            return planilla;
+            
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return planilla;
  
     }
     
@@ -135,6 +177,7 @@ public class GestionPlanilla {
                 
         try {
             Connection conexion = bd.establecerConexion();
+            System.out.println("Conexion en GP");
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery(consulta);
             
@@ -146,6 +189,10 @@ public class GestionPlanilla {
                 PlanillaF.setCodigo_planilla(rs.getString(2));
                 PlanillaF.setEstado_planilla(rs.getString(3));
                 PlanillaF.setTipo_ingreso(rs.getString(4));
+                PlanillaF.setNombre_institucion_origen(rs.getString(5));
+                PlanillaF.setNombre_institucion_destino(rs.getString(6));
+                PlanillaF.setNombre_carrera_origen(rs.getString(7));
+                PlanillaF.setNombre_carrera_destino(rs.getString(8));
                 listaPlanilla.add(PlanillaF);
             }
 
@@ -167,6 +214,7 @@ public class GestionPlanilla {
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery(consulta);
             
+            
             PlanillaForm PlanillaF;
             
             while (rs.next()) {
@@ -175,9 +223,15 @@ public class GestionPlanilla {
                 PlanillaF.setCodigo_planilla(rs.getString(2));
                 PlanillaF.setEstado_planilla(rs.getString(3));
                 PlanillaF.setTipo_ingreso(rs.getString(4));
+                PlanillaF.setNombre_institucion_origen(rs.getString(5));
+                PlanillaF.setNombre_institucion_destino(rs.getString(6));
+                PlanillaF.setNombre_carrera_origen(rs.getString(7));
+                PlanillaF.setNombre_carrera_destino(rs.getString(8));
                 listaPlanilla.add(PlanillaF);
             }
 
+            
+            
             bd.terminarConexion(conexion);
             
         } catch(Exception e) {
@@ -204,6 +258,10 @@ public class GestionPlanilla {
                 PlanillaF.setCodigo_planilla(rs.getString(2));
                 PlanillaF.setEstado_planilla(rs.getString(3));
                 PlanillaF.setTipo_ingreso(rs.getString(4));
+                PlanillaF.setNombre_institucion_origen(rs.getString(5));
+                PlanillaF.setNombre_institucion_destino(rs.getString(6));
+                PlanillaF.setNombre_carrera_origen(rs.getString(7));
+                PlanillaF.setNombre_carrera_destino(rs.getString(8));
                 listaPlanilla.add(PlanillaF);
             }
 
@@ -233,6 +291,11 @@ public class GestionPlanilla {
                 PlanillaF.setCodigo_planilla(rs.getString(2));
                 PlanillaF.setEstado_planilla(rs.getString(3));
                 PlanillaF.setTipo_ingreso(rs.getString(4));
+                PlanillaF.setNombre_institucion_origen(rs.getString(5));
+                PlanillaF.setNombre_institucion_destino(rs.getString(6));
+                PlanillaF.setNombre_carrera_origen(rs.getString(7));
+         
+                PlanillaF.setNombre_carrera_destino(rs.getString(8));
                 listaPlanilla.add(PlanillaF);
             }
 
@@ -242,6 +305,53 @@ public class GestionPlanilla {
             System.out.println("Error al obtener lista de planillas.");
         }
         return listaPlanilla; 
+    }
+    
+    public boolean aceptarPlanilla(PlanillaForm pf) {
+        
+        
+        String update = "UPDATE PLANILLA SET ESTADO_PLANILLA='Aprobada' WHERE "
+                + "CODIGO_PLANILLA = '" + pf.getCodigo_planilla() +"';";
+        System.out.println(update);
+        boolean res = false;
+        
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            st.execute(update);
+            st.close();
+            res = true;
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al aceptar planilla.");
+        }
+        return res;
+        
+        
+    }
+    
+    public boolean rechazarPlanilla(PlanillaForm pf) {
+        
+        
+        String update = "UPDATE PLANILLA SET ESTADO_PLANILLA='Rechazada' WHERE "
+                + "CODIGO_PLANILLA = '" + pf.getCodigo_planilla() +"';";
+        boolean res = false;
+        
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            st.execute(update);
+            st.close();
+            res = true;
+            bd.terminarConexion(conexion);
+            
+        } catch(Exception e) {
+            System.out.println("Error al rechazar planilla.");
+        }
+        return res;
+        
+        
     }
       
 }

@@ -47,7 +47,8 @@ public class GestionAspiranteAction extends DispatchAction {
         
         String valorForward = "error";
         if (ga.agregarAspirante(af)) {
-                valorForward = "successAddAspirante";
+                request.setAttribute("AspiranteForm", af);
+                valorForward = "verAspirante";
         } else {
                 valorForward = "errorAddAspirante";
         }

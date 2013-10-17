@@ -53,32 +53,70 @@
             <table>
 
                 <tr bgcolor="6699CC" align="center">
-                    <td>Codigo Planilla</td><td>Cedula Identidad Aspirante</td>
-                    <td>Estado Planilla Tipo Ingreso</td>
+                    <th>Código Planilla</th>
+                    <th>Cédula Identidad Aspirante</th>
+                    <th>Estado Planilla</th>
+                    <th>Tipo Ingreso</th>
+                    <th>Institución Origen</th>
+                    <th>Institución Destino</th>
+                    <th>Acción</th>
                 </tr>
 
-                <html:select styleClass="button" property="codigo_planilla" >
+                <%for (int i=0; i<listaPlanilla.size();i++) { 
+                    String ced_aspirante  =listaPlanilla.get(i).getCedula_aspirante();
+                    String cod_planilla   =listaPlanilla.get(i).getCodigo_planilla();
+                    String estado_planilla=listaPlanilla.get(i).getEstado_planilla();
+                    String tipo_ingreso   = listaPlanilla.get(i).getTipo_ingreso(); 
+                    String inst_origen    = listaPlanilla.get(i).getNombre_institucion_origen();
+                    String inst_destino   = listaPlanilla.get(i).getNombre_institucion_destino();
+                    String carrera_origen    = listaPlanilla.get(i).getNombre_carrera_origen();
+                    String carrera_destino   = listaPlanilla.get(i).getNombre_carrera_destino();
+                %>
 
-                    <%for (int i=0; i<listaPlanilla.size();i++) { 
-                        String ced_aspirante  =listaPlanilla.get(i).getCedula_aspirante();
-                        String cod_planilla   =listaPlanilla.get(i).getCodigo_planilla();
-                        String estado_planilla=listaPlanilla.get(i).getEstado_planilla();
-                        String tipo_ingreso   = listaPlanilla.get(i).getTipo_ingreso(); %>
-                        <%-- Creamos la lista desplegable con las instituciones --%>
-                        <html:option value="<%=cod_planilla%>">-<%=ced_aspirante%>-
-                              <%=cod_planilla%>-<%=estado_planilla%>-
-                              <%=tipo_ingreso%>
-                        </html:option>
-                      
-                    <%}%>
-                </html:select>
+                    <tr>
+                        <html:form action = "/gestionPlanilla" method = "POST">
 
-                <%-- Boton para ver los detalles de la institucion seleccionada --%>            
-                <html:submit 
-                    styleClass = "button" 
-                    property   = "operacionPlanilla"
-                    value      = "Detalle_Planilla">
-                </html:submit>
+                            <td><%=cod_planilla%></td>
+                            <td><%=ced_aspirante%></td>
+                            <td><%=estado_planilla%></td>
+                            <td><%=tipo_ingreso%></td>
+                            <td><%=inst_origen%></td>
+                            <td><%=inst_destino%></td>
+                           
+                            
+                            <html:hidden  property = "codigo_planilla" 
+                                          value    = "<%=cod_planilla%>"/>
+            
+                            <html:hidden  property = "cedula_aspirante" 
+                                          value    = "<%=ced_aspirante%>"/>
+
+                            <html:hidden  property = "estado_planilla" 
+                                          value    = "<%=estado_planilla%>"/>
+
+                            <html:hidden  property = "tipo_ingreso" 
+                                          value    = "<%=tipo_ingreso%>"/>
+                                          
+                            <html:hidden  property = "nombre_institucion_origen" 
+                                          value    = "<%=inst_origen%>"/>
+                                
+                            <html:hidden  property = "nombre_institucion_destino" 
+                                          value    = "<%=inst_destino%>"/>
+                                          
+                            <html:hidden  property = "nombre_carrera_origen" 
+                                          value    = "<%=carrera_origen%>"/>
+                                
+                            <html:hidden  property = "nombre_carrera_destino" 
+                                          value    = "<%=carrera_destino%>"/>
+                            
+                                <%-- Boton para ver los detalles de la institucion seleccionada --%>            
+                            <td><html:submit 
+                                styleClass = "button" 
+                                property   = "operacionPlanilla"
+                                value      = "Detalle_Planilla">
+                            </html:submit></td>
+                        </html:form>
+                    </tr>
+                <%}%>
               
              </table>
 

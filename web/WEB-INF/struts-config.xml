@@ -166,6 +166,10 @@
             <forward name="errorAddPlanilla" path="/errorAddPlanilla.jsp"/>
             <forward name="listarPlanilla" path="/listarPlanilla.jsp"/>
             <forward name="consultarPlanillas" path="/consultarPlanillas.jsp"/>
+            <forward name="detallePlanilla" path="/detallePlanilla.jsp"/>
+            <forward name="successActualizarEstadoPlanilla" path="/successActualizarEstadoPlanilla.jsp"/>
+            <forward name="errorActualizarEstadoPlanilla" path="/errorActualizarEstadoPlanilla.jsp"/>
+            
         </action>
         
         

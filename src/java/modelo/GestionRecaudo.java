@@ -25,13 +25,14 @@ public class GestionRecaudo {
         try {
             String insercion = "INSERT INTO RECAUDO VALUES ('"
                     +rf.getCodigo_planilla()+"','"
+                    +rf.getNombre_archivo_recaudo()+"','"
                     +rf.getTipo_recaudo()
                     +"',?);";
 
             System.out.print(insercion);
             File file = new File(rf.getNombre_archivo_recaudo());
             FileInputStream fis = new FileInputStream(file);
-            
+
             int fileLength = (int) file.length();
             Connection conexion = bd.establecerConexion();
             PreparedStatement ps = conexion.prepareStatement(insercion);
@@ -40,7 +41,7 @@ public class GestionRecaudo {
             ps.close();
             res = true;
             bd.terminarConexion(conexion);
-            
+
             fis.close();
             
         } catch(Exception e) {
@@ -53,7 +54,7 @@ public class GestionRecaudo {
         
         String consulta = "SELECT Count(*) FROM RECAUDO WHERE "+
                           "CODIGO_PLANILLA ='"  + codigo_planilla +"'"+
-                         "AND TIPO_RECAUDO = '" + tipo_recaudo+");";
+                         "AND TIPO_RECAUDO = '" + tipo_recaudo+"';";
         System.out.println(consulta);
         int rs = 0;
         try {
@@ -76,13 +77,13 @@ public class GestionRecaudo {
     }
     
     
-      public boolean eliminarRecaudo(RecaudoForm rf) {
+    public boolean eliminarRecaudo(RecaudoForm rf) {
         
         boolean res = false;
         
         String delete = "DELETE FROM RECAUDO WHERE ("+
                         "CODIGO_PLANILLA='"+rf.getCodigo_planilla()+
-                        "')";
+                        "';";
         boolean existe = existeRecaudo(rf.getCodigo_planilla(),rf.getTipo_recaudo());
         if (existe) {        
             try {
