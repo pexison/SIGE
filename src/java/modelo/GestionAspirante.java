@@ -141,6 +141,42 @@ public class GestionAspirante {
         return null;
  
     }
+    
+        public AspiranteForm obtenerAspiranteCedula(String cedula) {
+        
+        String consulta = "SELECT * FROM ASPIRANTE WHERE "+
+                          "CEDULA ='"+ cedula +"';";
+        System.out.println(consulta);
+        AspiranteForm aspirante = null;
+        try {
+            
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            ResultSet result = st.executeQuery(consulta);
+            
+            if (result.next()) {
+               aspirante = new AspiranteForm();
+               aspirante.setId_usuario(result.getString(1));
+               aspirante.setCedula(result.getString(2));
+               aspirante.setSexo(result.getString(3));
+               aspirante.setEdad(result.getInt(4));
+               aspirante.setPais(result.getString(5));
+               aspirante.setEdo_civil(result.getString(6));
+               aspirante.setLugar_nacimiento(result.getString(7));
+               aspirante.setNacionalidad(result.getString(8));   
+            }
+            st.close();
+            bd.terminarConexion(conexion);
+            
+            return aspirante;
+            
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return null;
+ 
+    }
      
       public boolean eliminarAspirante(AspiranteForm af) {
         

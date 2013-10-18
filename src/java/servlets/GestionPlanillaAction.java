@@ -92,10 +92,8 @@ public class GestionPlanillaAction extends DispatchAction {
         request.setAttribute("ListaPlanilla", listaPlanilla);
         String valorForward = "listarPlanilla";
         return mapping.findForward(valorForward);
-    }
+    }     
      
-     
-    
     public ActionForward Detalle_Planilla(ActionMapping mapping,
                                             ActionForm form,
                                             HttpServletRequest request,

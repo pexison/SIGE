@@ -36,6 +36,23 @@
         
         <center><h1>Éxito al actualizar el estado de la planilla</h1></center>
         
-        <center><h1>El nuevo estado de la planilla es: <%=edo_planilla%></h1></center>
+        <center><h2>El nuevo estado de la planilla es: <%=edo_planilla%></h2></center>
+        
+        
+        <li><h2>Volver:</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:form action="/gestionPlanilla" method="POST">
+              
+           <html:hidden property="operacionPlanilla" value="Consultar_Planillas" />
+           <html:submit 
+                    styleClass   =   "button"
+                    property     =   "submit"
+                    value        =   "Consulta de Planillas"/>
+        </html:form>
+        
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
     </body>
 </html>

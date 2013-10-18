@@ -92,4 +92,34 @@ public class GestionRecaudoAction extends DispatchAction {
             request.setAttribute("listaRecaudos",listaRecaudos);
             return mapping.findForward("newRecaudo");
     }
+    
+    public ActionForward finalizar(ActionMapping mapping,
+                                    ActionForm form,
+                                    HttpServletRequest request,
+                                    HttpServletResponse response) 
+    throws Exception {
+        request.setAttribute("RecaudoForm", form);
+        return mapping.findForward("successAddRecaudo");
+    }
+    
+    public ActionForward volver_inicio(ActionMapping mapping,
+                                    ActionForm form,
+                                    HttpServletRequest request,
+                                    HttpServletResponse response) 
+    throws Exception {
+        
+        GestionPlanilla gp = new GestionPlanilla();
+        RecaudoForm rf = (RecaudoForm) form;
+        
+        PlanillaForm pf = gp.obtenerPlanilla(rf.getCodigo_planilla());
+        
+        GestionAspirante ga = new GestionAspirante();
+        
+        AspiranteForm af = ga.obtenerAspiranteCedula(pf.getCedula_aspirante());
+        
+        request.setAttribute("AspiranteForm", af);
+        
+        return mapping.findForward("verAspirante");
+    }
+    
 }

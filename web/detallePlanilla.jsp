@@ -31,10 +31,13 @@
             String instDestino = pf.getNombre_institucion_destino();
             String carrOrigen = pf.getNombre_carrera_origen();
             String carrDestino = pf.getNombre_carrera_destino();
+            GestionRecaudo gr = new GestionRecaudo();
+            ArrayList<RecaudoForm> recaudos = gr.listarRecaudosDePlanilla(codigoPlanilla);
             
             %>
         
         <table>
+            <tr><td colspan="2"><b>Datos de la Planilla: </b> </td></tr>
             <tr>
                 <td>Cédula del aspirante: </td>
                 <td><%=cedula%></td>
@@ -67,6 +70,36 @@
                 <td>Carrera de Destino: </td>
                 <td><%=carrDestino%></td>
             </tr>
+            
+            <tr><td colspan="2"><b>Recaudos Cargados: </b> </td></tr>
+            
+            <% if (!recaudos.isEmpty()) { %>               
+                <%for (int i=0; i<recaudos.size();i++) { 
+       
+                    String rutaArchivo=recaudos.get(i).getRuta_datos_recaudo();
+                    
+                    String[] results = rutaArchivo.split("/");
+                    String nombreArchivo = results[results.length-1];%>
+                    
+                    
+                    
+                    <% String rutaTotal = "";
+                    for (int j = 7; j<results.length; j++) {
+                        rutaTotal = rutaTotal+results[j];
+                        if (j != results.length -1 ) {
+                            rutaTotal = rutaTotal + "/";
+                        }
+                    }%>    
+                    
+                    <tr><td><%=recaudos.get(i).getTipo_recaudo()%>:</td>
+                      <%--  <td><a href="file:<%=rutaArchivo%>"> <%=nombreArchivo%></a></td></tr>--%>
+                      <%--<a href="Documentos2/<bean:write name = "solicitud" property="dirarchivo"/>">Descargar</a>--%>
+                      <td><a href="<%=rutaTotal%>"><%=nombreArchivo%></a></td>
+                <%}%>
+            
+            <% } else { %>
+            <tr><td colspan="2">No hay cargas realizadas. </td></tr>
+            <%}%>
         </table>
             
                 <% if (edo_planilla.equals("Pendiente")) {%>
@@ -99,5 +132,21 @@
                     value        =   "Rechazar Planilla de Solicitud"/>
             </html:form>
          <%}%>
+    
+        <li><h2>Volver:</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:form action="/gestionPlanilla" method="POST">
+              
+           <html:hidden property="operacionPlanilla" value="Consultar_Planillas" />
+           <html:submit 
+                    styleClass   =   "button"
+                    property     =   "submit"
+                    value        =   "Consulta de Planillas"/>
+        </html:form>
+        
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
     </body>
 </html>

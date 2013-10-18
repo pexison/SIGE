@@ -20,9 +20,23 @@
         
         
     </head>
-    <body><center>
-        <h1>Cargar un recaudo:</h1>
+    
+    <script type="text/javascript">
+        <%-- Función para confirmar si se desea salir --%>
+        function esPdf(){
+            if ((document.forms[0].datos_recaudo.value.toString().search(".pdf"))==-1){
+               alert("Es necesario que el archivo tenga formato pdf");
+               return false;
+            } 
+            return true;       
+        }
+        // -->
+        </script>
+    <body>
+        <center><h1>Cargar un recaudo:</h1></center>
         
+        <li><h2>Presione el boton finalizar para terminar con la carga
+            de Recaudos</h2></li>
         <%RecaudoForm rf = (RecaudoForm) request.getAttribute("RecaudoForm");
             ArrayList<RecaudoForm> listaRecaudos = 
             ((ArrayList<RecaudoForm>) 
@@ -31,19 +45,22 @@
             if (listaRecaudos == null){
                  listaRecaudos = new ArrayList();    //seteamos como lista vacia
             }%>
-        <p><%=rf.getCodigo_planilla()%></p>
+        <p>Código de planilla: <%=rf.getCodigo_planilla()%></p>
+        
         <html:form action="/gestionRecaudo" enctype="multipart/form-data" method="POST">
             <html:hidden property="codigo_planilla" value="<%=rf.getCodigo_planilla()%>"/>
             <html:select property="tipo_recaudo">
-                <html:option value = "A"/>
-                <html:option value = "B"/>
-                <html:option value = "C"/>
+                <html:option value = "Diploma de Carrera Original"/>
+                <html:option value = "Calificaciones"/>
+                <html:option value = "Pensum de Estudios"/>
                 
             </html:select>
             
             <html:hidden property="operacionRecaudo" value="Agregar"/>
             <html:file  property="datos_recaudo"/>
-            <html:submit property="submit" value ="Subir el recaudo"/>
+            <html:submit property="submit"
+                         onclick = "return esPdf()" 
+                         value ="Subir el recaudo"/>
         </html:form>
         
          <% if (!listaRecaudos.isEmpty()) { %>
@@ -60,7 +77,24 @@
             <% } else { %>
                 <li>No hay cargas realizadas. </li>
           <%}%>
-                    
+                
+        <li><h2>Presione el boton finalizar para terminar con la carga
+            de Recaudos</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:form action="/gestionRecaudo" method="POST">
+           
+           <html:hidden property="operacionRecaudo" value="finalizar" />
+           <html:hidden property="codigo_planilla" value="<%=rf.getCodigo_planilla()%>"/>
+           <html:submit 
+                    styleClass   =   "button"
+                    property     =   "submit"
+                    value        =   "Finalizar carga de Recaudos"/>
+        </html:form>
         
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
+                 
     </center></body>
 </html>

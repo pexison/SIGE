@@ -20,7 +20,6 @@
         <h1>Consultar Planillas</h1>
         
         <html:form action="/gestionPlanilla" method="POST">
-
             <%-- Botón para ir a la página de Gestionar Peticiones de Equivalencia 
                  que aun están pendientes--%>
             <h3>  ¿Desea listar las planillas pendientes? </h3>        
@@ -68,5 +67,14 @@
                 value        =   "Listar planillas de Equivalencia Rechazadas"/>
         </html:form>
         
-    </center></body>
+    </center>
+     
+        <%-- Enlace para salir del sistema --%>
+        
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
+    
+</body>
 </html>

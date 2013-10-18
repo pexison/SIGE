@@ -67,9 +67,13 @@
         <li><h2>Complemente debidamente la planilla con los datos solicitados.
         Al finalizar pulse el botón Aceptar.</h2></li>
         <center>
+         
+          <%PlanillaForm pf= (PlanillaForm) request.getAttribute("PlanillaForm");
+             String cedula_aspirante  = pf.getCedula_aspirante();
+            GestionAspirante ga = new GestionAspirante();
+            AspiranteForm af = ga.obtenerAspiranteCedula(cedula_aspirante); %>  
           <html:form action="/gestionPlanilla" onsubmit="return validarCampos()" method="POST">
-           <%PlanillaForm pf= (PlanillaForm) request.getAttribute("PlanillaForm");
-             String cedula_aspirante  = pf.getCedula_aspirante();%>
+           
            <table>
                <tr>
                    
@@ -84,14 +88,7 @@
                                 value       =  "<%=cedula_aspirante%>"/>
                         </td>
                </tr>
-               <tr>
-                        <%-- Campo para el codigo de la planilla --%>
-                        <td>Código de la Planilla:</td>
-                        <td><html:text 
-                            styleClass  =  "input" 
-                            maxlength   =  "12"
-                            property    =  "codigo_planilla"/></td>
-               </tr>
+               <html:hidden property="codigo_planilla" value="-1"/>
 
                <html:hidden 
                        property    =  "estado_planilla"
@@ -159,6 +156,27 @@
         </center>
     
         <li><h2>Volver:</h2></li>
+        
+         <html:form action="/gestionAspirante" method="POST">
+            <html:hidden property="operacionAspirante" value="registrar_Aspirante" />
+            <html:hidden property="id_usuario" value="<%=af.getId_usuario()%>" />
+            <html:submit
+                styleClass   =   "button"
+                property     =   "submit" 
+                value        =   "Volver al perfil del aspirante"/>                
+
+        </html:form>
+        
+       <html:form action="/validar" method="POST">
+            <html:hidden property="operacionValidar" value="retornar" />
+            <html:hidden property="id_usuario" value="<%=af.getId_usuario()%>" />
+            <html:submit
+                styleClass   =   "button"
+                property     =   "submit" 
+                value        =   "Volver al Inicio"/>                
+
+        </html:form>
+        
         <%-- Enlace para salir del sistema --%>
         <html:link 
                  onclick    = "return confirmarExit()" 

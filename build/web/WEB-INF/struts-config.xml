@@ -177,6 +177,8 @@
                 scope="request" type="servlets.GestionRecaudoAction"
                 parameter="operacionRecaudo">
             <forward name="newRecaudo" path="/newRecaudo.jsp"/>
+            <forward name="successAddRecaudo" path="/successAddRecaudo.jsp"/>
+            <forward name="verAspirante" path="/verAspirante.jsp"/>
         </action>
         
     </action-mappings>

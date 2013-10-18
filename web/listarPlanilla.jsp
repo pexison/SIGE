@@ -108,7 +108,7 @@
                             <html:hidden  property = "nombre_carrera_destino" 
                                           value    = "<%=carrera_destino%>"/>
                             
-                                <%-- Boton para ver los detalles de la institucion seleccionada --%>            
+                                <%-- Boton para ver los detalles de la planilla seleccionada --%>            
                             <td><html:submit 
                                 styleClass = "button" 
                                 property   = "operacionPlanilla"
@@ -127,7 +127,24 @@
             
         </html:form>
     
+        
     
+         <li><h2>Volver:</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        <html:form action="/gestionPlanilla" method="POST">
+              
+           <html:hidden property="operacionPlanilla" value="Consultar_Planillas" />
+           <html:submit 
+                    styleClass   =   "button"
+                    property     =   "submit"
+                    value        =   "Consulta de Planillas"/>
+        </html:form>
+        <br>
+        
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
     
     </body>
 </html>

@@ -39,8 +39,8 @@
             } else if (sexoAsp == null || sexoAsp == ""){
                alert("Por favor inserte su sexo") 
                return false; 
-            } else if (edadAsp == null || edadAsp == ""){
-               alert("Por favor inserte su edad") 
+            } else if (edadAsp == null || edadAsp == "" || edadAsp <15) {
+               alert("Por favor inserte su edad (Mayor a 14)");
                return false; 
             } else if (paisAsp == null || paisAsp == ""){
                alert("Por favor inserte su pais") 
@@ -117,7 +117,8 @@
                         <td><html:text 
                             styleClass  =  "input" 
                             maxlength   =  "3"
-                            property    =  "edad"/></td>
+                            property    =  "edad"
+                            value       =  "15"/></td>
                     </tr>
                     <tr>
                         <%-- Lista desplegable para el país de residencia --%>

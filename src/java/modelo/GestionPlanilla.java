@@ -22,9 +22,38 @@ public class GestionPlanilla {
     public boolean agregarPlanilla(PlanillaForm pf) {
         boolean res = false;
         
-        String insercion = "INSERT INTO PLANILLA VALUES ('"
+        String codigos = "SELECT CODIGO_PLANILLA FROM PLANILLA";
+                
+        try {
+            Connection conexion = bd.establecerConexion();
+            Statement st = conexion.createStatement();
+            
+            ArrayList<Integer> listaCodigosString = new ArrayList();
+            
+            ResultSet rs = st.executeQuery(codigos);
+            
+            
+
+            while (rs.next()) {
+                listaCodigosString.add(rs.getInt(1));
+            }
+            
+            
+            int codigoPlanilla = 0;
+            int codigoActual;
+            
+            for (int i = 0; i<listaCodigosString.size(); i++ ) {
+                codigoActual = listaCodigosString.get(i);
+                if (codigoActual > codigoPlanilla) {
+                    codigoPlanilla = codigoActual;
+                }
+            }
+            
+            codigoPlanilla = codigoPlanilla + 1;
+            
+            String insercion = "INSERT INTO PLANILLA VALUES ('"
                 +pf.getCedula_aspirante()+"','"
-                +pf.getCodigo_planilla()+"','"
+                +codigoPlanilla+"','"
                 +pf.getEstado_planilla()+"','"
                 +pf.getTipo_ingreso() + "','"
                 +pf.getNombre_institucion_origen() + "','"
@@ -32,12 +61,13 @@ public class GestionPlanilla {
                 +pf.getNombre_carrera_origen() + "','"
                 +pf.getNombre_carrera_destino()
                 + "');";
-        
-        System.out.print(insercion);
-        
-        try {
-            Connection conexion = bd.establecerConexion();
-            Statement st = conexion.createStatement();
+            
+            pf.setCodigo_planilla(codigoPlanilla+"");
+            
+            System.out.println(insercion);
+            
+            st = conexion.createStatement();
+            
             st.execute(insercion);
             st.close();
             res = true;

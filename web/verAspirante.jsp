@@ -14,6 +14,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SIGE - Detalles del Aspirante</title>
     </head>
+     <script type="text/javascript">
+         <%-- Función para confirmar que se desea continuar con la operacion --%>
+        function confirmarAccion(){
+            var confirmarM = confirm("¿Desea continuar?");
+            return confirmarM;       
+        } 
+        
+       <%-- Función para confirmar si se desea salir --%>
+       function confirmarExit(){
+           var confirmarE = confirm("¿Desea abandonar la Sesión?");
+           return confirmarE;       
+       }
+       // -->
+    </script>
+    
     <body><center>
         <h1>Perfil de Aspirante</h1>
         
@@ -101,5 +116,31 @@
                 
             </html:form></td>
         </tr></table>
-    </center></body>
+    </center>
+    
+    <li><h2>Volver:</h2></li>
+        <%-- Enlace para salir del sistema --%>
+        
+        <html:form action="/validar" method="POST">
+            <html:hidden property="operacionValidar" value="retornar" />
+            <html:hidden property="id_usuario" value="<%=id_usuario%>" />
+            <html:submit
+                styleClass   =   "button"
+                property     =   "submit" 
+                value        =   "Volver al Inicio"/>                
+
+        </html:form>
+        
+        <br>
+        
+        <html:link 
+                 onclick    = "return confirmarExit()" 
+                 forward    = "login"> Salir
+        </html:link>
+    
+
+
+
+
+    </body>
 </html>
